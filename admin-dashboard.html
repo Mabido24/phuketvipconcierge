@@ -125,14 +125,32 @@
           </div>
         </div>
 
+          <div>
+            <label class="block text-xs font-semibold text-zinc-300 mb-1">Max Guests (Capacité)</label>
+            <input type="number" id="form-guests" value="4" class="form-input" placeholder="ex: 8">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-zinc-300 mb-1">Total Beds (Lits)</label>
+            <input type="number" id="form-beds" value="2" class="form-input" placeholder="ex: 4">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-zinc-300 mb-1">Rating (Note sur 5)</label>
+            <input type="number" step="0.01" id="form-rating" value="4.9" class="form-input" placeholder="ex: 4.95">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-zinc-300 mb-1">Reviews Count (Nb Avis)</label>
+            <input type="number" id="form-review-count" value="12" class="form-input" placeholder="ex: 24">
+          </div>
+        </div>
+
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label class="block text-xs font-semibold text-zinc-300 mb-1">Built Area (m²)</label>
             <input type="number" id="form-area" value="300" class="form-input">
           </div>
           <div>
-            <label class="block text-xs font-semibold text-zinc-300 mb-1">Image URL</label>
-            <input type="text" id="form-image" value="/public/images/villa_1.png" class="form-input">
+            <label class="block text-xs font-semibold text-zinc-300 mb-1">Image URLs (comma-separated)</label>
+            <input type="text" id="form-image" value="https://a0.muscache.com/im/pictures/hosting/..." class="form-input">
           </div>
         </div>
 
@@ -150,6 +168,10 @@
             <input type="checkbox" id="form-seaview" class="w-4 h-4 rounded text-[#DF921B]">
             <span>Sea View</span>
           </label>
+          <label class="flex items-center gap-2 text-xs font-medium cursor-pointer">
+            <input type="checkbox" id="form-parking" checked class="w-4 h-4 rounded text-[#DF921B]">
+            <span>Private Parking</span>
+          </label>
         </div>
 
         <div class="pt-4 border-t border-white/10 flex justify-end gap-3">
@@ -160,7 +182,7 @@
     </div>
   </div>
 
-  <script src="/js/app.js?v=20260821_v19_onthefly_gtx"></script>
+  <script src="/js/app.js?v=20260822_v20_host_properties_hd"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       // Check auth
@@ -242,11 +264,16 @@
           price_thb: Number(document.getElementById('form-price').value) || 0,
           bedrooms: Number(document.getElementById('form-bedrooms').value) || 3,
           bathrooms: Number(document.getElementById('form-bathrooms').value) || 3,
+          guests: Number(document.getElementById('form-guests').value) || 4,
+          beds: Number(document.getElementById('form-beds').value) || 2,
+          rating: Number(document.getElementById('form-rating').value) || 4.9,
+          review_count: Number(document.getElementById('form-review-count').value) || 12,
           building_area: Number(document.getElementById('form-area').value) || 300,
-          images: [document.getElementById('form-image').value || '/public/images/villa_1.png'],
+          images: document.getElementById('form-image').value.split(',').map(s => s.trim()).filter(Boolean),
           description: document.getElementById('form-desc').value,
           private_pool: document.getElementById('form-pool').checked,
-          sea_view: document.getElementById('form-seaview').checked
+          sea_view: document.getElementById('form-seaview').checked,
+          private_parking: document.getElementById('form-parking').checked
         };
 
         let props = getAllProperties();
