@@ -8,15 +8,38 @@
   
   <!-- Tailwind CSS & Plus Jakarta Sans -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="/css/style.css?v=20260821_v13_surgical_photos">
+  <link rel="stylesheet" href="/css/style.css?v=20260821_v14_hd_slider">
   
   <!-- Leaflet Map CSS/JS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <style>
+    /* Custom Luxury Horizontal Scrollbar for Photo Strip */
+    .photo-strip-scroll::-webkit-scrollbar {
+      height: 6px;
+    }
+    .photo-strip-scroll::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 9999px;
+    }
+    .photo-strip-scroll::-webkit-scrollbar-thumb {
+      background: #DF921B;
+      border-radius: 9999px;
+    }
+    .photo-strip-scroll::-webkit-scrollbar-thumb:hover {
+      background: #E59819;
+    }
+    .thumb-btn.active {
+      border-color: #DF921B !important;
+      box-shadow: 0 0 12px rgba(223, 146, 27, 0.4);
+      transform: scale(1.03);
+    }
+  </style>
 </head>
 <body class="bg-[#0D0A08] text-white selection:bg-[#DF921B] selection:text-white">
 
-  <!-- Navigation -->
+  <!-- Universal Responsive Dark Navigation -->
   <nav class="fixed w-full top-0 z-50 bg-[#110D09]/95 backdrop-blur-md border-b border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-20">
@@ -83,7 +106,7 @@
       </div>
     </div>
 
-    <!-- Mobile Drawer Panel -->
+    <!-- Mobile Navigation Drawer -->
     <div id="mobile-nav-panel" class="hidden lg:hidden bg-[#110D09] border-b border-white/10 px-4 pt-3 pb-6 space-y-3 animate-fade-in shadow-2xl">
       <div class="flex flex-col space-y-2 border-b border-white/10 pb-3">
         <a href="/index.html" class="text-sm font-semibold text-zinc-200 hover:text-[#DF921B] py-2" i18n="nav_home" translate="no">Accueil</a>
@@ -107,7 +130,7 @@
   <!-- Main Property Detail View -->
   <main class="pt-28 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <!-- Top Breadcrumb & Back button -->
+    <!-- Top Breadcrumb -->
     <div class="flex items-center justify-between mb-6 text-xs text-zinc-400">
       <a href="/properties.html" class="inline-flex items-center gap-2 hover:text-[#DF921B] transition font-semibold">
         <span>←</span>
@@ -146,31 +169,47 @@
       </div>
     </div>
 
-    <!-- Gallery Section -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
-      <!-- Main Photo -->
-      <div class="lg:col-span-2 aspect-[16/10] rounded-2xl overflow-hidden bg-zinc-900 border border-white/10 relative shadow-2xl">
-        <img id="main-gallery-img" src="/public/images/properties/rawai-3-bedrooms.webp" alt="Property Main View" class="w-full h-full object-cover transition-opacity duration-300">
+    <!-- Luxury HD Gallery & Slider Section -->
+    <div class="mb-12 space-y-4">
+      
+      <!-- Main Photo Stage with Overlaid Arrow Controls -->
+      <div class="relative w-full aspect-[16/9] sm:aspect-[21/10] rounded-2xl overflow-hidden bg-black/80 border border-white/15 shadow-2xl group select-none">
+        
+        <!-- High-res Image -->
+        <img id="main-gallery-img" src="/public/images/properties/rawai-3-bedrooms.webp" alt="Property Main View" class="w-full h-full object-cover transition-all duration-500 ease-out">
+        
+        <!-- Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none"></div>
+
+        <!-- Navigation Arrows -->
+        <button type="button" id="btn-gallery-prev" class="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-black/60 hover:bg-[#DF921B] text-white flex items-center justify-center text-xl font-bold backdrop-blur-md border border-white/20 transition-all shadow-xl hover:scale-110 opacity-90 group-hover:opacity-100" aria-label="Previous Photo">
+          ‹
+        </button>
+        <button type="button" id="btn-gallery-next" class="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-black/60 hover:bg-[#DF921B] text-white flex items-center justify-center text-xl font-bold backdrop-blur-md border border-white/20 transition-all shadow-xl hover:scale-110 opacity-90 group-hover:opacity-100" aria-label="Next Photo">
+          ›
+        </button>
+
+        <!-- Counter Badge -->
+        <div class="absolute bottom-4 right-4 bg-black/70 backdrop-blur-md border border-white/20 text-white text-xs font-semibold px-3 py-1.5 rounded-xl shadow-lg">
+          <span id="gallery-counter">1 / 1</span>
+        </div>
       </div>
 
-      <!-- Thumbnails & VIP Assistance Card -->
-      <div class="flex flex-col justify-between gap-4">
-        <div>
-          <h4 class="text-xs uppercase font-bold tracking-wider text-zinc-400 mb-2">Galerie Photos</h4>
-          <div id="gallery-thumbs" class="grid grid-cols-3 gap-2.5 max-h-48 overflow-y-auto p-1 bg-white/5 rounded-2xl border border-white/5">
-            <!-- Dynamic Thumbnails -->
-          </div>
+      <!-- Horizontal Thumbnail Slider & Scrollbar Strip -->
+      <div class="bg-[#16110B] border border-white/10 rounded-2xl p-3 sm:p-4">
+        <div class="flex items-center justify-between mb-2 px-1">
+          <span class="text-[11px] uppercase font-bold tracking-wider text-zinc-400 flex items-center gap-1.5">
+            <span class="text-[#DF921B]">✦</span>
+            <span>Galerie HD & Photos exclusives</span>
+          </span>
+          <span class="text-[10px] text-zinc-500 hidden sm:inline">Faites défiler pour explorer toutes les vues</span>
         </div>
 
-        <div class="bg-[#16110B] border border-[#DF921B]/30 rounded-2xl p-5 text-center shadow-xl">
-          <div class="w-9 h-9 bg-[#DF921B]/20 text-[#DF921B] rounded-full flex items-center justify-center mx-auto mb-2 text-base font-bold">💎</div>
-          <h3 class="text-sm font-bold text-white mb-1" i18n="box_visit_title" translate="no">Visite Privée & Conciergerie VIP</h3>
-          <p class="text-[11px] text-zinc-400 mb-3" i18n="box_visit_desc" translate="no">Notre équipe dédiée organise votre visite exclusive en toute discrétion.</p>
-          <a href="#inquiry-box" class="btn-gold w-full py-2.5 rounded-xl font-bold text-xs shadow-lg inline-flex items-center justify-center gap-1.5" i18n="btn_schedule_visit" translate="no">
-            Organiser une visite
-          </a>
+        <div id="gallery-thumbs" class="photo-strip-scroll flex gap-3 overflow-x-auto pb-2 pt-1 scroll-smooth">
+          <!-- Dynamic Thumbnails -->
         </div>
       </div>
+
     </div>
 
     <!-- Main Content Layout -->
@@ -216,7 +255,7 @@
       <div id="inquiry-box">
         <div class="bg-[#16110B] border border-white/10 rounded-2xl p-6 sm:p-8 sticky top-28 space-y-6 shadow-2xl">
           <div>
-            <span class="text-[11px] uppercase font-extrabold tracking-widest text-[#DF921B] block mb-1">Service Concierge VIP</span>
+            <span class="text-[11px] uppercase font-extrabold tracking-widest text-[#DF921B] block mb-1" i18n="brand_name" translate="no">Phuket VIP Concierge</span>
             <h3 class="text-lg font-bold text-white" i18n="form_inquiry_title" translate="no">Demande d'Information Privée</h3>
             <p class="text-xs text-zinc-400 mt-1" i18n="form_inquiry_subtitle" translate="no">Réponse confidentielle sous 24h par notre équipe locale.</p>
           </div>
@@ -224,19 +263,19 @@
           <form id="prop-inquiry-form" class="space-y-4">
             <div>
               <label class="block text-xs font-semibold text-zinc-300 mb-1" i18n="contact_name" translate="no">Votre Nom</label>
-              <input type="text" required placeholder="Nom complet" class="w-full bg-black/40 border border-white/15 focus:border-[#DF921B] rounded-xl px-4 py-2.5 text-xs text-white outline-none transition">
+              <input type="text" required placeholder="Nom complet" class="w-full bg-black/40 border border-white/15 focus:border-[#DF921B] rounded-xl px-4 py-2.5 text-xs text-white outline-none transition" i18n-placeholder="contact_name">
             </div>
             <div>
               <label class="block text-xs font-semibold text-zinc-300 mb-1" i18n="contact_email" translate="no">Email</label>
-              <input type="email" required placeholder="votre.email@domaine.com" class="w-full bg-black/40 border border-white/15 focus:border-[#DF921B] rounded-xl px-4 py-2.5 text-xs text-white outline-none transition">
+              <input type="email" required placeholder="votre.email@domaine.com" class="w-full bg-black/40 border border-white/15 focus:border-[#DF921B] rounded-xl px-4 py-2.5 text-xs text-white outline-none transition" i18n-placeholder="contact_email">
             </div>
             <div>
               <label class="block text-xs font-semibold text-zinc-300 mb-1" i18n="contact_phone" translate="no">Téléphone / WhatsApp</label>
-              <input type="tel" placeholder="+33... / +66..." class="w-full bg-black/40 border border-white/15 focus:border-[#DF921B] rounded-xl px-4 py-2.5 text-xs text-white outline-none transition">
+              <input type="tel" placeholder="+33... / +66..." class="w-full bg-black/40 border border-white/15 focus:border-[#DF921B] rounded-xl px-4 py-2.5 text-xs text-white outline-none transition" i18n-placeholder="contact_phone">
             </div>
             <div>
               <label class="block text-xs font-semibold text-zinc-300 mb-1" i18n="contact_message" translate="no">Message</label>
-              <textarea id="inquiry-message-area" rows="3" class="w-full bg-black/40 border border-white/15 focus:border-[#DF921B] rounded-xl px-4 py-2.5 text-xs text-white outline-none transition" placeholder="Je souhaite obtenir la brochure complète et convenir d'une visite..."></textarea>
+              <textarea id="inquiry-message-area" rows="3" class="w-full bg-black/40 border border-white/15 focus:border-[#DF921B] rounded-xl px-4 py-2.5 text-xs text-white outline-none transition"></textarea>
             </div>
             <button type="submit" class="w-full btn-gold py-3 rounded-xl font-bold text-xs shadow-xl" i18n="btn_send_inquiry" translate="no">
               Envoyer la Demande Privée
@@ -304,7 +343,7 @@
     </div>
   </footer>
 
-  <script src="/js/app.js?v=20260821_v13_surgical_photos"></script>
+  <script src="/js/app.js?v=20260821_v14_hd_slider"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const urlParams = new URLSearchParams(window.location.search);
@@ -324,7 +363,6 @@
         });
       }
 
-      // If still not found, search by numeric index or fallback safely
       if (!property && allProps.length > 0) {
         const numMatch = rawTargetId.match(/\d+/);
         if (numMatch) {
@@ -335,9 +373,7 @@
         }
       }
 
-      if (!property) {
-        property = allProps[0];
-      }
+      if (!property) property = allProps[0];
 
       if (!property) {
         document.querySelector('main').innerHTML = `
@@ -350,83 +386,85 @@
         return;
       }
 
-      // Update Page Meta Title
+      // Populate Elements
       document.title = `${property.title} | Phuket VIP Concierge`;
       document.getElementById('page-title').textContent = `${property.title} | Phuket VIP Concierge`;
-
-      // Header Elements
       document.getElementById('prop-id-tag').textContent = `REF: ${property.id}`;
       document.getElementById('prop-title').textContent = property.title;
       document.getElementById('prop-location').innerHTML = `<span class="text-[#DF921B]">📍</span> <span>${property.district || 'Rawai'}, Phuket, Thailand</span>`;
-      
+
+      // Price rendering
       function renderPrice() {
+        const dict = (typeof getI18n === 'function') ? getI18n() : {};
         const formatted = (typeof formatPrice === 'function') ? formatPrice(property.price_thb || property.price) : `${property.price_thb} THB`;
-        const suffix = (property.purpose === 'rent') ? ' / mois' : '';
+        const suffix = (property.purpose === 'rent') ? (dict.lbl_price_month || ' / mois') : '';
         document.getElementById('prop-price').textContent = formatted + suffix;
       }
       renderPrice();
+
+      // Dynamic Badges & Specs
+      function updateLocalizedContent() {
+        const dict = (typeof getI18n === 'function') ? getI18n() : {};
+
+        const purposeBadge = document.getElementById('detail-purpose-badge');
+        if (purposeBadge) {
+          purposeBadge.textContent = property.purpose === 'rent' ? (dict.lbl_purpose_rent || 'Location') : (dict.lbl_purpose_buy || 'Vente Exclusive');
+        }
+
+        const typeBadge = document.getElementById('detail-type-badge');
+        if (typeBadge) {
+          typeBadge.textContent = property.type || 'Villa';
+        }
+
+        const specsContainer = document.getElementById('specs-container');
+        if (specsContainer) {
+          const beds = property.bedrooms ?? (property.type === 'Land' || property.type === 'Business' ? '-' : 0);
+          const baths = property.bathrooms ?? (property.type === 'Land' ? '-' : 0);
+          const bArea = property.building_area ? `${property.building_area} m²` : '-';
+          const lArea = property.land_area ? `${property.land_area} m²` : '-';
+          const poolText = property.private_pool ? (dict.lbl_pool_private || 'Piscine Privée') : (dict.lbl_pool_common || 'Non / Commune');
+          const viewText = property.sea_view ? (dict.lbl_sea_view || 'Vue Mer Panoramique') : (dict.lbl_garden_view || 'Jardin Tropical & Calme');
+
+          specsContainer.innerHTML = `
+            <div class="p-3 bg-white/5 rounded-xl border border-white/5">
+              <span class="text-zinc-400 block text-[10px] uppercase font-semibold">${dict.lbl_beds || 'Chambres'}</span>
+              <span class="font-bold text-white text-sm">${beds}</span>
+            </div>
+            <div class="p-3 bg-white/5 rounded-xl border border-white/5">
+              <span class="text-zinc-400 block text-[10px] uppercase font-semibold">${dict.lbl_baths || 'Salles de bain'}</span>
+              <span class="font-bold text-white text-sm">${baths}</span>
+            </div>
+            <div class="p-3 bg-white/5 rounded-xl border border-white/5">
+              <span class="text-zinc-400 block text-[10px] uppercase font-semibold">${dict.lbl_area || 'Surface bâtie'}</span>
+              <span class="font-bold text-white text-sm">${bArea}</span>
+            </div>
+            <div class="p-3 bg-white/5 rounded-xl border border-white/5">
+              <span class="text-zinc-400 block text-[10px] uppercase font-semibold">${dict.lbl_land || 'Surface terrain'}</span>
+              <span class="font-bold text-white text-sm">${lArea}</span>
+            </div>
+            <div class="p-3 bg-white/5 rounded-xl border border-white/5 col-span-2">
+              <span class="text-zinc-400 block text-[10px] uppercase font-semibold">Piscine</span>
+              <span class="font-bold text-[#DF921B] text-sm">${poolText}</span>
+            </div>
+            <div class="p-3 bg-white/5 rounded-xl border border-white/5 col-span-2">
+              <span class="text-zinc-400 block text-[10px] uppercase font-semibold">Vue</span>
+              <span class="font-bold text-white text-sm">${viewText}</span>
+            </div>
+          `;
+        }
+
+        const msgArea = document.getElementById('inquiry-message-area');
+        if (msgArea && !msgArea.dataset.userEdited) {
+          const tpl = dict.inquiry_msg_template || "Bonjour, je souhaite obtenir le dossier complet et convenir d'une visite pour le bien : {title} (Réf: {id}).";
+          msgArea.value = tpl.replace('{title}', property.title).replace('{id}', property.id);
+        }
+
+        renderPrice();
+      }
+
+      updateLocalizedContent();
+      window.addEventListener('pvc:languageChanged', updateLocalizedContent);
       window.addEventListener('pvc:currencyChanged', renderPrice);
-
-      const purposeBadge = document.getElementById('detail-purpose-badge');
-      if (purposeBadge) {
-        purposeBadge.textContent = property.purpose === 'rent' ? 'Location' : 'Vente Exclusive';
-      }
-
-      const typeBadge = document.getElementById('detail-type-badge');
-      if (typeBadge) {
-        typeBadge.textContent = property.type || 'Villa';
-      }
-
-      // Images Gallery
-      const images = (Array.isArray(property.images) && property.images.length > 0) ? property.images : ['/public/images/properties/rawai-3-bedrooms.webp'];
-      const mainImg = document.getElementById('main-gallery-img');
-      mainImg.src = images[0];
-
-      const thumbsContainer = document.getElementById('gallery-thumbs');
-      if (thumbsContainer) {
-        thumbsContainer.innerHTML = images.map((img, idx) => `
-          <button type="button" onclick="document.getElementById('main-gallery-img').src='${img}'" class="aspect-[16/10] rounded-xl overflow-hidden border border-white/10 hover:border-[#DF921B] transition focus:outline-none focus:ring-2 focus:ring-[#DF921B]">
-            <img src="${img}" alt="Thumbnail ${idx + 1}" class="w-full h-full object-cover" loading="lazy">
-          </button>
-        `).join('');
-      }
-
-      // Specifications Grid with Strict Nullish Coalescing
-      const specsContainer = document.getElementById('specs-container');
-      if (specsContainer) {
-        const beds = property.bedrooms ?? (property.type === 'Land' || property.type === 'Business' ? '-' : 0);
-        const baths = property.bathrooms ?? (property.type === 'Land' ? '-' : 0);
-        const bArea = property.building_area ? `${property.building_area} m²` : '-';
-        const lArea = property.land_area ? `${property.land_area} m²` : '-';
-        const poolText = property.private_pool ? 'Piscine Privée' : (property.type === 'Villa' ? 'Privée' : 'Non / Commune');
-
-        specsContainer.innerHTML = `
-          <div class="p-3 bg-white/5 rounded-xl border border-white/5">
-            <span class="text-zinc-400 block text-[10px] uppercase font-semibold">Chambres</span>
-            <span class="font-bold text-white text-sm">${beds}</span>
-          </div>
-          <div class="p-3 bg-white/5 rounded-xl border border-white/5">
-            <span class="text-zinc-400 block text-[10px] uppercase font-semibold">Salles de bain</span>
-            <span class="font-bold text-white text-sm">${baths}</span>
-          </div>
-          <div class="p-3 bg-white/5 rounded-xl border border-white/5">
-            <span class="text-zinc-400 block text-[10px] uppercase font-semibold">Surface bâtie</span>
-            <span class="font-bold text-white text-sm">${bArea}</span>
-          </div>
-          <div class="p-3 bg-white/5 rounded-xl border border-white/5">
-            <span class="text-zinc-400 block text-[10px] uppercase font-semibold">Surface terrain</span>
-            <span class="font-bold text-white text-sm">${lArea}</span>
-          </div>
-          <div class="p-3 bg-white/5 rounded-xl border border-white/5 col-span-2">
-            <span class="text-zinc-400 block text-[10px] uppercase font-semibold">Piscine</span>
-            <span class="font-bold text-[#DF921B] text-sm">${poolText}</span>
-          </div>
-          <div class="p-3 bg-white/5 rounded-xl border border-white/5 col-span-2">
-            <span class="text-zinc-400 block text-[10px] uppercase font-semibold">Vue</span>
-            <span class="font-bold text-white text-sm">${property.sea_view ? 'Vue Mer Panoramique' : 'Jardin Tropical & Calme'}</span>
-          </div>
-        `;
-      }
 
       // Clean Description
       const descEl = document.getElementById('prop-description');
@@ -434,13 +472,71 @@
         descEl.textContent = property.description || 'Prestigieuse propriété sélectionnée par Phuket VIP Concierge.';
       }
 
-      // Pre-fill inquiry message
-      const msgArea = document.getElementById('inquiry-message-area');
-      if (msgArea) {
-        msgArea.value = `Bonjour, je souhaite recevoir le dossier complet et organiser une visite pour le bien : ${property.title} (Réf: ${property.id}).`;
+      // === LUXURY SLIDER & HORIZONTAL SCROLLBAR GALLERY LOGIC ===
+      const images = (Array.isArray(property.images) && property.images.length > 0) ? property.images : ['/public/images/properties/rawai-3-bedrooms.webp'];
+      let currentImgIdx = 0;
+      const mainImg = document.getElementById('main-gallery-img');
+      const counterEl = document.getElementById('gallery-counter');
+      const thumbsContainer = document.getElementById('gallery-thumbs');
+      const btnPrev = document.getElementById('btn-gallery-prev');
+      const btnNext = document.getElementById('btn-gallery-next');
+
+      function showImage(idx) {
+        if (idx < 0) idx = images.length - 1;
+        if (idx >= images.length) idx = 0;
+        currentImgIdx = idx;
+
+        // Smooth crossfade
+        mainImg.style.opacity = '0.3';
+        setTimeout(() => {
+          mainImg.src = images[currentImgIdx];
+          mainImg.style.opacity = '1';
+        }, 120);
+
+        if (counterEl) {
+          counterEl.textContent = `${currentImgIdx + 1} / ${images.length}`;
+        }
+
+        // Highlight active thumbnail and scroll into view smoothly
+        document.querySelectorAll('.thumb-btn').forEach((btn, i) => {
+          if (i === currentImgIdx) {
+            btn.classList.add('active');
+            btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+          } else {
+            btn.classList.remove('active');
+          }
+        });
       }
 
-      // Leaflet Map Initialization
+      // Render thumbnail buttons
+      if (thumbsContainer) {
+        thumbsContainer.innerHTML = images.map((img, idx) => `
+          <button type="button" data-idx="${idx}" class="thumb-btn flex-shrink-0 w-24 sm:w-32 aspect-[16/10] rounded-xl overflow-hidden border-2 border-white/10 hover:border-[#DF921B]/80 transition-all duration-300 focus:outline-none ${idx === 0 ? 'active' : ''}">
+            <img src="${img}" alt="Thumb ${idx + 1}" class="w-full h-full object-cover">
+          </button>
+        `).join('');
+
+        document.querySelectorAll('.thumb-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const idx = parseInt(btn.dataset.idx, 10);
+            showImage(idx);
+          });
+        });
+      }
+
+      if (btnPrev) btnPrev.addEventListener('click', () => showImage(currentImgIdx - 1));
+      if (btnNext) btnNext.addEventListener('click', () => showImage(currentImgIdx + 1));
+
+      // Initial image
+      showImage(0);
+
+      // Keyboard arrow navigation
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') showImage(currentImgIdx - 1);
+        if (e.key === 'ArrowRight') showImage(currentImgIdx + 1);
+      });
+
+      // Interactive Leaflet Map
       try {
         const lat = property.lat || 7.7806;
         const lng = property.lng || 98.3245;
@@ -460,15 +556,22 @@
           .bindPopup(`<div style="color:#000; font-family:sans-serif; font-size:12px; font-weight:bold;">${property.title}<br><span style="color:#DF921B;">${formatPrice(property.price_thb || property.price)}</span></div>`)
           .openPopup();
       } catch (e) {
-        console.warn('Leaflet map error', e);
+        console.warn('Leaflet error', e);
       }
 
-      // Inquiry Form Submit Handler
+      // Track user edited textarea
+      const msgArea = document.getElementById('inquiry-message-area');
+      if (msgArea) {
+        msgArea.addEventListener('input', () => { msgArea.dataset.userEdited = 'true'; });
+      }
+
+      // Inquiry Form Submit
       const form = document.getElementById('prop-inquiry-form');
       if (form) {
         form.addEventListener('submit', (e) => {
           e.preventDefault();
-          alert('Votre demande a bien été envoyée. Notre conseiller VIP vous contactera sous 24h.');
+          const dict = (typeof getI18n === 'function') ? getI18n() : {};
+          alert(dict.msg_sent_success || 'Votre demande a bien été envoyée. Notre équipe VIP vous contactera sous 24h.');
           form.reset();
         });
       }

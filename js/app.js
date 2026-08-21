@@ -79,6 +79,22 @@ const CONFIG = {
 // 2. Multilingual Dictionary (10 Languages: FR, EN, DE, IT, ES, PT, TH, RU, AR, ZH)
 const SITE_I18N = {
   fr: {
+    inquiry_msg_template: "Bonjour, je souhaite obtenir le dossier complet et convenir d'une visite pour le bien : {title} (Réf: {id}).",
+    lbl_price_month: " / mois",
+    lbl_garden_view: "Jardin Tropical & Calme",
+    lbl_sea_view: "Vue Mer Panoramique",
+    lbl_pool_common: "Non / Commune",
+    lbl_pool_private: "Piscine Privée",
+    btn_send_inquiry: "Envoyer la Demande Privée",
+    form_inquiry_subtitle: "Réponse confidentielle sous 24h par notre concierge dédié.",
+    form_inquiry_title: "Demande d'Information Privée",
+    btn_schedule_visit: "Organiser une visite",
+    box_visit_desc: "Notre conseiller dédié organise votre visite exclusive en toute discrétion.",
+    box_visit_title: "Visite Privée & Conciergerie VIP",
+    sec_location_map: "Localisation & Quartier",
+    sec_prop_desc: "Description du Bien",
+    sec_key_specs: "Caractéristiques Principales",
+    btn_back_catalog: "Retour au catalogue",
     brand_name: "Phuket VIP Concierge",
     nav_home: "Accueil",
     nav_buy: "Acheter",
