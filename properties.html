@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="fr" translate="no" class="notranslate">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google" content="notranslate">
+  <title>Catalogue des Propriétés de Prestige | Phuket VIP Concierge</title>
+  <meta name="description" content="Explorez notre collection exclusive de villas et appartements de luxe à Phuket pour achat ou location.">
+  <link rel="stylesheet" href="/css/style.css?v=20260821">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-zinc-50 text-zinc-900 font-sans antialiased selection:bg-[#D4AF37] selection:text-black">
+
+  
+  <!-- Navigation (Universal Responsive Dark Navbar) -->
+  <nav class="fixed w-full top-0 z-50 bg-[#0C1427]/95 backdrop-blur-md border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        
+        <!-- Logo -->
+        <a href="/index.html" class="flex-shrink-0 flex items-center gap-3">
+          <div class="w-9 h-9 bg-gradient-to-br from-[#D4AF37] to-[#9A7B1C] rounded-lg flex items-center justify-center text-white shadow-lg border border-[#D4AF37]/40">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M11 3 8 9l4 12 4-12-3-6"/><path d="M2 9h20"/></svg>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-bold text-lg sm:text-xl tracking-tight text-white uppercase leading-none">
+              Phuket <span class="text-[#D4AF37]">VIP</span>
+            </span>
+            <span class="text-[10px] tracking-widest uppercase text-zinc-400 font-semibold mt-0.5">Concierge</span>
+          </div>
+        </a>
+
+        <!-- Desktop Nav Links -->
+        <div class="hidden lg:flex items-center space-x-6 xl:space-x-8">
+          <a href="/index.html" class="text-sm font-semibold text-zinc-300 hover:text-[#D4AF37] transition-colors" i18n="nav_home" translate="no">Accueil</a>
+          <a href="/properties.html?purpose=buy" class="text-sm font-semibold text-[#D4AF37] hover:text-[#D4AF37] transition-colors" i18n="nav_buy" translate="no">Acheter</a>
+          <a href="/properties.html?purpose=rent" class="text-sm font-semibold text-zinc-300 hover:text-[#D4AF37] transition-colors" i18n="nav_rent" translate="no">Louer</a>
+          <a href="/estimate.html" class="text-sm font-semibold text-zinc-300 hover:text-[#D4AF37] transition-colors" i18n="nav_sell" translate="no">Vendre</a>
+          <a href="/index.html#services" class="text-sm font-semibold text-zinc-300 hover:text-[#D4AF37] transition-colors" i18n="nav_services" translate="no">Conciergerie</a>
+        </div>
+
+        <!-- Controls (Language + Currency + CTAs) -->
+        <div class="flex items-center gap-2 sm:gap-3">
+          
+          <!-- Language Selector -->
+          <select id="ctrl-lang" class="ctrl-select">
+            <option value="fr">🇫🇷 FR</option>
+            <option value="en">🇬🇧 EN</option>
+            <option value="de">🇩🇪 DE</option>
+            <option value="it">🇮🇹 IT</option>
+            <option value="es">🇪🇸 ES</option>
+            <option value="pt">🇵🇹 PT</option>
+            <option value="th">🇹🇭 TH</option>
+            <option value="ru">🇷🇺 RU</option>
+            <option value="ar">🇸🇦 AR</option>
+            <option value="zh">🇨🇳 ZH</option>
+          </select>
+
+          <!-- Currency Selector -->
+          <select id="ctrl-curr" class="ctrl-select">
+            <option value="THB">฿ THB</option>
+            <option value="EUR">€ EUR</option>
+            <option value="USD">$ USD</option>
+          </select>
+
+          <!-- Desktop CTAs -->
+          <div class="hidden md:flex items-center gap-2">
+            <a href="/estimate.html" class="border border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white transition-all font-semibold text-xs py-2 px-3.5 rounded-xl whitespace-nowrap" i18n="nav_estimate" translate="no">
+              Estimation Gratuite
+            </a>
+            <a href="/admin.html" class="text-zinc-300 hover:text-[#D4AF37] transition-all font-semibold text-xs py-2 px-2.5 flex items-center gap-1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <span i18n="nav_admin" translate="no">Admin</span>
+            </a>
+          </div>
+
+          <!-- Mobile Hamburger Button -->
+          <button type="button" id="btn-mobile-menu" class="lg:hidden p-2 text-zinc-300 hover:text-white rounded-lg focus:outline-none" aria-label="Toggle Navigation">
+            <svg id="icon-menu-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            <svg id="icon-menu-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+          </button>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Panel -->
+    <div id="mobile-nav-panel" class="hidden lg:hidden bg-[#0C1427] border-b border-white/10 px-4 pt-3 pb-6 space-y-3 animate-fade-in shadow-2xl">
+      <div class="flex flex-col space-y-2 border-b border-white/10 pb-3">
+        <a href="/index.html" class="text-sm font-semibold text-zinc-200 hover:text-[#D4AF37] py-2" i18n="nav_home" translate="no">Accueil</a>
+        <a href="/properties.html?purpose=buy" class="text-sm font-semibold text-zinc-200 hover:text-[#D4AF37] py-2" i18n="nav_buy" translate="no">Acheter</a>
+        <a href="/properties.html?purpose=rent" class="text-sm font-semibold text-zinc-200 hover:text-[#D4AF37] py-2" i18n="nav_rent" translate="no">Louer</a>
+        <a href="/estimate.html" class="text-sm font-semibold text-zinc-200 hover:text-[#D4AF37] py-2" i18n="nav_sell" translate="no">Vendre</a>
+        <a href="/index.html#services" class="text-sm font-semibold text-zinc-200 hover:text-[#D4AF37] py-2" i18n="nav_services" translate="no">Conciergerie</a>
+      </div>
+      <div class="flex flex-col gap-2.5 pt-1">
+        <a href="/estimate.html" class="btn-gold w-full text-center py-2.5 text-xs font-bold justify-center" i18n="nav_estimate" translate="no">
+          Estimation Gratuite
+        </a>
+        <a href="/admin.html" class="w-full text-center py-2.5 border border-white/15 text-zinc-300 hover:text-[#D4AF37] text-xs font-semibold rounded-xl flex items-center justify-center gap-1.5">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span i18n="nav_admin" translate="no">Admin</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+  
+
+  <!-- Page Header -->
+  <header class="pt-28 pb-10 bg-[#0C1427] text-white border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <span class="text-xs uppercase font-extrabold tracking-widest text-[#D4AF37] block mb-2">Portfolio Immobilier</span>
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight" i18n="catalog_title" translate="no">
+          Nos Propriétés d'Exception
+        </h1>
+        <p class="text-zinc-400 text-sm sm:text-base mt-3" i18n="catalog_subtitle" translate="no">
+          Découvrez notre sélection exclusive de villas et appartements de haut standing
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Filter Bar -->
+  <section class="sticky top-20 z-40 bg-white/95 backdrop-blur-md border-b border-zinc-200 shadow-sm py-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
+        
+        <!-- Purpose Filter -->
+        <div>
+          <select id="filter-purpose" class="w-full bg-zinc-50 border border-zinc-200 focus:border-[#D4AF37] rounded-xl px-3.5 py-2.5 text-xs text-zinc-800 font-semibold outline-none transition">
+            <option value="" i18n="filter_all_purposes" translate="no">Toutes les offres</option>
+            <option value="buy" i18n="filter_buy" translate="no">À Vendre</option>
+            <option value="rent" i18n="filter_rent" translate="no">À Louer</option>
+          </select>
+        </div>
+
+        <!-- Property Type Filter -->
+        <div>
+          <select id="filter-type" class="w-full bg-zinc-50 border border-zinc-200 focus:border-[#D4AF37] rounded-xl px-3.5 py-2.5 text-xs text-zinc-800 font-semibold outline-none transition">
+            <option value="" i18n="filter_all_types" translate="no">Tous les types</option>
+            <option value="villa" i18n="filter_villa" translate="no">Villa</option>
+            <option value="condo" i18n="filter_condo" translate="no">Appartement / Condo</option>
+            <option value="penthouse" i18n="filter_penthouse" translate="no">Penthouse</option>
+          </select>
+        </div>
+
+        <!-- Districts Filter Trigger -->
+        <div id="filter-district-container" class="cursor-pointer relative">
+          <input type="text" id="filter-district" readonly placeholder="Tous les quartiers (cliquez pour choisir)" class="w-full bg-zinc-50 border border-zinc-200 focus:border-[#D4AF37] rounded-xl px-3.5 py-2.5 text-xs text-zinc-800 font-semibold outline-none transition cursor-pointer" i18n-placeholder="filter_district_placeholder" translate="no">
+          <span class="absolute right-3.5 top-3 text-zinc-400 text-xs">📍</span>
+        </div>
+
+        <!-- Reset CTA -->
+        <div>
+          <button type="button" id="btn-reset" class="w-full bg-zinc-100 hover:bg-zinc-200 text-zinc-700 font-bold rounded-xl px-4 py-2.5 text-xs transition flex items-center justify-center gap-2">
+            <span>↺</span>
+            <span i18n="btn_reset" translate="no">Réinitialiser</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Properties Grid Section -->
+  <main class="py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[50vh]">
+    <div id="catalog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Injected via JavaScript -->
+    </div>
+  </main>
+
+  <!-- District Modal -->
+  <div id="modal-properties-districts" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-md hidden flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+    <div class="bg-white text-zinc-900 border border-zinc-200 rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative my-8 max-h-[90vh] flex flex-col justify-between">
+      <div class="flex items-center justify-between pb-4 border-b border-zinc-100">
+        <div class="flex items-center gap-2.5">
+          <span class="text-2xl">📍</span>
+          <div>
+            <h3 class="text-lg font-bold text-[#0C1427]" i18n="modal_districts_title" translate="no">Sélectionnez les quartiers à Phuket</h3>
+            <p class="text-xs text-zinc-500" i18n="modal_districts_subtitle" translate="no">Cochez un ou plusieurs quartiers pour filtrer</p>
+          </div>
+        </div>
+        <button type="button" id="btn-close-prop-districts-modal" class="w-9 h-9 rounded-full bg-zinc-100 hover:bg-zinc-200 text-zinc-600 flex items-center justify-center text-base font-bold transition">✕</button>
+      </div>
+
+      <div class="py-4 space-y-3">
+        <input type="text" id="prop-district-search-input" placeholder="Filtrer les quartiers (ex: Rawai, Bang Tao...)" class="w-full bg-zinc-50 border border-zinc-200 focus:border-[#D4AF37] rounded-xl px-4 py-2.5 text-xs text-zinc-900 outline-none transition" i18n-placeholder="modal_districts_search_placeholder" translate="no">
+        
+        <div class="flex items-center justify-between text-xs">
+          <span id="prop-selected-districts-counter" class="font-bold text-[#D4AF37] bg-[#D4AF37]/10 px-2.5 py-1 rounded-lg">0 sélectionné</span>
+          <div class="flex items-center gap-2">
+            <button type="button" id="btn-prop-select-all" class="text-zinc-600 hover:text-black font-semibold underline underline-offset-2" i18n="modal_districts_select_all" translate="no">Tout sélectionner</button>
+            <span class="text-zinc-300">|</span>
+            <button type="button" id="btn-prop-deselect-all" class="text-zinc-500 hover:text-red-500 font-semibold" i18n="modal_districts_deselect_all" translate="no">Tout désélectionner</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="prop-districts-checkbox-grid" class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 overflow-y-auto max-h-60 p-2 bg-zinc-50 rounded-2xl border border-zinc-200 my-2"></div>
+
+      <div class="pt-4 border-t border-zinc-100 flex items-center justify-between gap-3">
+        <button type="button" id="btn-prop-reset-modal" class="px-5 py-2.5 rounded-xl border border-zinc-200 hover:bg-zinc-100 text-zinc-700 font-bold text-xs transition" i18n="modal_districts_reset" translate="no">
+          Réinitialiser
+        </button>
+        <button type="button" id="btn-prop-apply-districts" class="btn-gold px-7 py-3 rounded-xl font-bold text-xs shadow-lg flex items-center gap-2">
+          <span id="btn-prop-apply-text" i18n="modal_districts_apply" translate="no">Appliquer</span>
+          <span>✓</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- Footer -->
+  <footer class="bg-[#0C1427] text-zinc-400 pt-16 pb-12 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+        <div class="md:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 bg-[#D4AF37] rounded-lg flex items-center justify-center text-white font-bold">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M11 3 8 9l4 12 4-12-3-6"/><path d="M2 9h20"/></svg>
+            </div>
+            <span class="font-bold text-xl tracking-tight text-white uppercase">
+              Phuket <span class="text-[#D4AF37]">VIP</span> Concierge
+            </span>
+          </div>
+          <p class="text-xs text-zinc-400 max-w-sm leading-relaxed" i18n="footer_desc" translate="no">
+            Votre partenaire de confiance pour l'immobilier de prestige et la conciergerie privée à Phuket, Thaïlande.
+          </p>
+        </div>
+        <div>
+          <h4 class="text-white text-xs font-bold uppercase tracking-wider mb-4">Navigation</h4>
+          <ul class="space-y-2.5 text-xs">
+            <li><a href="/index.html" class="hover:text-[#D4AF37] transition-colors" i18n="nav_home" translate="no">Accueil</a></li>
+            <li><a href="/properties.html?purpose=buy" class="hover:text-[#D4AF37] transition-colors" i18n="nav_buy" translate="no">Acheter une villa</a></li>
+            <li><a href="/properties.html?purpose=rent" class="hover:text-[#D4AF37] transition-colors" i18n="nav_rent" translate="no">Locations de luxe</a></li>
+            <li><a href="/estimate.html" class="hover:text-[#D4AF37] transition-colors" i18n="nav_sell" translate="no">Estimer & Vendre</a></li>
+            <li><a href="/index.html#services" class="hover:text-[#D4AF37] transition-colors" i18n="nav_services" translate="no">Conciergerie VIP</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white text-xs font-bold uppercase tracking-wider mb-4">Contact VIP</h4>
+          <ul class="space-y-2.5 text-xs text-zinc-400">
+            <li>📧 contact@phuketvipconcierge.com</li>
+            <li>📞 +66 (0) 80 000 0000</li>
+            <li>💬 WhatsApp 24/7 Disponible</li>
+            <li class="pt-2">
+              <a href="/admin.html" class="inline-flex items-center gap-1.5 text-zinc-400 hover:text-[#D4AF37] font-semibold">
+                <span>🔒 Espace Gestionnaire</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-500 gap-4">
+        <p i18n="footer_rights" translate="no">© 2026 Phuket VIP Concierge. Tous droits réservés.</p>
+        <p>Prestige Real Estate & VIP Concierge Services Phuket</p>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script src="/js/app.js?v=20260821"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid = document.getElementById('catalog-grid');
+      const filterPurpose = document.getElementById('filter-purpose');
+      const filterType = document.getElementById('filter-type');
+      const filterDistrict = document.getElementById('filter-district');
+      const filterDistrictContainer = document.getElementById('filter-district-container');
+      const btnReset = document.getElementById('btn-reset');
+
+      const modal = document.getElementById('modal-properties-districts');
+      const btnCloseModal = document.getElementById('btn-close-prop-districts-modal');
+      const checkboxGrid = document.getElementById('prop-districts-checkbox-grid');
+      const searchInput = document.getElementById('prop-district-search-input');
+      const counter = document.getElementById('prop-selected-districts-counter');
+      const btnSelectAll = document.getElementById('btn-prop-select-all');
+      const btnDeselectAll = document.getElementById('btn-prop-deselect-all');
+      const btnResetModal = document.getElementById('btn-prop-reset-modal');
+      const btnApply = document.getElementById('btn-prop-apply-districts');
+
+      let selectedDistricts = [];
+
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('purpose')) filterPurpose.value = urlParams.get('purpose');
+      if (urlParams.get('type')) filterType.value = urlParams.get('type');
+      if (urlParams.get('district')) selectedDistricts = [urlParams.get('district')];
+
+      function updateDistrictInputDisplay() {
+        if (!filterDistrict) return;
+        const dict = (typeof getI18n === 'function') ? getI18n() : {};
+        const placeholderText = dict.filter_district_placeholder || 'Tous les quartiers (cliquez pour choisir)';
+        const prefix = dict.districts_summary_prefix || 'quartiers';
+
+        if (selectedDistricts.length === 0) {
+          filterDistrict.value = '';
+          filterDistrict.placeholder = placeholderText;
+        } else if (selectedDistricts.length === 1) {
+          filterDistrict.value = selectedDistricts[0];
+        } else {
+          filterDistrict.value = selectedDistricts.length + ' ' + prefix + ' : ' + selectedDistricts.slice(0, 2).join(', ') + (selectedDistricts.length > 2 ? '...' : '');
+        }
+      }
+
+      function renderCheckboxes(query = '') {
+        if (!checkboxGrid || typeof PHUKET_DISTRICTS === 'undefined') return;
+        const q = query.toLowerCase().trim();
+        const filtered = PHUKET_DISTRICTS.filter(d => d.toLowerCase().includes(q));
+
+        checkboxGrid.innerHTML = filtered.map(d => {
+          const isChecked = selectedDistricts.includes(d);
+          return `
+            <label class="flex items-center gap-2 p-2 rounded-xl border border-zinc-200 bg-white hover:bg-zinc-100 transition cursor-pointer text-xs font-semibold text-zinc-800 select-none">
+              <input type="checkbox" value="${d}" ${isChecked ? 'checked' : ''} class="prop-district-chk w-4 h-4 rounded text-[#D4AF37] focus:ring-[#D4AF37]">
+              <span class="truncate">${d}</span>
+            </label>
+          `;
+        }).join('');
+
+        document.querySelectorAll('.prop-district-chk').forEach(chk => {
+          chk.addEventListener('change', () => {
+            const val = chk.value;
+            if (chk.checked) {
+              if (!selectedDistricts.includes(val)) selectedDistricts.push(val);
+            } else {
+              selectedDistricts = selectedDistricts.filter(item => item !== val);
+            }
+            updateCounter();
+          });
+        });
+        updateCounter();
+      }
+
+      function updateCounter() {
+        const dict = (typeof getI18n === 'function') ? getI18n() : {};
+        const suffix = dict.selected_count_suffix || 'sélectionnés';
+        if (counter) counter.textContent = selectedDistricts.length + ' ' + suffix;
+      }
+
+      function openModal() {
+        if (modal) {
+          modal.classList.remove('hidden');
+          renderCheckboxes(searchInput ? searchInput.value : '');
+        }
+      }
+
+      function closeModal() {
+        if (modal) modal.classList.add('hidden');
+        updateDistrictInputDisplay();
+        applyFilters();
+      }
+
+      if (filterDistrict) filterDistrict.addEventListener('click', openModal);
+      if (filterDistrictContainer) filterDistrictContainer.addEventListener('click', openModal);
+      if (btnCloseModal) btnCloseModal.addEventListener('click', closeModal);
+      if (btnApply) btnApply.addEventListener('click', closeModal);
+
+      if (modal) {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) closeModal();
+        });
+      }
+
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          renderCheckboxes(e.target.value);
+        });
+      }
+
+      if (btnSelectAll) {
+        btnSelectAll.addEventListener('click', () => {
+          selectedDistricts = [...PHUKET_DISTRICTS];
+          renderCheckboxes(searchInput ? searchInput.value : '');
+        });
+      }
+
+      if (btnDeselectAll) {
+        btnDeselectAll.addEventListener('click', () => {
+          selectedDistricts = [];
+          renderCheckboxes(searchInput ? searchInput.value : '');
+        });
+      }
+
+      if (btnResetModal) {
+        btnResetModal.addEventListener('click', () => {
+          selectedDistricts = [];
+          renderCheckboxes('');
+          if (searchInput) searchInput.value = '';
+        });
+      }
+
+      function applyFilters() {
+        let props = (typeof getAllProperties === 'function') ? getAllProperties() : [];
+        const purpose = filterPurpose.value.toLowerCase();
+        const type = filterType.value.toLowerCase();
+
+        const filtered = props.filter(p => {
+          if (purpose && purpose !== 'all') {
+            if ((p.purpose || 'buy').toLowerCase() !== purpose) return false;
+          }
+          if (type && type !== 'all') {
+            if ((p.type || '').toLowerCase() !== type) return false;
+          }
+          if (selectedDistricts.length > 0) {
+            const propDistrict = (p.district || '').toLowerCase();
+            const matchesAny = selectedDistricts.some(d => propDistrict.includes(d.toLowerCase()));
+            if (!matchesAny) return false;
+          }
+          return true;
+        });
+
+        renderGrid(filtered);
+      }
+
+      function renderGrid(props) {
+        if (!grid) return;
+        const dict = (typeof getI18n === 'function') ? getI18n() : {};
+
+        if (props.length === 0) {
+          grid.innerHTML = `
+            <div class="col-span-full text-center py-20 bg-white rounded-3xl border border-dashed border-zinc-200 p-8">
+              <div class="w-16 h-16 bg-[#D4AF37]/10 text-[#D4AF37] rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">🔍</div>
+              <h3 class="text-base font-bold text-zinc-800 mb-2">${dict.empty_catalog_title || 'Aucune propriété ne correspond à votre recherche'}</h3>
+              <p class="text-xs text-zinc-500 max-w-md mx-auto mb-6">${dict.empty_catalog_desc || 'Contactez notre équipe de conciergerie privée pour une recherche sur-mesure.'}</p>
+              <div class="flex items-center justify-center gap-3">
+                <button onclick="window.resetAllFilters()" class="btn-outline-gold text-xs font-bold py-2.5 px-5 rounded-xl">
+                  ${dict.btn_reset || 'Réinitialiser'}
+                </button>
+                <a href="/index.html#contact" class="btn-gold text-xs font-bold py-2.5 px-6 rounded-xl shadow-md">
+                  ${dict.btn_contact_agent || 'Contacter un conseiller VIP'}
+                </a>
+              </div>
+            </div>
+          `;
+          return;
+        }
+
+        grid.innerHTML = props.map(renderPropertyCard).join('');
+      }
+
+      window.resetAllFilters = function() {
+        filterPurpose.value = '';
+        filterType.value = '';
+        selectedDistricts = [];
+        updateDistrictInputDisplay();
+        applyFilters();
+      };
+
+      filterPurpose.addEventListener('change', applyFilters);
+      filterType.addEventListener('change', applyFilters);
+      if (btnReset) btnReset.addEventListener('click', window.resetAllFilters);
+
+      window.addEventListener('pvc:languageChanged', applyFilters);
+      window.addEventListener('pvc:currencyChanged', applyFilters);
+
+      updateDistrictInputDisplay();
+      applyFilters();
+    });
+  </script>
+</body>
+</html>

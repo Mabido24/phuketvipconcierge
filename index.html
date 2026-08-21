@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="fr" translate="no" class="notranslate">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google" content="notranslate">
+  <title>Phuket VIP Concierge | Agence Immobilière de Prestige & Conciergerie Privée</title>
+  <meta name="description" content="Découvrez nos villas de luxe, penthouses de prestige et services de conciergerie privée sur-mesure à Phuket, Thaïlande.">
+  <link rel="stylesheet" href="/css/style.css?v=20260821">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-white text-zinc-900 font-sans antialiased selection:bg-[#D4AF37] selection:text-black">
+
+  
+  <!-- Navigation (Universal Responsive Dark Navbar) -->
+  <nav class="fixed w-full top-0 z-50 bg-[#0C1427]/95 backdrop-blur-md border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        
+        <!-- Logo -->
+        <a href="/index.html" class="flex-shrink-0 flex items-center gap-3">
+          <div class="w-9 h-9 bg-gradient-to-br from-[#D4AF37] to-[#9A7B1C] rounded-lg flex items-center justify-center text-white shadow-lg border border-[#D4AF37]/40">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M11 3 8 9l4 12 4-12-3-6"/><path d="M2 9h20"/></svg>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-bold text-lg sm:text-xl tracking-tight text-white uppercase leading-none">
+              Phuket <span class="text-[#D4AF37]">VIP</span>
+            </span>
+            <span class="text-[10px] tracking-widest uppercase text-zinc-400 font-semibold mt-0.5">Concierge</span>
+          </div>
+        </a>
+
+        <!-- Desktop Nav Links -->
+        <div class="hidden lg:flex items-center space-x-6 xl:space-x-8">
+          <a href="/index.html" class="text-sm font-semibold text-[#D4AF37] hover:text-[#D4AF37] transition-colors" i18n="nav_home" translate="no">Accueil</a>
+          <a href="/properties.html?purpose=buy" class="text-sm font-semibold text-zinc-300 hover:text-[#D4AF37] transition-colors" i18n="nav_buy" translate="no">Acheter</a>
+          <a href="/properties.html?purpose=rent" class="text-sm font-semibold text-zinc-300 hover:text-[#D4AF37] transition-colors" i18n="nav_rent" translate="no">Louer</a>
+          <a href="/estimate.html" class="text-sm font-semibold text-zinc-300 hover:text-[#D4AF37] transition-colors" i18n="nav_sell" translate="no">Vendre</a>
+          <a href="/index.html#services" class="text-sm font-semibold text-zinc-300 hover:text-[#D4AF37] transition-colors" i18n="nav_services" translate="no">Conciergerie</a>
+        </div>
+
+        <!-- Controls (Language + Currency + CTAs) -->
+        <div class="flex items-center gap-2 sm:gap-3">
+          
+          <!-- Language Selector -->
+          <select id="ctrl-lang" class="ctrl-select">
+            <option value="fr">🇫🇷 FR</option>
+            <option value="en">🇬🇧 EN</option>
+            <option value="de">🇩🇪 DE</option>
+            <option value="it">🇮🇹 IT</option>
+            <option value="es">🇪🇸 ES</option>
+            <option value="pt">🇵🇹 PT</option>
+            <option value="th">🇹🇭 TH</option>
+            <option value="ru">🇷🇺 RU</option>
+            <option value="ar">🇸🇦 AR</option>
+            <option value="zh">🇨🇳 ZH</option>
+          </select>
+
+          <!-- Currency Selector -->
+          <select id="ctrl-curr" class="ctrl-select">
+            <option value="THB">฿ THB</option>
+            <option value="EUR">€ EUR</option>
+            <option value="USD">$ USD</option>
+          </select>
+
+          <!-- Desktop CTAs -->
+          <div class="hidden md:flex items-center gap-2">
+            <a href="/estimate.html" class="border border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white transition-all font-semibold text-xs py-2 px-3.5 rounded-xl whitespace-nowrap" i18n="nav_estimate" translate="no">
+              Estimation Gratuite
+            </a>
+            <a href="/admin.html" class="text-zinc-300 hover:text-[#D4AF37] transition-all font-semibold text-xs py-2 px-2.5 flex items-center gap-1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <span i18n="nav_admin" translate="no">Admin</span>
+            </a>
+          </div>
+
+          <!-- Mobile Hamburger Button -->
+          <button type="button" id="btn-mobile-menu" class="lg:hidden p-2 text-zinc-300 hover:text-white rounded-lg focus:outline-none" aria-label="Toggle Navigation">
+            <svg id="icon-menu-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            <svg id="icon-menu-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+          </button>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Panel -->
+    <div id="mobile-nav-panel" class="hidden lg:hidden bg-[#0C1427] border-b border-white/10 px-4 pt-3 pb-6 space-y-3 animate-fade-in shadow-2xl">
+      <div class="flex flex-col space-y-2 border-b border-white/10 pb-3">
+        <a href="/index.html" class="text-sm font-semibold text-zinc-200 hover:text-[#D4AF37] py-2" i18n="nav_home" translate="no">Accueil</a>
+        <a href="/properties.html?purpose=buy" class="text-sm font-semibold text-zinc-200 hover:text-[#D4AF37] py-2" i18n="nav_buy" translate="no">Acheter</a>
+        <a href="/properties.html?purpose=rent" class="text-sm font-semibold text-zinc-200 hover:text-[#D4AF37] py-2" i18n="nav_rent" translate="no">Louer</a>
+        <a href="/estimate.html" class="text-sm font-semibold text-zinc-200 hover:text-[#D4AF37] py-2" i18n="nav_sell" translate="no">Vendre</a>
+        <a href="/index.html#services" class="text-sm font-semibold text-zinc-200 hover:text-[#D4AF37] py-2" i18n="nav_services" translate="no">Conciergerie</a>
+      </div>
+      <div class="flex flex-col gap-2.5 pt-1">
+        <a href="/estimate.html" class="btn-gold w-full text-center py-2.5 text-xs font-bold justify-center" i18n="nav_estimate" translate="no">
+          Estimation Gratuite
+        </a>
+        <a href="/admin.html" class="w-full text-center py-2.5 border border-white/15 text-zinc-300 hover:text-[#D4AF37] text-xs font-semibold rounded-xl flex items-center justify-center gap-1.5">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span i18n="nav_admin" translate="no">Admin</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+  
+
+  <!-- Hero Section -->
+  <section class="relative min-h-[90vh] sm:min-h-screen flex items-center justify-center pt-20">
+    <div class="absolute inset-0 z-0 overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-white/30 via-transparent to-zinc-50 z-10"></div>
+      <img src="/public/images/hero_bg_1778992851801.png" alt="Luxury Villa Phuket" class="w-full h-full object-cover scale-105" onerror="this.src='/public/images/villa_1.png'">
+    </div>
+
+    <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mt-12 mb-16">
+      <span class="luxury-hero-tag font-black tracking-widest uppercase text-xs sm:text-sm mb-4 block" i18n="hero_tag" translate="no">
+        Agence Immobilière de Prestige & Conciergerie Privée
+      </span>
+      
+      <h1 class="luxury-hero-text text-4xl sm:text-5xl md:text-7xl font-black mb-6 tracking-tight leading-tight sm:leading-none">
+        <span i18n="hero_title" translate="no">L'Excellence Immobilière & <span class="luxury-hero-highlight font-black">Conciergerie VIP</span> à Phuket</span>
+      </h1>
+      
+      <p class="luxury-hero-desc mt-4 text-lg md:text-2xl max-w-3xl mx-auto font-bold mb-10 leading-relaxed" i18n="hero_desc" translate="no">
+        Villas de prestige, penthouses d'exception et accompagnement sur-mesure pour votre acquisition ou séjour d'exception à Phuket.
+      </p>
+
+      <!-- Search Bar -->
+      <form action="/properties.html" method="GET" class="max-w-4xl mx-auto bg-white/90 backdrop-blur-xl p-3 sm:p-4 rounded-2xl border border-zinc-200/80 shadow-2xl flex flex-col gap-3 sm:gap-4 relative">
+        <div class="flex flex-col md:flex-row gap-3 sm:gap-4 items-center w-full">
+          <div class="flex-grow w-full relative flex items-center">
+            <svg class="absolute left-4 w-5 h-5 text-zinc-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <input type="text" name="district" placeholder="Rechercher par quartier, ex: Bang Tao, Surin, Rawai..." class="w-full pl-12 pr-4 py-4 rounded-xl bg-transparent text-zinc-900 border border-transparent focus:ring-0 focus:border-transparent transition-all outline-none text-sm" autocomplete="off" i18n-placeholder="search_placeholder" translate="no">
+          </div>
+
+          <div class="flex items-center gap-3 w-full md:w-auto">
+            <button type="button" id="btn-extended-search" class="flex items-center gap-1.5 px-4 py-4 rounded-xl border border-zinc-200 bg-zinc-100 text-zinc-700 text-xs font-bold transition-all whitespace-nowrap h-[54px] hover:bg-zinc-200">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="21" x2="14" y1="4" y2="4"/><line x1="10" x2="3" y1="4" y2="4"/><line x1="21" x2="12" y1="12" y2="12"/><line x1="8" x2="3" y1="12" y2="12"/><line x1="21" x2="16" y1="20" y2="20"/><line x1="12" x2="3" y1="20" y2="20"/><line x1="14" x2="14" y1="2" y2="6"/><line x1="8" x2="8" y1="10" y2="14"/><line x1="16" x2="16" y1="18" y2="22"/></svg>
+              <span i18n="btn_extended_search" translate="no">Critères avancés</span>
+            </button>
+
+            <button type="submit" class="btn-gold w-full md:w-auto px-8 py-4 rounded-xl font-bold text-base transition-all flex items-center justify-center gap-2 flex-shrink-0 h-[54px]" i18n="btn_search" translate="no">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              <span>Rechercher</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Extended Search Panel -->
+        <div id="extended-search-panel" class="hidden pt-4 mt-1 border-t border-zinc-200/60 flex flex-wrap gap-3 justify-center md:justify-start w-full">
+          <label class="flex items-center gap-2 text-xs font-medium text-zinc-700 bg-zinc-100/60 px-4 py-2.5 rounded-xl border border-zinc-200 cursor-pointer hover:bg-zinc-200 transition-all">
+            <input type="checkbox" name="private_pool" class="w-4 h-4 rounded border-zinc-300 text-[#D4AF37] focus:ring-[#D4AF37]">
+            <span i18n="opt_private_pool" translate="no">Piscine privée</span>
+          </label>
+          <label class="flex items-center gap-2 text-xs font-medium text-zinc-700 bg-zinc-100/60 px-4 py-2.5 rounded-xl border border-zinc-200 cursor-pointer hover:bg-zinc-200 transition-all">
+            <input type="checkbox" name="private_parking" class="w-4 h-4 rounded border-zinc-300 text-[#D4AF37] focus:ring-[#D4AF37]">
+            <span i18n="opt_private_parking" translate="no">Parking privé</span>
+          </label>
+          <label class="flex items-center gap-2 text-xs font-medium text-zinc-700 bg-zinc-100/60 px-4 py-2.5 rounded-xl border border-zinc-200 cursor-pointer hover:bg-zinc-200 transition-all">
+            <input type="checkbox" name="sea_view" class="w-4 h-4 rounded border-zinc-300 text-[#D4AF37] focus:ring-[#D4AF37]">
+            <span i18n="opt_sea_view" translate="no">Vue Mer</span>
+          </label>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Featured Catalog Section -->
+  <section class="py-20 bg-zinc-50 border-t border-zinc-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+        <div>
+          <span class="text-xs uppercase font-extrabold tracking-widest text-[#D4AF37] block mb-1">Portfolio</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-[#0C1427] tracking-tight" i18n="catalog_title" translate="no">
+            Nos Propriétés d'Exception
+          </h2>
+          <p class="text-sm text-zinc-500 mt-2" i18n="catalog_subtitle" translate="no">
+            Découvrez notre sélection exclusive de villas et appartements de haut standing à Phuket
+          </p>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="/properties.html?purpose=buy" class="px-5 py-2.5 rounded-xl border border-zinc-300 hover:border-[#D4AF37] text-xs font-bold transition bg-white text-zinc-800" i18n="filter_buy" translate="no">À Vendre</a>
+          <a href="/properties.html?purpose=rent" class="px-5 py-2.5 rounded-xl border border-zinc-300 hover:border-[#D4AF37] text-xs font-bold transition bg-white text-zinc-800" i18n="filter_rent" translate="no">À Louer</a>
+        </div>
+      </div>
+
+      <!-- Properties Grid Container -->
+      <div id="home-catalog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Injected via JavaScript or Empty State -->
+      </div>
+    </div>
+  </section>
+
+  <!-- VIP Concierge Services Section -->
+  <section id="services" class="py-24 bg-[#0C1427] text-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs uppercase font-extrabold tracking-widest text-[#D4AF37] block mb-2">Services Sur-Mesure</span>
+        <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight" i18n="services_title" translate="no">
+          Nos Services de Conciergerie & Immobilier
+        </h2>
+        <p class="text-zinc-400 text-sm sm:text-base mt-4" i18n="services_subtitle" translate="no">
+          Un accompagnement haut de gamme à 360° à chaque étape de votre projet à Phuket
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Service 1 -->
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-7 hover:border-[#D4AF37]/60 transition duration-300">
+          <div class="w-12 h-12 rounded-xl bg-[#D4AF37]/15 text-[#D4AF37] flex items-center justify-center text-2xl mb-5 font-bold">💎</div>
+          <h3 class="text-lg font-bold text-white mb-2" i18n="service_1_title" translate="no">Vente & Acquisition Prestige</h3>
+          <p class="text-xs text-zinc-400 leading-relaxed" i18n="service_1_desc" translate="no">
+            Sélection rigoureuse des plus belles villas et penthouses de l'île avec audit juridique et fiscal complet.
+          </p>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-7 hover:border-[#D4AF37]/60 transition duration-300">
+          <div class="w-12 h-12 rounded-xl bg-[#D4AF37]/15 text-[#D4AF37] flex items-center justify-center text-2xl mb-5 font-bold">🏖️</div>
+          <h3 class="text-lg font-bold text-white mb-2" i18n="service_2_title" translate="no">Location Saisonnière & Longue Durée</h3>
+          <p class="text-xs text-zinc-400 leading-relaxed" i18n="service_2_desc" translate="no">
+            Mise à disposition de résidences d'exception avec services hôteliers haut de gamme et conciergerie 24/7.
+          </p>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-7 hover:border-[#D4AF37]/60 transition duration-300">
+          <div class="w-12 h-12 rounded-xl bg-[#D4AF37]/15 text-[#D4AF37] flex items-center justify-center text-2xl mb-5 font-bold">🛥️</div>
+          <h3 class="text-lg font-bold text-white mb-2" i18n="service_3_title" translate="no">Conciergerie Privée & VIP Management</h3>
+          <p class="text-xs text-zinc-400 leading-relaxed" i18n="service_3_desc" translate="no">
+            Chauffeur privé, location de yachts, réservations exclusives et gestion de propriété clé en main.
+          </p>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-7 hover:border-[#D4AF37]/60 transition duration-300">
+          <div class="w-12 h-12 rounded-xl bg-[#D4AF37]/15 text-[#D4AF37] flex items-center justify-center text-2xl mb-5 font-bold">📈</div>
+          <h3 class="text-lg font-bold text-white mb-2" i18n="service_4_title" translate="no">Estimation & Valorisation</h3>
+          <p class="text-xs text-zinc-400 leading-relaxed" i18n="service_4_desc" translate="no">
+            Expertise locale pointue pour estimer au juste prix votre bien et le commercialiser auprès d'une clientèle ciblée.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner Section -->
+  <section class="py-16 bg-gradient-to-r from-[#0C1427] via-[#14203d] to-[#0C1427] text-white border-t border-b border-[#D4AF37]/20">
+    <div class="max-w-5xl mx-auto px-4 text-center">
+      <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight mb-4" i18n="cta_banner_title" translate="no">
+        Vous souhaitez vendre ou louer votre propriété d'exception ?
+      </h2>
+      <p class="text-zinc-300 text-sm sm:text-base mb-8 max-w-2xl mx-auto" i18n="cta_banner_desc" translate="no">
+        Bénéficiez de la force de notre réseau international d'acquéreurs et de locataires VIP.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="/estimate.html" class="btn-gold px-8 py-3.5 rounded-xl font-bold text-xs shadow-xl" i18n="btn_estimate_now" translate="no">
+          Demander une estimation
+        </a>
+        <a href="#contact" class="btn-outline-gold px-8 py-3.5 rounded-xl font-bold text-xs" i18n="btn_contact_us" translate="no">
+          Nous contacter
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section id="contact" class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-zinc-50 border border-zinc-200 rounded-3xl p-8 sm:p-12 shadow-sm">
+        <div class="text-center mb-8">
+          <span class="text-xs uppercase font-extrabold tracking-widest text-[#D4AF37] block mb-2">Conciergerie VIP</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-[#0C1427]" i18n="contact_title" translate="no">Prendre Contact</h2>
+        </div>
+
+        <form id="home-contact-form" class="space-y-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-zinc-700 mb-1" i18n="contact_name" translate="no">Nom complet</label>
+              <input type="text" required placeholder="Votre nom" class="w-full bg-white border border-zinc-200 focus:border-[#D4AF37] rounded-xl px-4 py-3 text-xs outline-none transition">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-zinc-700 mb-1" i18n="contact_email" translate="no">Email</label>
+              <input type="email" required placeholder="votre.email@domaine.com" class="w-full bg-white border border-zinc-200 focus:border-[#D4AF37] rounded-xl px-4 py-3 text-xs outline-none transition">
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-zinc-700 mb-1" i18n="contact_phone" translate="no">Téléphone / WhatsApp</label>
+            <input type="tel" placeholder="+33 6... / +66 8..." class="w-full bg-white border border-zinc-200 focus:border-[#D4AF37] rounded-xl px-4 py-3 text-xs outline-none transition">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-zinc-700 mb-1" i18n="contact_message" translate="no">Votre message ou critères</label>
+            <textarea rows="4" required placeholder="Précisez votre projet (Achat villa Bang Tao, Location de vacances, etc.)..." class="w-full bg-white border border-zinc-200 focus:border-[#D4AF37] rounded-xl px-4 py-3 text-xs outline-none transition"></textarea>
+          </div>
+          <button type="submit" class="w-full btn-gold py-3.5 rounded-xl font-bold text-xs" i18n="btn_send_message" translate="no">
+            Envoyer ma demande
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- Footer -->
+  <footer class="bg-[#0C1427] text-zinc-400 pt-16 pb-12 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+        
+        <!-- Col 1: Brand -->
+        <div class="md:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 bg-[#D4AF37] rounded-lg flex items-center justify-center text-white font-bold">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M11 3 8 9l4 12 4-12-3-6"/><path d="M2 9h20"/></svg>
+            </div>
+            <span class="font-bold text-xl tracking-tight text-white uppercase">
+              Phuket <span class="text-[#D4AF37]">VIP</span> Concierge
+            </span>
+          </div>
+          <p class="text-xs text-zinc-400 max-w-sm leading-relaxed" i18n="footer_desc" translate="no">
+            Votre partenaire de confiance pour l'immobilier de prestige et la conciergerie privée à Phuket, Thaïlande.
+          </p>
+          <div class="flex items-center gap-3 pt-2 text-zinc-400">
+            <span class="text-xs font-semibold text-zinc-300">📍 Bang Tao / Cherng Talay, Phuket</span>
+          </div>
+        </div>
+
+        <!-- Col 2: Navigation -->
+        <div>
+          <h4 class="text-white text-xs font-bold uppercase tracking-wider mb-4">Navigation</h4>
+          <ul class="space-y-2.5 text-xs">
+            <li><a href="/index.html" class="hover:text-[#D4AF37] transition-colors" i18n="nav_home" translate="no">Accueil</a></li>
+            <li><a href="/properties.html?purpose=buy" class="hover:text-[#D4AF37] transition-colors" i18n="nav_buy" translate="no">Acheter une villa</a></li>
+            <li><a href="/properties.html?purpose=rent" class="hover:text-[#D4AF37] transition-colors" i18n="nav_rent" translate="no">Locations de luxe</a></li>
+            <li><a href="/estimate.html" class="hover:text-[#D4AF37] transition-colors" i18n="nav_sell" translate="no">Estimer & Vendre</a></li>
+            <li><a href="/index.html#services" class="hover:text-[#D4AF37] transition-colors" i18n="nav_services" translate="no">Conciergerie VIP</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Contact -->
+        <div>
+          <h4 class="text-white text-xs font-bold uppercase tracking-wider mb-4">Contact VIP</h4>
+          <ul class="space-y-2.5 text-xs text-zinc-400">
+            <li>📧 contact@phuketvipconcierge.com</li>
+            <li>📞 +66 (0) 80 000 0000</li>
+            <li>💬 WhatsApp 24/7 Disponible</li>
+            <li class="pt-2">
+              <a href="/admin.html" class="inline-flex items-center gap-1.5 text-zinc-400 hover:text-[#D4AF37] font-semibold">
+                <span>🔒 Espace Gestionnaire</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-500 gap-4">
+        <p i18n="footer_rights" translate="no">© 2026 Phuket VIP Concierge. Tous droits réservés.</p>
+        <p>Prestige Real Estate & VIP Concierge Services Phuket</p>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script src="/js/app.js?v=20260821"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid = document.getElementById('home-catalog-grid');
+      
+      function renderHomeProperties() {
+        const props = (typeof getAllProperties === 'function') ? getAllProperties() : [];
+        if (!grid) return;
+
+        if (props.length === 0) {
+          const dict = (typeof getI18n === 'function') ? getI18n() : {};
+          grid.innerHTML = `
+            <div class="col-span-full text-center py-16 px-6 bg-white rounded-2xl border border-dashed border-zinc-200">
+              <div class="w-16 h-16 bg-[#D4AF37]/10 text-[#D4AF37] rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">✨</div>
+              <h3 class="text-base font-bold text-zinc-800 mb-2">${dict.empty_catalog_no_listings || 'Notre catalogue exclusif est en cours d\'actualisation.'}</h3>
+              <p class="text-xs text-zinc-500 max-w-md mx-auto mb-6">${dict.empty_catalog_desc || 'Contactez notre équipe de conciergerie privée pour une recherche sur-mesure.'}</p>
+              <a href="#contact" class="btn-gold px-6 py-2.5 rounded-xl text-xs font-bold shadow-md">${dict.btn_contact_agent || 'Contacter un conseiller VIP'}</a>
+            </div>
+          `;
+          return;
+        }
+
+        const topProps = props.slice(0, 6);
+        grid.innerHTML = topProps.map(renderPropertyCard).join('');
+      }
+
+      renderHomeProperties();
+      window.addEventListener('pvc:languageChanged', renderHomeProperties);
+      window.addEventListener('pvc:currencyChanged', renderHomeProperties);
+
+      // Contact form submit feedback
+      const form = document.getElementById('home-contact-form');
+      if (form) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const dict = (typeof getI18n === 'function') ? getI18n() : {};
+          alert(dict.msg_sent_success || 'Votre message a été envoyé avec succès.');
+          form.reset();
+        });
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+﻿{
+  "name": "phuket-vip-concierge",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Phuket VIP Concierge - Agence Immobilière de Prestige & Conciergerie Privée à Phuket",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "node scripts/build-static.js",
+    "pages:build": "node scripts/build-static.js",
+    "start": "npx serve ./out"
+  },
+  "devDependencies": {
+    "wrangler": "^4.114.0"
+  }
+}
