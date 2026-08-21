@@ -34,10 +34,15 @@ function copyRecursiveSync(src, dest) {
   }
 });
 
-// Also duplicate public/images to out/images so both /images/ and /public/images/ resolve 100%
+// Duplicate public/images to out/images
 const imagesSrc = path.join(rootDir, 'public', 'images');
 if (fs.existsSync(imagesSrc)) {
   copyRecursiveSync(imagesSrc, path.join(outDir, 'images'));
+}
+
+// Copy JSON datasets
+if (fs.existsSync(path.join(rootDir, 'public', 'properties.json'))) {
+  fs.copyFileSync(path.join(rootDir, 'public', 'properties.json'), path.join(outDir, 'properties.json'));
 }
 
 // Copy root HTML files to out/
