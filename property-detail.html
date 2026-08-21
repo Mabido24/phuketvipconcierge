@@ -58,19 +58,19 @@
         </a>
 
         <!-- Desktop Nav Links -->
-        <div class="hidden lg:flex items-center space-x-6 xl:space-x-8">
-          <a href="/index.html" class="text-sm font-semibold text-zinc-300 hover:text-[#DF921B] transition-colors" i18n="nav_home" translate="no">Accueil</a>
-          <a href="/properties.html?purpose=buy" class="text-sm font-semibold text-[#DF921B] hover:text-[#DF921B] transition-colors" i18n="nav_buy" translate="no">Acheter</a>
-          <a href="/properties.html?purpose=rent" class="text-sm font-semibold text-zinc-300 hover:text-[#DF921B] transition-colors" i18n="nav_rent" translate="no">Louer</a>
-          <a href="/estimate.html" class="text-sm font-semibold text-zinc-300 hover:text-[#DF921B] transition-colors" i18n="nav_sell" translate="no">Vendre</a>
-          <a href="/index.html#services" class="text-sm font-semibold text-zinc-300 hover:text-[#DF921B] transition-colors" i18n="nav_services" translate="no">Conciergerie</a>
+        <div class="hidden lg:flex items-center space-x-7 text-xs font-semibold tracking-wide uppercase">
+          <a href="/index.html" class="text-zinc-300 hover:text-[#DF921B] transition-colors" i18n="nav_home" translate="no">Home</a>
+          <a href="/properties.html?purpose=buy" class="text-zinc-300 hover:text-[#DF921B] transition-colors" i18n="nav_buy" translate="no">Buy</a>
+          <a href="/properties.html?purpose=rent" class="text-zinc-300 hover:text-[#DF921B] transition-colors" i18n="nav_rent" translate="no">Rent</a>
+          <a href="/estimate.html" class="text-zinc-300 hover:text-[#DF921B] transition-colors" i18n="nav_sell" translate="no">Sell</a>
+          <a href="/index.html#services" class="text-zinc-300 hover:text-[#DF921B] transition-colors" i18n="nav_services" translate="no">Concierge</a>
         </div>
 
         <!-- Controls -->
-        <div class="flex items-center gap-2 sm:gap-3">
+        <div class="flex items-center space-x-3">
           <select id="ctrl-lang" class="ctrl-select">
-            <option value="fr">🇫🇷 FR</option>
             <option value="en">🇬🇧 EN</option>
+            <option value="fr">🇫🇷 FR</option>
             <option value="de">🇩🇪 DE</option>
             <option value="it">🇮🇹 IT</option>
             <option value="es">🇪🇸 ES</option>
@@ -89,7 +89,7 @@
 
           <div class="hidden md:flex items-center gap-2">
             <a href="/estimate.html" class="border border-[#DF921B] text-[#DF921B] hover:bg-[#DF921B] hover:text-white transition-all font-semibold text-xs py-2 px-3.5 rounded-xl whitespace-nowrap" i18n="nav_estimate" translate="no">
-              Estimation Gratuite
+              Free Valuation
             </a>
             <a href="/admin.html" class="text-zinc-300 hover:text-[#DF921B] transition-all font-semibold text-xs py-2 px-2.5 flex items-center gap-1">
               <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
@@ -109,15 +109,15 @@
     <!-- Mobile Navigation Drawer -->
     <div id="mobile-nav-panel" class="hidden lg:hidden bg-[#110D09] border-b border-white/10 px-4 pt-3 pb-6 space-y-3 animate-fade-in shadow-2xl">
       <div class="flex flex-col space-y-2 border-b border-white/10 pb-3">
-        <a href="/index.html" class="text-sm font-semibold text-zinc-200 hover:text-[#DF921B] py-2" i18n="nav_home" translate="no">Accueil</a>
-        <a href="/properties.html?purpose=buy" class="text-sm font-semibold text-zinc-200 hover:text-[#DF921B] py-2" i18n="nav_buy" translate="no">Acheter</a>
-        <a href="/properties.html?purpose=rent" class="text-sm font-semibold text-zinc-200 hover:text-[#DF921B] py-2" i18n="nav_rent" translate="no">Louer</a>
-        <a href="/estimate.html" class="text-sm font-semibold text-zinc-200 hover:text-[#DF921B] py-2" i18n="nav_sell" translate="no">Vendre</a>
-        <a href="/index.html#services" class="text-sm font-semibold text-zinc-200 hover:text-[#DF921B] py-2" i18n="nav_services" translate="no">Conciergerie</a>
+        <a href="/index.html" class="text-sm font-semibold text-zinc-200 hover:text-[#DF921B] py-2" i18n="nav_home" translate="no">Home</a>
+        <a href="/properties.html?purpose=buy" class="text-sm font-semibold text-zinc-200 hover:text-[#DF921B] py-2" i18n="nav_buy" translate="no">Buy</a>
+        <a href="/properties.html?purpose=rent" class="text-sm font-semibold text-zinc-200 hover:text-[#DF921B] py-2" i18n="nav_rent" translate="no">Rent</a>
+        <a href="/estimate.html" class="text-sm font-semibold text-zinc-200 hover:text-[#DF921B] py-2" i18n="nav_sell" translate="no">Sell</a>
+        <a href="/index.html#services" class="text-sm font-semibold text-zinc-200 hover:text-[#DF921B] py-2" i18n="nav_services" translate="no">Concierge</a>
       </div>
       <div class="flex flex-col gap-2.5 pt-1">
         <a href="/estimate.html" class="btn-gold w-full text-center py-2.5 text-xs font-bold justify-center" i18n="nav_estimate" translate="no">
-          Estimation Gratuite
+          Free Valuation
         </a>
         <a href="/admin.html" class="w-full text-center py-2.5 border border-white/15 text-zinc-300 hover:text-[#DF921B] text-xs font-semibold rounded-xl flex items-center justify-center gap-1.5">
           <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
@@ -134,7 +134,7 @@
     <div class="flex items-center justify-between mb-6 text-xs text-zinc-400">
       <a href="/properties.html" class="inline-flex items-center gap-2 hover:text-[#DF921B] transition font-semibold">
         <span>←</span>
-        <span i18n="btn_back_catalog" translate="no">Retour au catalogue</span>
+        <span i18n="btn_back_catalog" translate="no">Back to Properties</span>
       </a>
       <span id="prop-id-tag" class="bg-white/10 text-zinc-300 px-3 py-1 rounded-full font-mono text-[11px] border border-white/10">
         REF: PVC-1001
@@ -228,7 +228,7 @@
         <div class="bg-[#16110B] border border-white/10 rounded-2xl p-6 sm:p-8">
           <h3 class="text-base font-bold text-white mb-6 flex items-center gap-2">
             <span class="text-[#DF921B]">✦</span>
-            <span i18n="sec_key_specs" translate="no">Caractéristiques Principales</span>
+            <span i18n="sec_key_specs" translate="no">Key Specifications</span>
           </h3>
           <div id="specs-container" class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs">
             <!-- Dynamic Specs -->
@@ -239,7 +239,7 @@
         <div class="bg-[#16110B] border border-white/10 rounded-2xl p-6 sm:p-8">
           <h3 class="text-base font-bold text-white mb-4 flex items-center gap-2">
             <span class="text-[#DF921B]">✦</span>
-            <span i18n="sec_prop_desc" translate="no">Description du Bien</span>
+            <span i18n="sec_prop_desc" translate="no">Property Description</span>
           </h3>
           <div id="prop-description" class="text-zinc-300 text-xs sm:text-sm leading-relaxed space-y-4">
             <!-- Dynamic Description -->
@@ -250,7 +250,7 @@
         <div class="bg-[#16110B] border border-white/10 rounded-2xl p-6 sm:p-8">
           <h3 class="text-base font-bold text-white mb-4 flex items-center gap-2">
             <span class="text-[#DF921B]">📍</span>
-            <span i18n="sec_location_map" translate="no">Localisation & Quartier</span>
+            <span i18n="sec_location_map" translate="no">Location & Neighborhood</span>
           </h3>
           <div id="detail-map" class="h-72 sm:h-96 rounded-xl overflow-hidden border border-white/10 z-0"></div>
         </div>
@@ -262,29 +262,29 @@
         <div class="bg-[#16110B] border border-white/10 rounded-2xl p-6 sm:p-8 sticky top-28 space-y-6 shadow-2xl">
           <div>
             <span class="text-[11px] uppercase font-extrabold tracking-widest text-[#DF921B] block mb-1" i18n="brand_name" translate="no">Phuket VIP Concierge</span>
-            <h3 class="text-lg font-bold text-white" i18n="form_inquiry_title" translate="no">Demande d'Information Privée</h3>
-            <p class="text-xs text-zinc-400 mt-1" i18n="form_inquiry_subtitle" translate="no">Réponse confidentielle sous 24h par notre équipe locale.</p>
+            <h3 class="text-lg font-bold text-white" i18n="form_inquiry_title" translate="no">Private Information Request</h3>
+            <p class="text-xs text-zinc-400 mt-1" i18n="form_inquiry_subtitle" translate="no">Confidential response within 24h by our local VIP concierge.</p>
           </div>
 
           <form id="prop-inquiry-form" class="space-y-4">
             <div>
-              <label class="block text-xs font-semibold text-zinc-300 mb-1" i18n="contact_name" translate="no">Votre Nom</label>
-              <input type="text" required placeholder="Nom complet" class="w-full bg-black/40 border border-white/15 focus:border-[#DF921B] rounded-xl px-4 py-2.5 text-xs text-white outline-none transition" i18n-placeholder="contact_name">
+              <label class="block text-xs font-semibold text-zinc-300 mb-1" i18n="contact_name" translate="no">Full Name</label>
+              <input type="text" required placeholder="Full Name" class="w-full bg-black/40 border border-white/15 focus:border-[#DF921B] rounded-xl px-4 py-2.5 text-xs text-white outline-none transition" i18n-placeholder="contact_name">
             </div>
             <div>
-              <label class="block text-xs font-semibold text-zinc-300 mb-1" i18n="contact_email" translate="no">Email</label>
-              <input type="email" required placeholder="votre.email@domaine.com" class="w-full bg-black/40 border border-white/15 focus:border-[#DF921B] rounded-xl px-4 py-2.5 text-xs text-white outline-none transition" i18n-placeholder="contact_email">
+              <label class="block text-xs font-semibold text-zinc-300 mb-1" i18n="contact_email" translate="no">Email Address</label>
+              <input type="email" required placeholder="your.email@example.com" class="w-full bg-black/40 border border-white/15 focus:border-[#DF921B] rounded-xl px-4 py-2.5 text-xs text-white outline-none transition" i18n-placeholder="contact_email">
             </div>
             <div>
-              <label class="block text-xs font-semibold text-zinc-300 mb-1" i18n="contact_phone" translate="no">Téléphone / WhatsApp</label>
-              <input type="tel" placeholder="+33... / +66..." class="w-full bg-black/40 border border-white/15 focus:border-[#DF921B] rounded-xl px-4 py-2.5 text-xs text-white outline-none transition" i18n-placeholder="contact_phone">
+              <label class="block text-xs font-semibold text-zinc-300 mb-1" i18n="contact_phone" translate="no">Phone / WhatsApp</label>
+              <input type="tel" placeholder="+1... / +66..." class="w-full bg-black/40 border border-white/15 focus:border-[#DF921B] rounded-xl px-4 py-2.5 text-xs text-white outline-none transition" i18n-placeholder="contact_phone">
             </div>
             <div>
               <label class="block text-xs font-semibold text-zinc-300 mb-1" i18n="contact_message" translate="no">Message</label>
-              <textarea id="inquiry-message-area" rows="3" class="w-full bg-black/40 border border-white/15 focus:border-[#DF921B] rounded-xl px-4 py-2.5 text-xs text-white outline-none transition"></textarea>
+              <textarea id="inquiry-message-area" rows="3" class="w-full bg-black/40 border border-white/15 focus:border-[#DF921B] rounded-xl px-4 py-2.5 text-xs text-white outline-none transition" placeholder="Your message or viewing request..."></textarea>
             </div>
             <button type="submit" class="w-full btn-gold py-3 rounded-xl font-bold text-xs shadow-xl" i18n="btn_send_inquiry" translate="no">
-              Envoyer la Demande Privée
+              Send Private Inquiry
             </button>
           </form>
         </div>
@@ -368,7 +368,7 @@
     </div>
   </div>
 
-  <script src="/js/app.js?v=20260821_v17_fixed"></script>
+  <script src="/js/app.js?v=20260821_v18_en_i18n"></script>
   <script>
     let globalImages = [];
     let globalIdx = 0;
