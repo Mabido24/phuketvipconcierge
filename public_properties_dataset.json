@@ -377,12 +377,9 @@
     "sea_view": false,
     "description": "Charming tropical bungalow for rent in Rawai with access to a shared swimming pool. Fully furnished, air-conditioned, fast Wi-Fi and quiet residential environment near Nai Harn Beach.",
     "images": [
-      "/public/images/properties/pvc-bungalow-with-share-pool-for-rent-in-rawai_0.webp",
-      "/public/images/properties/pvc-bungalow-with-share-pool-for-rent-in-rawai_1.webp",
-      "/public/images/properties/pvc-bungalow-with-share-pool-for-rent-in-rawai_2.webp",
-      "/public/images/properties/pvc-bungalow-with-share-pool-for-rent-in-rawai_3.webp",
-      "/public/images/properties/pvc-bungalow-with-share-pool-for-rent-in-rawai_4.webp",
-      "/public/images/properties/pvc-bungalow-with-share-pool-for-rent-in-rawai_5.webp"
+      "/public/images/properties/pvc-one-bedroom-bungalow-for-rent-monthly_0.webp",
+      "/public/images/properties/pvc-one-bedroom-bungalow-for-rent-monthly_1.webp",
+      "/public/images/properties/pvc-one-bedroom-bungalow-for-rent-monthly_2.webp"
     ],
     "featured": false,
     "created_at": "2026-08-21T07:00:00.000Z"
@@ -467,9 +464,6 @@
     "sea_view": false,
     "description": "1 and 2-bedroom bungalows in Rawai with shared pool from 22,000 Baht/month. Wi-Fi, electricity and water included in the monthly rate. Peaceful tropical garden.",
     "images": [
-      "/public/images/properties/pvc-one-bedroom-bungalow-for-rent-monthly_0.webp",
-      "/public/images/properties/pvc-one-bedroom-bungalow-for-rent-monthly_1.webp",
-      "/public/images/properties/pvc-one-bedroom-bungalow-for-rent-monthly_2.webp",
       "/public/images/properties/pvc-one-bedroom-bungalow-for-rent-monthly_3.webp",
       "/public/images/properties/pvc-one-bedroom-bungalow-for-rent-monthly_4.webp",
       "/public/images/properties/pvc-one-bedroom-bungalow-for-rent-monthly_5.webp"
@@ -527,11 +521,10 @@
     "sea_view": false,
     "description": "Villa Paradise Rawai: magnificent 7-bedroom luxury pool villa estate in the heart of Rawai. 5 minutes drive to Nai Harn Beach. Smart TV in all bedrooms, large swimming pool, high-speed Wi-Fi, full maintenance included. 190,000 THB/month on annual lease.",
     "images": [
-      "/public/images/properties/pvc-magnificent-7-bedroom-pool-villa-in-the-heart_0.webp",
-      "/public/images/properties/pvc-magnificent-7-bedroom-pool-villa-in-the-heart_1.webp",
-      "/public/images/properties/pvc-magnificent-7-bedroom-pool-villa-in-the-heart_2.webp",
-      "/public/images/properties/pvc-magnificent-7-bedroom-pool-villa-in-the-heart_3.webp",
-      "/public/images/properties/pvc-magnificent-7-bedroom-pool-villa-in-the-heart_4.webp"
+      "/public/images/properties/villa-rawai-5.webp",
+      "/public/images/properties/villa-rawai-2.webp",
+      "/public/images/properties/rawai-3-bedrooms.webp",
+      "/public/images/properties/viila-phuket-1.webp"
     ],
     "featured": false,
     "created_at": "2026-08-21T07:00:00.000Z"
@@ -586,7 +579,7 @@
     "sea_view": false,
     "description": "Land for sale in Phuket Rawai District, Soi Saiyuan 11-12. Total land area: 1,280 square meters (approx 0.8 Rai). Price: 20 million Baht. Ideal for multi-villa development.",
     "images": [
-      "/public/images/properties/pvc-land-for-sale-in-phuket-rawai-district-soi-s_0.webp"
+      "/public/images/properties/pvc-land-for-sale-in-phuket-rawai-district-soi-sa_0.webp"
     ],
     "featured": false,
     "created_at": "2026-08-21T07:00:00.000Z"
@@ -611,7 +604,7 @@
     "sea_view": false,
     "description": "Land for sale in Phuket Rawai District, Soi Saiyuan 5 directly on the main street. 228 square meters. Perfect commercial location for building a retail shop, restaurant or office.",
     "images": [
-      "/public/images/properties/pvc-land-for-sale-in-phuket-rawai-district-soi-s_0.webp"
+      "/public/images/properties/pvc-land-for-sale-in-phuket-rawai-district-soi-sa_0.webp"
     ],
     "featured": false,
     "created_at": "2026-08-21T07:00:00.000Z"
@@ -666,11 +659,7 @@
     "sea_view": false,
     "description": "Land in Chalong Phuket with existing residential house. Total price: 6.5 million Baht. Convenient location close to Chalong Pier, shopping malls and international hospitals.",
     "images": [
-      "/public/images/properties/pvc-land-in-chalong-phuket-with-house-6-5-millio_0.webp",
-      "/public/images/properties/pvc-land-in-chalong-phuket-with-house-6-5-millio_1.webp",
-      "/public/images/properties/pvc-land-in-chalong-phuket-with-house-6-5-millio_2.webp",
-      "/public/images/properties/pvc-land-in-chalong-phuket-with-house-6-5-millio_3.webp",
-      "/public/images/properties/pvc-land-in-chalong-phuket-with-house-6-5-millio_4.webp"
+      "/public/images/properties/pvc-land-in-chalong-phuket-with-house-6-5-million_0.webp"
     ],
     "featured": false,
     "created_at": "2026-08-21T07:00:00.000Z"
@@ -695,7 +684,8 @@
     "sea_view": true,
     "description": "Gentle hillside residential land plot in Rawai with partial sea views and green mountain breeze. Chanote title, concrete access road, water and electricity connected.",
     "images": [
-      "/public/images/properties/pvc-land-for-sale-in-rawai-phuket_0.webp"
+      "/public/images/properties/pvc-10-rai-for-sell-wiset-road-rawai-phuket-can-b_2.webp",
+      "/public/images/properties/pvc-10-rai-for-sell-wiset-road-rawai-phuket-can-b_3.webp"
     ],
     "featured": false,
     "created_at": "2026-08-21T07:00:00.000Z"
@@ -870,7 +860,8 @@
     "sea_view": false,
     "description": "Recently built restaurant for sale near Rawai Beach. Built with new equipment, outdoor covered dining and bar. Ready for immediate handover.",
     "images": [
-      "/public/images/properties/pvc-sold_0.webp"
+      "/public/images/properties/pvc-restaurant-for-sale-in-phuket-rawai-superb-lo_0.webp",
+      "/public/images/properties/pvc-restaurant-for-sale-in-phuket-rawai-superb-lo_1.webp"
     ],
     "featured": false,
     "created_at": "2026-08-21T07:00:00.000Z"
@@ -925,7 +916,8 @@
     "sea_view": false,
     "description": "Commercial premises for rent near Nai Harn Beach at 15,000 THB/month. Takeover fee: 90,000 Baht. Includes 50 m² floor space, private bedroom and bathroom. Ideal for salon, office or boutique.",
     "images": [
-      "/public/images/properties/pvc-sold_0.webp"
+      "/public/images/properties/pvc-rented500-square-meter-commercial-premises-fo_0.webp",
+      "/public/images/properties/pvc-rented500-square-meter-commercial-premises-fo_1.webp"
     ],
     "featured": false,
     "created_at": "2026-08-21T07:00:00.000Z"
@@ -950,7 +942,8 @@
     "sea_view": false,
     "description": "High-revenue fast food restaurant in prime corner location in Rawai Phuket. Gross sales over 4 million THB/year, low monthly rent of 15,000 THB. Sale includes brand, social media, recipes and all kitchen equipment.",
     "images": [
-      "/public/images/properties/pvc-sold_0.webp"
+      "/public/images/properties/pvc-superb-restaurant-for-sale-in-rawai-phuket_0.webp",
+      "/public/images/properties/pvc-superb-restaurant-for-sale-in-rawai-phuket_1.webp"
     ],
     "featured": false,
     "created_at": "2026-08-21T07:00:00.000Z"
