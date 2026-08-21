@@ -246,6 +246,17 @@
           </div>
         </div>
 
+        <!-- Property Video Presentation Section -->
+        <div id="property-video-section" class="bg-[#16110B] border border-white/10 rounded-2xl p-6 sm:p-8 space-y-4" style="display: none;">
+          <h3 class="text-base font-bold text-white flex items-center gap-2">
+            <span class="text-[#DF921B]">🎬</span>
+            <span>Visite Vidéo & Présentation Exclusive</span>
+          </h3>
+          <div id="property-video-container" class="relative w-full aspect-video rounded-xl overflow-hidden bg-black border border-white/10 shadow-lg">
+            <!-- Injected Video iframe or HTML5 video -->
+          </div>
+        </div>
+
         <!-- Availability Calendar Section -->
         <div id="availability-section" class="bg-[#16110B] border border-white/10 rounded-2xl p-6 sm:p-8 space-y-6">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-4">
@@ -407,7 +418,7 @@
     </div>
   </div>
 
-  <script src="/js/app.js?v=20260822_v24_strict_airbnb_controls"></script>
+  <script src="/js/app.js?v=20260822_v25_media_channels_upload"></script>
   <script>
     let globalImages = [];
     let globalIdx = 0;
@@ -659,6 +670,43 @@
 
       // Initial image
       showImage(0);
+
+      // === RENDER VIDEO PRESENTATION (IF AVAILABLE) ===
+      function renderVideoPresentation() {
+        const videoSec = document.getElementById('property-video-section');
+        const videoContainer = document.getElementById('property-video-container');
+        if (!videoSec || !videoContainer || !property.video_url) return;
+
+        const url = property.video_url.trim();
+        let embedHtml = '';
+
+        // Check YouTube
+        const ytMatch = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
+        if (ytMatch && ytMatch[1]) {
+          embedHtml = `<iframe class="w-full h-full" src="https://www.youtube.com/embed/${ytMatch[1]}?rel=0&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+        } 
+        // Check Vimeo
+        else if (url.includes('vimeo.com')) {
+          const vimeoMatch = url.match(/vimeo\.com\/(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|album\/(\d+)\/video\/|video\/|)(\d+)/);
+          if (vimeoMatch && vimeoMatch[3]) {
+            embedHtml = `<iframe class="w-full h-full" src="https://player.vimeo.com/video/${vimeoMatch[3]}?title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
+          }
+        }
+        // Direct MP4 / WebM / Video link
+        else if (url.endsWith('.mp4') || url.endsWith('.webm') || url.endsWith('.mov') || url.includes('.mp4?')) {
+          embedHtml = `<video controls class="w-full h-full object-cover" poster="${images[0]}"><source src="${url}" type="video/mp4">Your browser does not support the video tag.</video>`;
+        }
+        // Generic fallback iframe
+        else {
+          embedHtml = `<iframe class="w-full h-full" src="${url}" frameborder="0" allowfullscreen></iframe>`;
+        }
+
+        if (embedHtml) {
+          videoContainer.innerHTML = embedHtml;
+          videoSec.style.display = 'block';
+        }
+      }
+      renderVideoPresentation();
 
       // Keyboard arrow navigation
       document.addEventListener('keydown', (e) => {

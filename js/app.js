@@ -1996,7 +1996,7 @@ function getDeletedPropertyKeys() {
   }
 }
 
-const PVC_DATA_VERSION = '20260822_v24_strict_airbnb_controls';
+const PVC_DATA_VERSION = '20260822_v25_media_channels_upload';
 
 function getAllProperties() {
   let list = [];
