@@ -1996,7 +1996,7 @@ function getDeletedPropertyKeys() {
   }
 }
 
-const PVC_DATA_VERSION = '20260822_v22_fix_photo_manager';
+const PVC_DATA_VERSION = '20260822_v23_admin_filters_duplicate';
 
 function getAllProperties() {
   let list = [];
