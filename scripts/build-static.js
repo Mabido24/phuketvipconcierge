@@ -4,9 +4,8 @@ const path = require('path');
 const rootDir = path.resolve(__dirname, '..');
 const outDir = path.join(rootDir, 'out');
 
-console.log('🚀 Building Pure Static Application for Cloudflare Pages (Phuket VIP Concierge)...');
+console.log('🚀 Building Pure Static Application for Cloudflare (Phuket VIP Concierge)...');
 
-// Ensure clean out directory
 if (fs.existsSync(outDir)) {
   fs.rmSync(outDir, { recursive: true, force: true });
 }
@@ -35,6 +34,12 @@ function copyRecursiveSync(src, dest) {
   }
 });
 
+// Also duplicate public/images to out/images so both /images/ and /public/images/ resolve 100%
+const imagesSrc = path.join(rootDir, 'public', 'images');
+if (fs.existsSync(imagesSrc)) {
+  copyRecursiveSync(imagesSrc, path.join(outDir, 'images'));
+}
+
 // Copy root HTML files to out/
 fs.readdirSync(rootDir).forEach(file => {
   if (file.endsWith('.html')) {
@@ -42,7 +47,7 @@ fs.readdirSync(rootDir).forEach(file => {
   }
 });
 
-// Copy _headers file for Cloudflare Pages cache control
+// Copy _headers file for Cloudflare cache control
 const headersFile = path.join(rootDir, 'public', '_headers');
 if (fs.existsSync(headersFile)) {
   fs.copyFileSync(headersFile, path.join(outDir, '_headers'));
