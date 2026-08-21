@@ -2171,7 +2171,7 @@ function getDeletedPropertyKeys() {
   }
 }
 
-const PVC_DATA_VERSION = '20260821_v18_en_i18n';
+const PVC_DATA_VERSION = '20260821_v19_onthefly_gtx';
 
 function getAllProperties() {
   let list = [];
@@ -2207,13 +2207,69 @@ function saveProperties(list) {
   }
 }
 
+// Dynamic translation cache to avoid duplicate API calls
+const DYNAMIC_TRANSLATION_CACHE = {};
+
+async function translateDynamicText(text, targetLang = currentLang) {
+  if (!text || typeof text !== 'string') return text;
+  const clean = text.trim();
+  if (!clean || targetLang === 'en') return clean;
+
+  const cacheKey = `${targetLang}:${clean}`;
+  if (DYNAMIC_TRANSLATION_CACHE[cacheKey]) {
+    return DYNAMIC_TRANSLATION_CACHE[cacheKey];
+  }
+
+  try {
+    const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${encodeURIComponent(targetLang)}&dt=t&q=${encodeURIComponent(clean)}`;
+    const res = await fetch(url);
+    if (!res.ok) return clean;
+    const json = await res.json();
+    if (json && Array.isArray(json[0])) {
+      const translated = json[0].map(item => item[0]).join('');
+      if (translated && translated.trim()) {
+        DYNAMIC_TRANSLATION_CACHE[cacheKey] = translated.trim();
+        return translated.trim();
+      }
+    }
+    return clean;
+  } catch (e) {
+    return clean;
+  }
+}
+
+/**
+ * Translates on-the-fly all rendered property cards on the page (index, catalog)
+ */
+function translateOnTheFlyProperties(targetLang = currentLang) {
+  if (targetLang === 'en') return;
+
+  const titles = document.querySelectorAll('.prop-card-title');
+  titles.forEach(el => {
+    const original = el.getAttribute('data-original-title') || el.textContent.trim();
+    if (!el.getAttribute('data-original-title')) el.setAttribute('data-original-title', original);
+    translateDynamicText(original, targetLang).then(translated => {
+      if (translated && el) el.textContent = translated;
+    });
+  });
+
+  const descs = document.querySelectorAll('.prop-card-desc');
+  descs.forEach(el => {
+    const original = el.getAttribute('data-original-desc') || el.textContent.trim();
+    if (!el.getAttribute('data-original-desc')) el.setAttribute('data-original-desc', original);
+    translateDynamicText(original, targetLang).then(translated => {
+      if (translated && el) el.textContent = translated;
+    });
+  });
+}
+
 function renderPropertyCard(p) {
   if (!p) return '';
   const dict = getI18n();
   const coverImage = (Array.isArray(p.images) && p.images[0]) ? p.images[0] : (p.image || '/public/images/villa_1.png');
   const formattedPrice = formatPrice(p.price_thb || p.price);
   const isRent = (p.purpose === 'rent');
-  const purposeBadge = isRent ? (dict.lbl_purpose_rent || 'Location') : (dict.lbl_purpose_buy || 'Vente');
+  const purposeBadge = isRent ? (dict.lbl_purpose_rent || 'Rent') : (dict.lbl_purpose_buy || 'Buy');
 
   return `
     <article class="property-card flex flex-col group h-full">
@@ -2238,50 +2294,34 @@ function renderPropertyCard(p) {
 
       <div class="p-5 flex flex-col flex-grow justify-between bg-white">
         <div>
-          <h3 class="font-bold text-lg text-[#110D09] group-hover:text-[#DF921B] transition-colors line-clamp-1 mb-2">
+          <h3 class="prop-card-title font-bold text-lg text-[#110D09] group-hover:text-[#DF921B] transition-colors line-clamp-1 mb-2" data-original-title="${p.title}">
             ${p.title}
           </h3>
-          <p class="text-xs text-zinc-500 line-clamp-2 mb-4 leading-relaxed">
-            ${p.description || 'Propriété de haut standing avec prestations exclusives.'}
+          <p class="prop-card-desc text-xs text-zinc-500 line-clamp-2 mb-4 leading-relaxed" data-original-desc="${p.description || ''}">
+            ${p.description || 'Prestige property with luxury amenities.'}
           </p>
         </div>
 
         <div>
           <div class="grid grid-cols-3 gap-2 py-3 border-t border-b border-zinc-100 mb-4 text-center text-xs text-zinc-600">
-            ${p.bedrooms ? `<div class="flex flex-col"><span class="font-bold text-[#110D09]">${p.bedrooms}</span><span class="text-[10px] text-zinc-400 uppercase">${dict.lbl_beds || 'Chambres'}</span></div>` : ''}
-            ${p.bathrooms ? `<div class="flex flex-col"><span class="font-bold text-[#110D09]">${p.bathrooms}</span><span class="text-[10px] text-zinc-400 uppercase">${dict.lbl_baths || 'Bains'}</span></div>` : ''}
-            ${p.building_area ? `<div class="flex flex-col"><span class="font-bold text-[#110D09]">${p.building_area} m²</span><span class="text-[10px] text-zinc-400 uppercase">${dict.lbl_area || 'Surface'}</span></div>` : ''}
+            ${p.bedrooms ? `<div class="flex flex-col"><span class="font-bold text-[#110D09]">${p.bedrooms}</span><span class="text-[10px] text-zinc-400 uppercase">${dict.lbl_beds || 'Beds'}</span></div>` : ''}
+            ${p.bathrooms ? `<div class="flex flex-col"><span class="font-bold text-[#110D09]">${p.bathrooms}</span><span class="text-[10px] text-zinc-400 uppercase">${dict.lbl_baths || 'Baths'}</span></div>` : ''}
+            ${p.building_area ? `<div class="flex flex-col"><span class="font-bold text-[#110D09]">${p.building_area} m²</span><span class="text-[10px] text-zinc-400 uppercase">${dict.lbl_area || 'Area'}</span></div>` : ''}
           </div>
 
           <div class="flex items-center justify-between pt-1">
             <div>
-              <span class="text-[11px] uppercase font-bold text-zinc-400 block tracking-wider">Prix</span>
+              <span class="text-[11px] uppercase font-bold text-zinc-400 block tracking-wider">${dict.lbl_price || 'Price'}</span>
               <span class="text-base font-extrabold text-[#DF921B]">${formattedPrice}</span>
             </div>
             <a href="/property-detail.html?id=${p.id}" class="btn-outline-gold text-xs py-2 px-4 rounded-xl font-bold">
-              ${dict.lbl_details || 'Détails'} →
+              ${dict.lbl_details || 'Details'} →
             </a>
           </div>
         </div>
       </div>
     </article>
   `;
-}
-
-async function translateDynamicText(text, targetLang) {
-  if (!text || targetLang === 'en') return text;
-  try {
-    const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${encodeURIComponent(targetLang)}&dt=t&q=${encodeURIComponent(text)}`;
-    const res = await fetch(url);
-    if (!res.ok) return text;
-    const json = await res.json();
-    if (json && json[0]) {
-      return json[0].map(item => item[0]).join('');
-    }
-    return text;
-  } catch (e) {
-    return text;
-  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {

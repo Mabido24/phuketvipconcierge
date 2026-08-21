@@ -368,7 +368,7 @@
     </div>
   </div>
 
-  <script src="/js/app.js?v=20260821_v18_en_i18n"></script>
+  <script src="/js/app.js?v=20260821_v19_onthefly_gtx"></script>
   <script>
     let globalImages = [];
     let globalIdx = 0;
@@ -516,9 +516,37 @@
           `;
         }
 
+        // Dynamic on-the-fly translation of property title and description
+        if (typeof translateDynamicText === 'function') {
+          const rawTitle = property.title;
+          const rawDesc = property.description || 'Prestige property with luxury amenities.';
+          
+          if (currentLang === 'en') {
+            document.title = `${rawTitle} | Phuket VIP Concierge`;
+            const titleEl = document.getElementById('prop-title');
+            if (titleEl) titleEl.textContent = rawTitle;
+            const descEl = document.getElementById('prop-description');
+            if (descEl) descEl.textContent = rawDesc;
+          } else {
+            translateDynamicText(rawTitle, currentLang).then(translatedTitle => {
+              if (translatedTitle) {
+                document.title = `${translatedTitle} | Phuket VIP Concierge`;
+                const titleEl = document.getElementById('prop-title');
+                if (titleEl) titleEl.textContent = translatedTitle;
+              }
+            });
+            translateDynamicText(rawDesc, currentLang).then(translatedDesc => {
+              if (translatedDesc) {
+                const descEl = document.getElementById('prop-description');
+                if (descEl) descEl.textContent = translatedDesc;
+              }
+            });
+          }
+        }
+
         const msgArea = document.getElementById('inquiry-message-area');
         if (msgArea && !msgArea.dataset.userEdited) {
-          const tpl = dict.inquiry_msg_template || "Bonjour, je souhaite obtenir le dossier complet et convenir d'une visite pour le bien : {title} (Réf: {id}).";
+          const tpl = dict.inquiry_msg_template || "Hello, I would like to receive the full brochure and schedule a private viewing for the property: {title} (Ref: {id}).";
           msgArea.value = tpl.replace('{title}', property.title).replace('{id}', property.id);
         }
 
@@ -528,12 +556,6 @@
       updateLocalizedContent();
       window.addEventListener('pvc:languageChanged', updateLocalizedContent);
       window.addEventListener('pvc:currencyChanged', renderPrice);
-
-      // Clean Description
-      const descEl = document.getElementById('prop-description');
-      if (descEl) {
-        descEl.textContent = property.description || 'Prestigieuse propriété sélectionnée par Phuket VIP Concierge.';
-      }
 
       // === LUXURY SLIDER & HORIZONTAL SCROLLBAR GALLERY LOGIC ===
       const images = (Array.isArray(property.images) && property.images.length > 0) ? property.images : ['/public/images/properties/rawai-3-bedrooms.webp'];

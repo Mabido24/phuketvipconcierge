@@ -277,7 +277,7 @@
   
   
 
-  <script src="/js/app.js?v=20260821_v18_en_i18n"></script>
+  <script src="/js/app.js?v=20260821_v19_onthefly_gtx"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const grid = document.getElementById('catalog-grid');
@@ -454,6 +454,9 @@
         }
 
         grid.innerHTML = props.map(renderPropertyCard).join('');
+        if (typeof translateOnTheFlyProperties === 'function') {
+          translateOnTheFlyProperties(currentLang);
+        }
       }
 
       window.resetAllFilters = function() {
