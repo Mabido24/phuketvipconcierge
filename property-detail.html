@@ -172,25 +172,28 @@
     <!-- Luxury HD Gallery & Slider Section -->
     <div class="mb-12 space-y-4">
       
-      <!-- Main Photo Stage with Overlaid Arrow Controls -->
-      <div class="relative w-full aspect-[16/9] sm:aspect-[21/10] rounded-2xl overflow-hidden bg-black/80 border border-white/15 shadow-2xl group select-none">
+      <!-- Main Photo Stage with Ambient Glow Backdrop and Centered High-Res Image -->
+      <div class="relative w-full h-[380px] sm:h-[540px] md:h-[620px] rounded-3xl overflow-hidden bg-[#0A0705] border border-white/15 shadow-2xl group select-none flex items-center justify-center">
         
-        <!-- High-res Image -->
-        <img id="main-gallery-img" src="/public/images/properties/rawai-3-bedrooms.webp" alt="Property Main View" class="w-full h-full object-cover transition-all duration-500 ease-out">
+        <!-- Ambient Blurred Backdrop -->
+        <img id="bg-ambient-img" src="/public/images/properties/rawai-3-bedrooms.webp" alt="" class="absolute inset-0 w-full h-full object-cover blur-2xl opacity-35 scale-110 pointer-events-none transition-all duration-500">
         
-        <!-- Gradient Overlay -->
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none"></div>
+        <!-- Crisp High-res Image -->
+        <img id="main-gallery-img" src="/public/images/properties/rawai-3-bedrooms.webp" alt="Property Main View" class="relative z-10 max-h-full max-w-full object-contain rounded-2xl drop-shadow-[0_15px_35px_rgba(0,0,0,0.8)] transition-all duration-300 ease-out">
+        
+        <!-- Subtle Top & Bottom Gradient Vignette -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none z-10"></div>
 
         <!-- Navigation Arrows -->
-        <button type="button" id="btn-gallery-prev" class="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-black/60 hover:bg-[#DF921B] text-white flex items-center justify-center text-xl font-bold backdrop-blur-md border border-white/20 transition-all shadow-xl hover:scale-110 opacity-90 group-hover:opacity-100" aria-label="Previous Photo">
+        <button type="button" id="btn-gallery-prev" class="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-black/70 hover:bg-[#DF921B] text-white flex items-center justify-center text-2xl font-bold backdrop-blur-md border border-white/20 transition-all shadow-2xl hover:scale-110 opacity-90 group-hover:opacity-100" aria-label="Previous Photo">
           ‹
         </button>
-        <button type="button" id="btn-gallery-next" class="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-black/60 hover:bg-[#DF921B] text-white flex items-center justify-center text-xl font-bold backdrop-blur-md border border-white/20 transition-all shadow-xl hover:scale-110 opacity-90 group-hover:opacity-100" aria-label="Next Photo">
+        <button type="button" id="btn-gallery-next" class="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-black/70 hover:bg-[#DF921B] text-white flex items-center justify-center text-2xl font-bold backdrop-blur-md border border-white/20 transition-all shadow-2xl hover:scale-110 opacity-90 group-hover:opacity-100" aria-label="Next Photo">
           ›
         </button>
 
         <!-- Counter Badge -->
-        <div class="absolute bottom-4 right-4 bg-black/70 backdrop-blur-md border border-white/20 text-white text-xs font-semibold px-3 py-1.5 rounded-xl shadow-lg">
+        <div class="absolute bottom-4 right-4 z-20 bg-black/80 backdrop-blur-md border border-white/20 text-white text-xs font-bold px-3.5 py-1.5 rounded-xl shadow-xl">
           <span id="gallery-counter">1 / 1</span>
         </div>
       </div>
@@ -476,6 +479,7 @@
       const images = (Array.isArray(property.images) && property.images.length > 0) ? property.images : ['/public/images/properties/rawai-3-bedrooms.webp'];
       let currentImgIdx = 0;
       const mainImg = document.getElementById('main-gallery-img');
+      const ambientImg = document.getElementById('bg-ambient-img');
       const counterEl = document.getElementById('gallery-counter');
       const thumbsContainer = document.getElementById('gallery-thumbs');
       const btnPrev = document.getElementById('btn-gallery-prev');
@@ -487,11 +491,14 @@
         currentImgIdx = idx;
 
         // Smooth crossfade
-        mainImg.style.opacity = '0.3';
-        setTimeout(() => {
-          mainImg.src = images[currentImgIdx];
-          mainImg.style.opacity = '1';
-        }, 120);
+        if (mainImg) {
+          mainImg.style.opacity = '0.3';
+          setTimeout(() => {
+            mainImg.src = images[currentImgIdx];
+            if (ambientImg) ambientImg.src = images[currentImgIdx];
+            mainImg.style.opacity = '1';
+          }, 100);
+        }
 
         if (counterEl) {
           counterEl.textContent = `${currentImgIdx + 1} / ${images.length}`;
