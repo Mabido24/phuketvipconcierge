@@ -4,23 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google" content="notranslate">
-  <title>Détails de la Propriété | Phuket VIP Concierge</title>
-  <link rel="stylesheet" href="/css/style.css?v=20260821_v5_strict_clean">
+  <title id="page-title">Fiche Propriété | Phuket VIP Concierge</title>
+  
+  <!-- Tailwind CSS & Plus Jakarta Sans -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Leaflet Interactive Map -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <link rel="stylesheet" href="/css/style.css?v=20260821_v6_strict">
+  
+  <!-- Leaflet Map CSS/JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <style>
-    body { background-color: #110D09; color: #ffffff; }
-    .glass-box { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 1.25rem; }
-    #detail-map { height: 350px; width: 100%; border-radius: 1rem; z-index: 10; }
-  </style>
 </head>
-<body class="bg-[#110D09] text-white min-h-screen selection:bg-[#DF921B] selection:text-black">
+<body class="bg-[#0D0A08] text-white selection:bg-[#DF921B] selection:text-white">
 
-  
-  
-  <!-- Navigation (Universal Responsive Dark Navbar with Official Logo) -->
+  <!-- Navigation -->
   <nav class="fixed w-full top-0 z-50 bg-[#110D09]/95 backdrop-blur-md border-b border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-20">
@@ -47,10 +43,8 @@
           <a href="/index.html#services" class="text-sm font-semibold text-zinc-300 hover:text-[#DF921B] transition-colors" i18n="nav_services" translate="no">Conciergerie</a>
         </div>
 
-        <!-- Controls (Language + Currency + CTAs) -->
+        <!-- Controls -->
         <div class="flex items-center gap-2 sm:gap-3">
-          
-          <!-- Language Selector -->
           <select id="ctrl-lang" class="ctrl-select">
             <option value="fr">🇫🇷 FR</option>
             <option value="en">🇬🇧 EN</option>
@@ -64,14 +58,12 @@
             <option value="zh">🇨🇳 ZH</option>
           </select>
 
-          <!-- Currency Selector -->
           <select id="ctrl-curr" class="ctrl-select">
             <option value="THB">฿ THB</option>
             <option value="EUR">€ EUR</option>
             <option value="USD">$ USD</option>
           </select>
 
-          <!-- Desktop CTAs -->
           <div class="hidden md:flex items-center gap-2">
             <a href="/estimate.html" class="border border-[#DF921B] text-[#DF921B] hover:bg-[#DF921B] hover:text-white transition-all font-semibold text-xs py-2 px-3.5 rounded-xl whitespace-nowrap" i18n="nav_estimate" translate="no">
               Estimation Gratuite
@@ -82,12 +74,10 @@
             </a>
           </div>
 
-          <!-- Mobile Hamburger Button -->
           <button type="button" id="btn-mobile-menu" class="lg:hidden p-2 text-zinc-300 hover:text-white rounded-lg focus:outline-none" aria-label="Toggle Navigation">
             <svg id="icon-menu-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
             <svg id="icon-menu-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
           </button>
-
         </div>
 
       </div>
@@ -113,35 +103,43 @@
       </div>
     </div>
   </nav>
-  
-  
 
+  <!-- Main Property Detail View -->
   <main class="pt-28 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <!-- Top Breadcrumbs & Action -->
-    <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
-      <a href="/properties.html" class="text-xs font-semibold text-zinc-400 hover:text-[#DF921B] transition flex items-center gap-1.5">
+    <!-- Top Breadcrumb & Back button -->
+    <div class="flex items-center justify-between mb-6 text-xs text-zinc-400">
+      <a href="/properties.html" class="inline-flex items-center gap-2 hover:text-[#DF921B] transition font-semibold">
         <span>←</span>
-        <span>Retour au catalogue</span>
+        <span i18n="btn_back_catalog" translate="no">Retour au catalogue</span>
       </a>
-      <div id="detail-purpose-badge" class="bg-[#DF921B] text-white text-xs font-bold px-3.5 py-1 rounded-full uppercase tracking-wider shadow-md">
-        Prestige
-      </div>
+      <span id="prop-id-tag" class="bg-white/10 text-zinc-300 px-3 py-1 rounded-full font-mono text-[11px] border border-white/10">
+        REF: PVC-1001
+      </span>
     </div>
 
-    <!-- Title & Location Header -->
-    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+    <!-- Title & Price Header Banner -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 pb-6 border-b border-white/10">
       <div>
-        <h1 id="prop-title" class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight mb-2">
-          Propriété de Prestige
+        <div class="flex items-center gap-2 mb-2">
+          <span id="detail-purpose-badge" class="bg-[#DF921B] text-white text-xs font-bold px-3 py-0.5 rounded-full uppercase tracking-wider shadow-sm">
+            Vente Exclusive
+          </span>
+          <span id="detail-type-badge" class="bg-white/10 text-white text-xs font-semibold px-2.5 py-0.5 rounded-full border border-white/10">
+            Villa
+          </span>
+        </div>
+        <h1 id="prop-title" class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+          Chargement de l'annonce...
         </h1>
-        <p id="prop-location" class="text-sm text-zinc-400 flex items-center gap-1.5">
+        <p id="prop-location" class="flex items-center gap-1.5 text-zinc-400 text-xs sm:text-sm mt-1.5">
           <span class="text-[#DF921B]">📍</span>
-          <span>Bang Tao, Phuket, Thailand</span>
+          <span>Phuket, Thailand</span>
         </p>
       </div>
+
       <div class="text-left md:text-right">
-        <span class="text-xs text-zinc-400 uppercase font-bold tracking-wider block">Prix</span>
+        <span class="text-xs text-zinc-400 uppercase font-bold tracking-wider block" i18n="lbl_price" translate="no">Prix</span>
         <span id="prop-price" class="text-2xl sm:text-3xl font-extrabold text-[#DF921B]">
           Prix sur demande
         </span>
@@ -152,18 +150,23 @@
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
       <!-- Main Photo -->
       <div class="lg:col-span-2 aspect-[16/10] rounded-2xl overflow-hidden bg-zinc-900 border border-white/10 relative shadow-2xl">
-        <img id="main-gallery-img" src="/public/images/villa_1.png" alt="Property Main" class="w-full h-full object-cover">
+        <img id="main-gallery-img" src="/public/images/properties/rawai-3-bedrooms.webp" alt="Property Main View" class="w-full h-full object-cover transition-opacity duration-300">
       </div>
-      <!-- Thumbnails & Contact CTA Box -->
+
+      <!-- Thumbnails & VIP Assistance Card -->
       <div class="flex flex-col justify-between gap-4">
-        <div id="gallery-thumbs" class="grid grid-cols-3 gap-3 overflow-hidden">
-          <!-- Injected Thumbs -->
+        <div>
+          <h4 class="text-xs uppercase font-bold tracking-wider text-zinc-400 mb-2">Galerie Photos</h4>
+          <div id="gallery-thumbs" class="grid grid-cols-3 gap-2.5 max-h-48 overflow-y-auto p-1 bg-white/5 rounded-2xl border border-white/5">
+            <!-- Dynamic Thumbnails -->
+          </div>
         </div>
-        <div class="glass-box p-6 flex flex-col justify-center text-center">
-          <div class="w-10 h-10 bg-[#DF921B]/20 text-[#DF921B] rounded-full flex items-center justify-center mx-auto mb-3 font-bold">💎</div>
-          <h3 class="text-sm font-bold text-white mb-1">Visite Privée & Conciergerie VIP</h3>
-          <p class="text-xs text-zinc-400 mb-4">Notre conseiller dédié organise votre visite en toute discrétion.</p>
-          <a href="#inquiry-box" class="btn-gold py-3 rounded-xl font-bold text-xs shadow-lg">
+
+        <div class="bg-[#16110B] border border-[#DF921B]/30 rounded-2xl p-5 text-center shadow-xl">
+          <div class="w-9 h-9 bg-[#DF921B]/20 text-[#DF921B] rounded-full flex items-center justify-center mx-auto mb-2 text-base font-bold">💎</div>
+          <h3 class="text-sm font-bold text-white mb-1" i18n="box_visit_title" translate="no">Visite Privée & Conciergerie VIP</h3>
+          <p class="text-[11px] text-zinc-400 mb-3" i18n="box_visit_desc" translate="no">Notre équipe dédiée organise votre visite exclusive en toute discrétion.</p>
+          <a href="#inquiry-box" class="btn-gold w-full py-2.5 rounded-xl font-bold text-xs shadow-lg inline-flex items-center justify-center gap-1.5" i18n="btn_schedule_visit" translate="no">
             Organiser une visite
           </a>
         </div>
@@ -177,66 +180,66 @@
       <div class="lg:col-span-2 space-y-10">
         
         <!-- Key Specifications Grid -->
-        <div class="glass-box p-6 sm:p-8">
+        <div class="bg-[#16110B] border border-white/10 rounded-2xl p-6 sm:p-8">
           <h3 class="text-base font-bold text-white mb-6 flex items-center gap-2">
             <span class="text-[#DF921B]">✦</span>
-            <span>Caractéristiques Principales</span>
+            <span i18n="sec_key_specs" translate="no">Caractéristiques Principales</span>
           </h3>
           <div id="specs-container" class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs">
-            <!-- Injected specs -->
+            <!-- Dynamic Specs -->
           </div>
         </div>
 
         <!-- Description -->
-        <div class="glass-box p-6 sm:p-8">
+        <div class="bg-[#16110B] border border-white/10 rounded-2xl p-6 sm:p-8">
           <h3 class="text-base font-bold text-white mb-4 flex items-center gap-2">
             <span class="text-[#DF921B]">✦</span>
-            <span>Description du Bien</span>
+            <span i18n="sec_prop_desc" translate="no">Description du Bien</span>
           </h3>
           <div id="prop-description" class="text-zinc-300 text-xs sm:text-sm leading-relaxed space-y-4">
             <!-- Dynamic Description -->
           </div>
         </div>
 
-        <!-- Map & Surroundings -->
-        <div class="glass-box p-6 sm:p-8">
+        <!-- Interactive Map -->
+        <div class="bg-[#16110B] border border-white/10 rounded-2xl p-6 sm:p-8">
           <h3 class="text-base font-bold text-white mb-4 flex items-center gap-2">
             <span class="text-[#DF921B]">📍</span>
-            <span>Localisation & Environnement</span>
+            <span i18n="sec_location_map" translate="no">Localisation & Quartier</span>
           </h3>
-          <div id="detail-map"></div>
+          <div id="detail-map" class="h-72 sm:h-96 rounded-xl overflow-hidden border border-white/10 z-0"></div>
         </div>
 
       </div>
 
-      <!-- Right Column: Inquiry Form -->
+      <!-- Right Column: Inquiry Form Sticky -->
       <div id="inquiry-box">
-        <div class="glass-box p-6 sm:p-8 sticky top-28 space-y-6">
+        <div class="bg-[#16110B] border border-white/10 rounded-2xl p-6 sm:p-8 sticky top-28 space-y-6 shadow-2xl">
           <div>
-            <span class="text-xs uppercase font-extrabold tracking-widest text-[#DF921B] block mb-1">Assistance VIP</span>
-            <h3 class="text-lg font-bold text-white">Demande d'Information Privée</h3>
-            <p class="text-xs text-zinc-400 mt-1">Réponse confidentielle sous 24h par notre concierge dédié.</p>
+            <span class="text-[11px] uppercase font-extrabold tracking-widest text-[#DF921B] block mb-1">Service Concierge VIP</span>
+            <h3 class="text-lg font-bold text-white" i18n="form_inquiry_title" translate="no">Demande d'Information Privée</h3>
+            <p class="text-xs text-zinc-400 mt-1" i18n="form_inquiry_subtitle" translate="no">Réponse confidentielle sous 24h par notre équipe locale.</p>
           </div>
 
           <form id="prop-inquiry-form" class="space-y-4">
             <div>
-              <label class="block text-xs font-semibold text-zinc-300 mb-1">Votre Nom</label>
+              <label class="block text-xs font-semibold text-zinc-300 mb-1" i18n="contact_name" translate="no">Votre Nom</label>
               <input type="text" required placeholder="Nom complet" class="w-full bg-black/40 border border-white/15 focus:border-[#DF921B] rounded-xl px-4 py-2.5 text-xs text-white outline-none transition">
             </div>
             <div>
-              <label class="block text-xs font-semibold text-zinc-300 mb-1">Email</label>
+              <label class="block text-xs font-semibold text-zinc-300 mb-1" i18n="contact_email" translate="no">Email</label>
               <input type="email" required placeholder="votre.email@domaine.com" class="w-full bg-black/40 border border-white/15 focus:border-[#DF921B] rounded-xl px-4 py-2.5 text-xs text-white outline-none transition">
             </div>
             <div>
-              <label class="block text-xs font-semibold text-zinc-300 mb-1">Téléphone / WhatsApp</label>
+              <label class="block text-xs font-semibold text-zinc-300 mb-1" i18n="contact_phone" translate="no">Téléphone / WhatsApp</label>
               <input type="tel" placeholder="+33... / +66..." class="w-full bg-black/40 border border-white/15 focus:border-[#DF921B] rounded-xl px-4 py-2.5 text-xs text-white outline-none transition">
             </div>
             <div>
-              <label class="block text-xs font-semibold text-zinc-300 mb-1">Message</label>
-              <textarea rows="3" class="w-full bg-black/40 border border-white/15 focus:border-[#DF921B] rounded-xl px-4 py-2.5 text-xs text-white outline-none transition" placeholder="Je souhaite obtenir la brochure complète et convenir d'une visite..."></textarea>
+              <label class="block text-xs font-semibold text-zinc-300 mb-1" i18n="contact_message" translate="no">Message</label>
+              <textarea id="inquiry-message-area" rows="3" class="w-full bg-black/40 border border-white/15 focus:border-[#DF921B] rounded-xl px-4 py-2.5 text-xs text-white outline-none transition" placeholder="Je souhaite obtenir la brochure complète et convenir d'une visite..."></textarea>
             </div>
-            <button type="submit" class="w-full btn-gold py-3 rounded-xl font-bold text-xs shadow-xl">
-              Envoyer la Demande
+            <button type="submit" class="w-full btn-gold py-3 rounded-xl font-bold text-xs shadow-xl" i18n="btn_send_inquiry" translate="no">
+              Envoyer la Demande Privée
             </button>
           </form>
         </div>
@@ -245,14 +248,11 @@
     </div>
   </main>
 
-  
-  
   <!-- Footer -->
   <footer class="bg-[#110D09] text-zinc-400 pt-16 pb-12 border-t border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-white/10">
         
-        <!-- Col 1: Brand with Official Logo -->
         <div class="md:col-span-2 space-y-4">
           <div class="flex items-center gap-3">
             <div class="h-10 w-10 rounded-full overflow-hidden bg-[#1C140E] border border-[#DF921B]/40 shadow-sm flex items-center justify-center p-0.5">
@@ -270,7 +270,6 @@
           </div>
         </div>
 
-        <!-- Col 2: Navigation -->
         <div>
           <h4 class="text-white text-xs font-bold uppercase tracking-wider mb-4">Navigation</h4>
           <ul class="space-y-2.5 text-xs">
@@ -282,7 +281,6 @@
           </ul>
         </div>
 
-        <!-- Col 3: Contact -->
         <div>
           <h4 class="text-white text-xs font-bold uppercase tracking-wider mb-4">Contact VIP</h4>
           <ul class="space-y-2.5 text-xs text-zinc-400">
@@ -305,90 +303,172 @@
       </div>
     </div>
   </footer>
-  
-  
 
-  <script src="/js/app.js?v=20260821_v5_strict_clean"></script>
+  <script src="/js/app.js?v=20260821_v6_strict"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', async () => {
+    document.addEventListener('DOMContentLoaded', () => {
       const urlParams = new URLSearchParams(window.location.search);
-      const propId = urlParams.get('id');
+      const rawTargetId = (urlParams.get('id') || '').trim();
       const allProps = (typeof getAllProperties === 'function') ? getAllProperties() : [];
       
-      const property = allProps.find(p => p.slug === propId || String(p.id) === String(propId)) || allProps[0];
+      // Strict multi-key resolver
+      let property = null;
+      if (rawTargetId) {
+        property = allProps.find(p => {
+          if (!p) return false;
+          if (String(p.id).toLowerCase() === rawTargetId.toLowerCase()) return true;
+          if (String(p.slug).toLowerCase() === rawTargetId.toLowerCase()) return true;
+          if (rawTargetId.toLowerCase().includes(String(p.id).toLowerCase())) return true;
+          if (String(p.slug).toLowerCase().includes(rawTargetId.toLowerCase())) return true;
+          return false;
+        });
+      }
+
+      // If still not found, search by numeric index or fallback safely
+      if (!property && allProps.length > 0) {
+        const numMatch = rawTargetId.match(/\d+/);
+        if (numMatch) {
+          const idx = parseInt(numMatch[0], 10);
+          if (idx >= 1001 && idx <= 1000 + allProps.length) {
+            property = allProps[idx - 1001];
+          }
+        }
+      }
+
+      if (!property) {
+        property = allProps[0];
+      }
 
       if (!property) {
         document.querySelector('main').innerHTML = `
-          <div class="text-center py-24 glass-box p-8 max-w-xl mx-auto">
+          <div class="text-center py-24 bg-[#16110B] border border-white/10 rounded-3xl p-8 max-w-xl mx-auto my-12">
             <h2 class="text-xl font-bold text-white mb-2">Propriété non trouvée</h2>
-            <p class="text-xs text-zinc-400 mb-6">Cette offre n'est plus disponible ou a été modifiée.</p>
+            <p class="text-xs text-zinc-400 mb-6">Cette offre n'est plus disponible ou a été déplacée.</p>
             <a href="/properties.html" class="btn-gold px-6 py-2.5 rounded-xl text-xs font-bold">Retour aux offres</a>
           </div>
         `;
         return;
       }
 
-      // Populate Elements
+      // Update Page Meta Title
+      document.title = `${property.title} | Phuket VIP Concierge`;
+      document.getElementById('page-title').textContent = `${property.title} | Phuket VIP Concierge`;
+
+      // Header Elements
+      document.getElementById('prop-id-tag').textContent = `REF: ${property.id}`;
       document.getElementById('prop-title').textContent = property.title;
-      document.getElementById('prop-location').innerHTML = `<span class="text-[#DF921B]">📍</span> <span>${property.district || 'Phuket'}, Thailand</span>`;
-      document.getElementById('prop-price').textContent = formatPrice(property.price_thb || property.price);
+      document.getElementById('prop-location').innerHTML = `<span class="text-[#DF921B]">📍</span> <span>${property.district || 'Rawai'}, Phuket, Thailand</span>`;
       
-      const badge = document.getElementById('detail-purpose-badge');
-      if (badge) {
-        badge.textContent = property.purpose === 'rent' ? 'Location Prestige' : 'Vente Exclusive';
+      function renderPrice() {
+        const formatted = (typeof formatPrice === 'function') ? formatPrice(property.price_thb || property.price) : `${property.price_thb} THB`;
+        const suffix = (property.purpose === 'rent') ? ' / mois' : '';
+        document.getElementById('prop-price').textContent = formatted + suffix;
+      }
+      renderPrice();
+      window.addEventListener('pvc:currencyChanged', renderPrice);
+
+      const purposeBadge = document.getElementById('detail-purpose-badge');
+      if (purposeBadge) {
+        purposeBadge.textContent = property.purpose === 'rent' ? 'Location' : 'Vente Exclusive';
       }
 
-      // Images
-      const images = (Array.isArray(property.images) && property.images.length > 0) ? property.images : ['/public/images/villa_1.png'];
+      const typeBadge = document.getElementById('detail-type-badge');
+      if (typeBadge) {
+        typeBadge.textContent = property.type || 'Villa';
+      }
+
+      // Images Gallery
+      const images = (Array.isArray(property.images) && property.images.length > 0) ? property.images : ['/public/images/properties/rawai-3-bedrooms.webp'];
       const mainImg = document.getElementById('main-gallery-img');
       mainImg.src = images[0];
 
       const thumbsContainer = document.getElementById('gallery-thumbs');
       if (thumbsContainer) {
-        thumbsContainer.innerHTML = images.slice(0, 3).map((img, idx) => `
-          <button type="button" onclick="document.getElementById('main-gallery-img').src='${img}'" class="aspect-[16/10] rounded-xl overflow-hidden border border-white/10 hover:border-[#DF921B] transition">
-            <img src="${img}" class="w-full h-full object-cover">
+        thumbsContainer.innerHTML = images.map((img, idx) => `
+          <button type="button" onclick="document.getElementById('main-gallery-img').src='${img}'" class="aspect-[16/10] rounded-xl overflow-hidden border border-white/10 hover:border-[#DF921B] transition focus:outline-none focus:ring-2 focus:ring-[#DF921B]">
+            <img src="${img}" alt="Thumbnail ${idx + 1}" class="w-full h-full object-cover" loading="lazy">
           </button>
         `).join('');
       }
 
-      // Specs
+      // Specifications Grid with Strict Nullish Coalescing
       const specsContainer = document.getElementById('specs-container');
       if (specsContainer) {
+        const beds = property.bedrooms ?? (property.type === 'Land' || property.type === 'Business' ? '-' : 0);
+        const baths = property.bathrooms ?? (property.type === 'Land' ? '-' : 0);
+        const bArea = property.building_area ? `${property.building_area} m²` : '-';
+        const lArea = property.land_area ? `${property.land_area} m²` : '-';
+        const poolText = property.private_pool ? 'Piscine Privée' : (property.type === 'Villa' ? 'Privée' : 'Non / Commune');
+
         specsContainer.innerHTML = `
-          <div class="p-3 bg-white/5 rounded-xl border border-white/5"><span class="text-zinc-400 block text-[10px] uppercase font-semibold">Chambres</span><span class="font-bold text-white text-sm">${property.bedrooms || 3}</span></div>
-          <div class="p-3 bg-white/5 rounded-xl border border-white/5"><span class="text-zinc-400 block text-[10px] uppercase font-semibold">Salles de bain</span><span class="font-bold text-white text-sm">${property.bathrooms || 3}</span></div>
-          <div class="p-3 bg-white/5 rounded-xl border border-white/5"><span class="text-zinc-400 block text-[10px] uppercase font-semibold">Surface bâtie</span><span class="font-bold text-white text-sm">${property.building_area || 280} m²</span></div>
-          <div class="p-3 bg-white/5 rounded-xl border border-white/5"><span class="text-zinc-400 block text-[10px] uppercase font-semibold">Piscine</span><span class="font-bold text-white text-sm">${property.private_pool ? 'Privée' : 'Commune'}</span></div>
+          <div class="p-3 bg-white/5 rounded-xl border border-white/5">
+            <span class="text-zinc-400 block text-[10px] uppercase font-semibold">Chambres</span>
+            <span class="font-bold text-white text-sm">${beds}</span>
+          </div>
+          <div class="p-3 bg-white/5 rounded-xl border border-white/5">
+            <span class="text-zinc-400 block text-[10px] uppercase font-semibold">Salles de bain</span>
+            <span class="font-bold text-white text-sm">${baths}</span>
+          </div>
+          <div class="p-3 bg-white/5 rounded-xl border border-white/5">
+            <span class="text-zinc-400 block text-[10px] uppercase font-semibold">Surface bâtie</span>
+            <span class="font-bold text-white text-sm">${bArea}</span>
+          </div>
+          <div class="p-3 bg-white/5 rounded-xl border border-white/5">
+            <span class="text-zinc-400 block text-[10px] uppercase font-semibold">Surface terrain</span>
+            <span class="font-bold text-white text-sm">${lArea}</span>
+          </div>
+          <div class="p-3 bg-white/5 rounded-xl border border-white/5 col-span-2">
+            <span class="text-zinc-400 block text-[10px] uppercase font-semibold">Piscine</span>
+            <span class="font-bold text-[#DF921B] text-sm">${poolText}</span>
+          </div>
+          <div class="p-3 bg-white/5 rounded-xl border border-white/5 col-span-2">
+            <span class="text-zinc-400 block text-[10px] uppercase font-semibold">Vue</span>
+            <span class="font-bold text-white text-sm">${property.sea_view ? 'Vue Mer Panoramique' : 'Jardin Tropical & Calme'}</span>
+          </div>
         `;
       }
 
-      // Dynamic Translation for description
+      // Clean Description
       const descEl = document.getElementById('prop-description');
       if (descEl) {
-        const rawDesc = property.description || 'Prestigieuse propriété située dans l\'un des secteurs les plus prisés de Phuket. Espaces lumineux, matériaux nobles et finitions irréprochables.';
-        descEl.textContent = rawDesc;
+        descEl.textContent = property.description || 'Prestigieuse propriété sélectionnée par Phuket VIP Concierge.';
       }
 
-      // Initialize Leaflet Map
+      // Pre-fill inquiry message
+      const msgArea = document.getElementById('inquiry-message-area');
+      if (msgArea) {
+        msgArea.value = `Bonjour, je souhaite recevoir le dossier complet et organiser une visite pour le bien : ${property.title} (Réf: ${property.id}).`;
+      }
+
+      // Leaflet Map Initialization
       try {
-        const lat = property.latitude || 7.9843;
-        const lng = property.longitude || 98.3307;
-        const map = L.map('detail-map').setView([lat, lng], 13);
+        const lat = property.lat || 7.7806;
+        const lng = property.lng || 98.3245;
+        const map = L.map('detail-map').setView([lat, lng], 14);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          attribution: '© OpenStreetMap'
+          attribution: '© OpenStreetMap contributors'
         }).addTo(map);
-        L.marker([lat, lng]).addTo(map).bindPopup(property.title).openPopup();
+
+        const customIcon = L.divIcon({
+          className: 'custom-map-pin',
+          html: `<div style="background-color:#DF921B; width:18px; height:18px; border-radius:50%; border:3px solid #ffffff; box-shadow:0 0 10px rgba(0,0,0,0.5);"></div>`,
+          iconSize: [18, 18],
+          iconAnchor: [9, 9]
+        });
+
+        L.marker([lat, lng], { icon: customIcon }).addTo(map)
+          .bindPopup(`<div style="color:#000; font-family:sans-serif; font-size:12px; font-weight:bold;">${property.title}<br><span style="color:#DF921B;">${formatPrice(property.price_thb || property.price)}</span></div>`)
+          .openPopup();
       } catch (e) {
-        console.warn('Map initialization error', e);
+        console.warn('Leaflet map error', e);
       }
 
-      // Inquiry submit
+      // Inquiry Form Submit Handler
       const form = document.getElementById('prop-inquiry-form');
       if (form) {
         form.addEventListener('submit', (e) => {
           e.preventDefault();
-          alert('Merci. Votre demande a bien été transmise à notre concierge dédié.');
+          alert('Votre demande a bien été envoyée. Notre conseiller VIP vous contactera sous 24h.');
           form.reset();
         });
       }

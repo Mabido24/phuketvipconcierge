@@ -2155,7 +2155,7 @@ function renderPropertyCard(p) {
               <span class="text-[11px] uppercase font-bold text-zinc-400 block tracking-wider">Prix</span>
               <span class="text-base font-extrabold text-[#DF921B]">${formattedPrice}</span>
             </div>
-            <a href="/property-detail.html?id=${encodeURIComponent(p.slug || p.id)}" class="btn-outline-gold text-xs py-2 px-4 rounded-xl font-bold">
+            <a href="/property-detail.html?id=${p.id}" class="btn-outline-gold text-xs py-2 px-4 rounded-xl font-bold">
               ${dict.lbl_details || 'Détails'} →
             </a>
           </div>
