@@ -368,7 +368,7 @@
     </div>
   </div>
 
-  <script src="/js/app.js?v=20260821_v15_fhd"></script>
+  <script src="/js/app.js?v=20260821_v17_fixed"></script>
   <script>
     let globalImages = [];
     let globalIdx = 0;
@@ -379,7 +379,7 @@
       const counter = document.getElementById('lightbox-counter');
       if (!modal || !img || globalImages.length === 0) return;
       img.src = globalImages[globalIdx];
-      if (counter) counter.textContent = \`\${globalIdx + 1} / \${globalImages.length}\`;
+      if (counter) counter.textContent = (globalIdx + 1) + ' / ' + globalImages.length;
       modal.classList.remove('hidden');
       modal.classList.add('flex');
     }
@@ -396,7 +396,7 @@
       if (globalImages.length === 0) return;
       globalIdx = (globalIdx - 1 + globalImages.length) % globalImages.length;
       document.getElementById('lightbox-img').src = globalImages[globalIdx];
-      document.getElementById('lightbox-counter').textContent = \`\${globalIdx + 1} / \${globalImages.length}\`;
+      document.getElementById('lightbox-counter').textContent = (globalIdx + 1) + ' / ' + globalImages.length;
       if (typeof window.pvcShowImage === 'function') window.pvcShowImage(globalIdx);
     }
 
@@ -404,7 +404,7 @@
       if (globalImages.length === 0) return;
       globalIdx = (globalIdx + 1) % globalImages.length;
       document.getElementById('lightbox-img').src = globalImages[globalIdx];
-      document.getElementById('lightbox-counter').textContent = \`\${globalIdx + 1} / \${globalImages.length}\`;
+      document.getElementById('lightbox-counter').textContent = (globalIdx + 1) + ' / ' + globalImages.length;
       if (typeof window.pvcShowImage === 'function') window.pvcShowImage(globalIdx);
     }
 

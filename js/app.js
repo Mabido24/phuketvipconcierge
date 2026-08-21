@@ -2027,7 +2027,7 @@ function getDeletedPropertyKeys() {
   }
 }
 
-const PVC_DATA_VERSION = '20260821_v13_surgical_photos';
+const PVC_DATA_VERSION = '20260821_v17_fixed';
 
 function getAllProperties() {
   let list = [];
