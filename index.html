@@ -9,34 +9,35 @@
   <link rel="stylesheet" href="/css/style.css?v=20260821">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="min-h-screen bg-white text-zinc-900 font-sans antialiased selection:bg-[#D4AF37] selection:text-black">
+<body class="min-h-screen bg-white text-zinc-900 font-sans antialiased selection:bg-[#DF921B] selection:text-black">
 
   
-  <!-- Navigation (Universal Responsive Dark Navbar) -->
-  <nav class="fixed w-full top-0 z-50 bg-[#0C1427]/95 backdrop-blur-md border-b border-white/10">
+  
+  <!-- Navigation (Universal Responsive Dark Navbar with Official Logo) -->
+  <nav class="fixed w-full top-0 z-50 bg-[#110D09]/95 backdrop-blur-md border-b border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-20">
         
-        <!-- Logo -->
+        <!-- Official Logo -->
         <a href="/index.html" class="flex-shrink-0 flex items-center gap-3">
-          <div class="w-9 h-9 bg-gradient-to-br from-[#D4AF37] to-[#9A7B1C] rounded-lg flex items-center justify-center text-white shadow-lg border border-[#D4AF37]/40">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M11 3 8 9l4 12 4-12-3-6"/><path d="M2 9h20"/></svg>
+          <div class="h-11 w-11 rounded-full overflow-hidden bg-[#1C140E] border border-[#DF921B]/50 shadow-md flex items-center justify-center p-0.5">
+            <img src="/public/images/logo.png" alt="Phuket VIP Concierge" class="w-full h-full object-cover rounded-full scale-125">
           </div>
           <div class="flex flex-col">
             <span class="font-bold text-lg sm:text-xl tracking-tight text-white uppercase leading-none">
-              Phuket <span class="text-[#D4AF37]">VIP</span>
+              Phuket <span class="text-[#DF921B]">VIP</span>
             </span>
-            <span class="text-[10px] tracking-widest uppercase text-zinc-400 font-semibold mt-0.5">Concierge</span>
+            <span class="text-[10px] tracking-widest uppercase text-zinc-300 font-semibold mt-0.5">Concierge</span>
           </div>
         </a>
 
         <!-- Desktop Nav Links -->
         <div class="hidden lg:flex items-center space-x-6 xl:space-x-8">
-          <a href="/index.html" class="text-sm font-semibold text-[#D4AF37] hover:text-[#D4AF37] transition-colors" i18n="nav_home" translate="no">Accueil</a>
-          <a href="/properties.html?purpose=buy" class="text-sm font-semibold text-zinc-300 hover:text-[#D4AF37] transition-colors" i18n="nav_buy" translate="no">Acheter</a>
-          <a href="/properties.html?purpose=rent" class="text-sm font-semibold text-zinc-300 hover:text-[#D4AF37] transition-colors" i18n="nav_rent" translate="no">Louer</a>
-          <a href="/estimate.html" class="text-sm font-semibold text-zinc-300 hover:text-[#D4AF37] transition-colors" i18n="nav_sell" translate="no">Vendre</a>
-          <a href="/index.html#services" class="text-sm font-semibold text-zinc-300 hover:text-[#D4AF37] transition-colors" i18n="nav_services" translate="no">Conciergerie</a>
+          <a href="/index.html" class="text-sm font-semibold text-[#DF921B] hover:text-[#DF921B] transition-colors" i18n="nav_home" translate="no">Accueil</a>
+          <a href="/properties.html?purpose=buy" class="text-sm font-semibold text-zinc-300 hover:text-[#DF921B] transition-colors" i18n="nav_buy" translate="no">Acheter</a>
+          <a href="/properties.html?purpose=rent" class="text-sm font-semibold text-zinc-300 hover:text-[#DF921B] transition-colors" i18n="nav_rent" translate="no">Louer</a>
+          <a href="/estimate.html" class="text-sm font-semibold text-zinc-300 hover:text-[#DF921B] transition-colors" i18n="nav_sell" translate="no">Vendre</a>
+          <a href="/index.html#services" class="text-sm font-semibold text-zinc-300 hover:text-[#DF921B] transition-colors" i18n="nav_services" translate="no">Conciergerie</a>
         </div>
 
         <!-- Controls (Language + Currency + CTAs) -->
@@ -65,10 +66,10 @@
 
           <!-- Desktop CTAs -->
           <div class="hidden md:flex items-center gap-2">
-            <a href="/estimate.html" class="border border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white transition-all font-semibold text-xs py-2 px-3.5 rounded-xl whitespace-nowrap" i18n="nav_estimate" translate="no">
+            <a href="/estimate.html" class="border border-[#DF921B] text-[#DF921B] hover:bg-[#DF921B] hover:text-white transition-all font-semibold text-xs py-2 px-3.5 rounded-xl whitespace-nowrap" i18n="nav_estimate" translate="no">
               Estimation Gratuite
             </a>
-            <a href="/admin.html" class="text-zinc-300 hover:text-[#D4AF37] transition-all font-semibold text-xs py-2 px-2.5 flex items-center gap-1">
+            <a href="/admin.html" class="text-zinc-300 hover:text-[#DF921B] transition-all font-semibold text-xs py-2 px-2.5 flex items-center gap-1">
               <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
               <span i18n="nav_admin" translate="no">Admin</span>
             </a>
@@ -86,25 +87,26 @@
     </div>
 
     <!-- Mobile Drawer Panel -->
-    <div id="mobile-nav-panel" class="hidden lg:hidden bg-[#0C1427] border-b border-white/10 px-4 pt-3 pb-6 space-y-3 animate-fade-in shadow-2xl">
+    <div id="mobile-nav-panel" class="hidden lg:hidden bg-[#110D09] border-b border-white/10 px-4 pt-3 pb-6 space-y-3 animate-fade-in shadow-2xl">
       <div class="flex flex-col space-y-2 border-b border-white/10 pb-3">
-        <a href="/index.html" class="text-sm font-semibold text-zinc-200 hover:text-[#D4AF37] py-2" i18n="nav_home" translate="no">Accueil</a>
-        <a href="/properties.html?purpose=buy" class="text-sm font-semibold text-zinc-200 hover:text-[#D4AF37] py-2" i18n="nav_buy" translate="no">Acheter</a>
-        <a href="/properties.html?purpose=rent" class="text-sm font-semibold text-zinc-200 hover:text-[#D4AF37] py-2" i18n="nav_rent" translate="no">Louer</a>
-        <a href="/estimate.html" class="text-sm font-semibold text-zinc-200 hover:text-[#D4AF37] py-2" i18n="nav_sell" translate="no">Vendre</a>
-        <a href="/index.html#services" class="text-sm font-semibold text-zinc-200 hover:text-[#D4AF37] py-2" i18n="nav_services" translate="no">Conciergerie</a>
+        <a href="/index.html" class="text-sm font-semibold text-zinc-200 hover:text-[#DF921B] py-2" i18n="nav_home" translate="no">Accueil</a>
+        <a href="/properties.html?purpose=buy" class="text-sm font-semibold text-zinc-200 hover:text-[#DF921B] py-2" i18n="nav_buy" translate="no">Acheter</a>
+        <a href="/properties.html?purpose=rent" class="text-sm font-semibold text-zinc-200 hover:text-[#DF921B] py-2" i18n="nav_rent" translate="no">Louer</a>
+        <a href="/estimate.html" class="text-sm font-semibold text-zinc-200 hover:text-[#DF921B] py-2" i18n="nav_sell" translate="no">Vendre</a>
+        <a href="/index.html#services" class="text-sm font-semibold text-zinc-200 hover:text-[#DF921B] py-2" i18n="nav_services" translate="no">Conciergerie</a>
       </div>
       <div class="flex flex-col gap-2.5 pt-1">
         <a href="/estimate.html" class="btn-gold w-full text-center py-2.5 text-xs font-bold justify-center" i18n="nav_estimate" translate="no">
           Estimation Gratuite
         </a>
-        <a href="/admin.html" class="w-full text-center py-2.5 border border-white/15 text-zinc-300 hover:text-[#D4AF37] text-xs font-semibold rounded-xl flex items-center justify-center gap-1.5">
+        <a href="/admin.html" class="w-full text-center py-2.5 border border-white/15 text-zinc-300 hover:text-[#DF921B] text-xs font-semibold rounded-xl flex items-center justify-center gap-1.5">
           <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
           <span i18n="nav_admin" translate="no">Admin</span>
         </a>
       </div>
     </div>
   </nav>
+  
   
 
   <!-- Hero Section -->
@@ -151,15 +153,15 @@
         <!-- Extended Search Panel -->
         <div id="extended-search-panel" class="hidden pt-4 mt-1 border-t border-zinc-200/60 flex flex-wrap gap-3 justify-center md:justify-start w-full">
           <label class="flex items-center gap-2 text-xs font-medium text-zinc-700 bg-zinc-100/60 px-4 py-2.5 rounded-xl border border-zinc-200 cursor-pointer hover:bg-zinc-200 transition-all">
-            <input type="checkbox" name="private_pool" class="w-4 h-4 rounded border-zinc-300 text-[#D4AF37] focus:ring-[#D4AF37]">
+            <input type="checkbox" name="private_pool" class="w-4 h-4 rounded border-zinc-300 text-[#DF921B] focus:ring-[#DF921B]">
             <span i18n="opt_private_pool" translate="no">Piscine privée</span>
           </label>
           <label class="flex items-center gap-2 text-xs font-medium text-zinc-700 bg-zinc-100/60 px-4 py-2.5 rounded-xl border border-zinc-200 cursor-pointer hover:bg-zinc-200 transition-all">
-            <input type="checkbox" name="private_parking" class="w-4 h-4 rounded border-zinc-300 text-[#D4AF37] focus:ring-[#D4AF37]">
+            <input type="checkbox" name="private_parking" class="w-4 h-4 rounded border-zinc-300 text-[#DF921B] focus:ring-[#DF921B]">
             <span i18n="opt_private_parking" translate="no">Parking privé</span>
           </label>
           <label class="flex items-center gap-2 text-xs font-medium text-zinc-700 bg-zinc-100/60 px-4 py-2.5 rounded-xl border border-zinc-200 cursor-pointer hover:bg-zinc-200 transition-all">
-            <input type="checkbox" name="sea_view" class="w-4 h-4 rounded border-zinc-300 text-[#D4AF37] focus:ring-[#D4AF37]">
+            <input type="checkbox" name="sea_view" class="w-4 h-4 rounded border-zinc-300 text-[#DF921B] focus:ring-[#DF921B]">
             <span i18n="opt_sea_view" translate="no">Vue Mer</span>
           </label>
         </div>
@@ -172,8 +174,8 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
         <div>
-          <span class="text-xs uppercase font-extrabold tracking-widest text-[#D4AF37] block mb-1">Portfolio</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-[#0C1427] tracking-tight" i18n="catalog_title" translate="no">
+          <span class="text-xs uppercase font-extrabold tracking-widest text-[#DF921B] block mb-1">Portfolio</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-[#110D09] tracking-tight" i18n="catalog_title" translate="no">
             Nos Propriétés d'Exception
           </h2>
           <p class="text-sm text-zinc-500 mt-2" i18n="catalog_subtitle" translate="no">
@@ -181,8 +183,8 @@
           </p>
         </div>
         <div class="flex items-center gap-3">
-          <a href="/properties.html?purpose=buy" class="px-5 py-2.5 rounded-xl border border-zinc-300 hover:border-[#D4AF37] text-xs font-bold transition bg-white text-zinc-800" i18n="filter_buy" translate="no">À Vendre</a>
-          <a href="/properties.html?purpose=rent" class="px-5 py-2.5 rounded-xl border border-zinc-300 hover:border-[#D4AF37] text-xs font-bold transition bg-white text-zinc-800" i18n="filter_rent" translate="no">À Louer</a>
+          <a href="/properties.html?purpose=buy" class="px-5 py-2.5 rounded-xl border border-zinc-300 hover:border-[#DF921B] text-xs font-bold transition bg-white text-zinc-800" i18n="filter_buy" translate="no">À Vendre</a>
+          <a href="/properties.html?purpose=rent" class="px-5 py-2.5 rounded-xl border border-zinc-300 hover:border-[#DF921B] text-xs font-bold transition bg-white text-zinc-800" i18n="filter_rent" translate="no">À Louer</a>
         </div>
       </div>
 
@@ -194,10 +196,10 @@
   </section>
 
   <!-- VIP Concierge Services Section -->
-  <section id="services" class="py-24 bg-[#0C1427] text-white relative overflow-hidden">
+  <section id="services" class="py-24 bg-[#110D09] text-white relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="text-xs uppercase font-extrabold tracking-widest text-[#D4AF37] block mb-2">Services Sur-Mesure</span>
+        <span class="text-xs uppercase font-extrabold tracking-widest text-[#DF921B] block mb-2">Services Sur-Mesure</span>
         <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight" i18n="services_title" translate="no">
           Nos Services de Conciergerie & Immobilier
         </h2>
@@ -208,8 +210,8 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <!-- Service 1 -->
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-7 hover:border-[#D4AF37]/60 transition duration-300">
-          <div class="w-12 h-12 rounded-xl bg-[#D4AF37]/15 text-[#D4AF37] flex items-center justify-center text-2xl mb-5 font-bold">💎</div>
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-7 hover:border-[#DF921B]/60 transition duration-300">
+          <div class="w-12 h-12 rounded-xl bg-[#DF921B]/15 text-[#DF921B] flex items-center justify-center text-2xl mb-5 font-bold">💎</div>
           <h3 class="text-lg font-bold text-white mb-2" i18n="service_1_title" translate="no">Vente & Acquisition Prestige</h3>
           <p class="text-xs text-zinc-400 leading-relaxed" i18n="service_1_desc" translate="no">
             Sélection rigoureuse des plus belles villas et penthouses de l'île avec audit juridique et fiscal complet.
@@ -217,8 +219,8 @@
         </div>
 
         <!-- Service 2 -->
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-7 hover:border-[#D4AF37]/60 transition duration-300">
-          <div class="w-12 h-12 rounded-xl bg-[#D4AF37]/15 text-[#D4AF37] flex items-center justify-center text-2xl mb-5 font-bold">🏖️</div>
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-7 hover:border-[#DF921B]/60 transition duration-300">
+          <div class="w-12 h-12 rounded-xl bg-[#DF921B]/15 text-[#DF921B] flex items-center justify-center text-2xl mb-5 font-bold">🏖️</div>
           <h3 class="text-lg font-bold text-white mb-2" i18n="service_2_title" translate="no">Location Saisonnière & Longue Durée</h3>
           <p class="text-xs text-zinc-400 leading-relaxed" i18n="service_2_desc" translate="no">
             Mise à disposition de résidences d'exception avec services hôteliers haut de gamme et conciergerie 24/7.
@@ -226,8 +228,8 @@
         </div>
 
         <!-- Service 3 -->
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-7 hover:border-[#D4AF37]/60 transition duration-300">
-          <div class="w-12 h-12 rounded-xl bg-[#D4AF37]/15 text-[#D4AF37] flex items-center justify-center text-2xl mb-5 font-bold">🛥️</div>
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-7 hover:border-[#DF921B]/60 transition duration-300">
+          <div class="w-12 h-12 rounded-xl bg-[#DF921B]/15 text-[#DF921B] flex items-center justify-center text-2xl mb-5 font-bold">🛥️</div>
           <h3 class="text-lg font-bold text-white mb-2" i18n="service_3_title" translate="no">Conciergerie Privée & VIP Management</h3>
           <p class="text-xs text-zinc-400 leading-relaxed" i18n="service_3_desc" translate="no">
             Chauffeur privé, location de yachts, réservations exclusives et gestion de propriété clé en main.
@@ -235,8 +237,8 @@
         </div>
 
         <!-- Service 4 -->
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-7 hover:border-[#D4AF37]/60 transition duration-300">
-          <div class="w-12 h-12 rounded-xl bg-[#D4AF37]/15 text-[#D4AF37] flex items-center justify-center text-2xl mb-5 font-bold">📈</div>
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-7 hover:border-[#DF921B]/60 transition duration-300">
+          <div class="w-12 h-12 rounded-xl bg-[#DF921B]/15 text-[#DF921B] flex items-center justify-center text-2xl mb-5 font-bold">📈</div>
           <h3 class="text-lg font-bold text-white mb-2" i18n="service_4_title" translate="no">Estimation & Valorisation</h3>
           <p class="text-xs text-zinc-400 leading-relaxed" i18n="service_4_desc" translate="no">
             Expertise locale pointue pour estimer au juste prix votre bien et le commercialiser auprès d'une clientèle ciblée.
@@ -247,7 +249,7 @@
   </section>
 
   <!-- CTA Banner Section -->
-  <section class="py-16 bg-gradient-to-r from-[#0C1427] via-[#14203d] to-[#0C1427] text-white border-t border-b border-[#D4AF37]/20">
+  <section class="py-16 bg-gradient-to-r from-[#110D09] via-[#14203d] to-[#110D09] text-white border-t border-b border-[#DF921B]/20">
     <div class="max-w-5xl mx-auto px-4 text-center">
       <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight mb-4" i18n="cta_banner_title" translate="no">
         Vous souhaitez vendre ou louer votre propriété d'exception ?
@@ -271,28 +273,28 @@
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="bg-zinc-50 border border-zinc-200 rounded-3xl p-8 sm:p-12 shadow-sm">
         <div class="text-center mb-8">
-          <span class="text-xs uppercase font-extrabold tracking-widest text-[#D4AF37] block mb-2">Conciergerie VIP</span>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-[#0C1427]" i18n="contact_title" translate="no">Prendre Contact</h2>
+          <span class="text-xs uppercase font-extrabold tracking-widest text-[#DF921B] block mb-2">Conciergerie VIP</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-[#110D09]" i18n="contact_title" translate="no">Prendre Contact</h2>
         </div>
 
         <form id="home-contact-form" class="space-y-4">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label class="block text-xs font-bold text-zinc-700 mb-1" i18n="contact_name" translate="no">Nom complet</label>
-              <input type="text" required placeholder="Votre nom" class="w-full bg-white border border-zinc-200 focus:border-[#D4AF37] rounded-xl px-4 py-3 text-xs outline-none transition">
+              <input type="text" required placeholder="Votre nom" class="w-full bg-white border border-zinc-200 focus:border-[#DF921B] rounded-xl px-4 py-3 text-xs outline-none transition">
             </div>
             <div>
               <label class="block text-xs font-bold text-zinc-700 mb-1" i18n="contact_email" translate="no">Email</label>
-              <input type="email" required placeholder="votre.email@domaine.com" class="w-full bg-white border border-zinc-200 focus:border-[#D4AF37] rounded-xl px-4 py-3 text-xs outline-none transition">
+              <input type="email" required placeholder="votre.email@domaine.com" class="w-full bg-white border border-zinc-200 focus:border-[#DF921B] rounded-xl px-4 py-3 text-xs outline-none transition">
             </div>
           </div>
           <div>
             <label class="block text-xs font-bold text-zinc-700 mb-1" i18n="contact_phone" translate="no">Téléphone / WhatsApp</label>
-            <input type="tel" placeholder="+33 6... / +66 8..." class="w-full bg-white border border-zinc-200 focus:border-[#D4AF37] rounded-xl px-4 py-3 text-xs outline-none transition">
+            <input type="tel" placeholder="+33 6... / +66 8..." class="w-full bg-white border border-zinc-200 focus:border-[#DF921B] rounded-xl px-4 py-3 text-xs outline-none transition">
           </div>
           <div>
             <label class="block text-xs font-bold text-zinc-700 mb-1" i18n="contact_message" translate="no">Votre message ou critères</label>
-            <textarea rows="4" required placeholder="Précisez votre projet (Achat villa Bang Tao, Location de vacances, etc.)..." class="w-full bg-white border border-zinc-200 focus:border-[#D4AF37] rounded-xl px-4 py-3 text-xs outline-none transition"></textarea>
+            <textarea rows="4" required placeholder="Précisez votre projet (Achat villa Bang Tao, Location de vacances, etc.)..." class="w-full bg-white border border-zinc-200 focus:border-[#DF921B] rounded-xl px-4 py-3 text-xs outline-none transition"></textarea>
           </div>
           <button type="submit" class="w-full btn-gold py-3.5 rounded-xl font-bold text-xs" i18n="btn_send_message" translate="no">
             Envoyer ma demande
@@ -303,19 +305,20 @@
   </section>
 
   
+  
   <!-- Footer -->
-  <footer class="bg-[#0C1427] text-zinc-400 pt-16 pb-12 border-t border-white/10">
+  <footer class="bg-[#110D09] text-zinc-400 pt-16 pb-12 border-t border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-white/10">
         
-        <!-- Col 1: Brand -->
+        <!-- Col 1: Brand with Official Logo -->
         <div class="md:col-span-2 space-y-4">
           <div class="flex items-center gap-3">
-            <div class="w-8 h-8 bg-[#D4AF37] rounded-lg flex items-center justify-center text-white font-bold">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M11 3 8 9l4 12 4-12-3-6"/><path d="M2 9h20"/></svg>
+            <div class="h-10 w-10 rounded-full overflow-hidden bg-[#1C140E] border border-[#DF921B]/40 shadow-sm flex items-center justify-center p-0.5">
+              <img src="/public/images/logo.png" alt="Phuket VIP Concierge Logo" class="w-full h-full object-cover rounded-full scale-125">
             </div>
             <span class="font-bold text-xl tracking-tight text-white uppercase">
-              Phuket <span class="text-[#D4AF37]">VIP</span> Concierge
+              Phuket <span class="text-[#DF921B]">VIP</span> Concierge
             </span>
           </div>
           <p class="text-xs text-zinc-400 max-w-sm leading-relaxed" i18n="footer_desc" translate="no">
@@ -330,11 +333,11 @@
         <div>
           <h4 class="text-white text-xs font-bold uppercase tracking-wider mb-4">Navigation</h4>
           <ul class="space-y-2.5 text-xs">
-            <li><a href="/index.html" class="hover:text-[#D4AF37] transition-colors" i18n="nav_home" translate="no">Accueil</a></li>
-            <li><a href="/properties.html?purpose=buy" class="hover:text-[#D4AF37] transition-colors" i18n="nav_buy" translate="no">Acheter une villa</a></li>
-            <li><a href="/properties.html?purpose=rent" class="hover:text-[#D4AF37] transition-colors" i18n="nav_rent" translate="no">Locations de luxe</a></li>
-            <li><a href="/estimate.html" class="hover:text-[#D4AF37] transition-colors" i18n="nav_sell" translate="no">Estimer & Vendre</a></li>
-            <li><a href="/index.html#services" class="hover:text-[#D4AF37] transition-colors" i18n="nav_services" translate="no">Conciergerie VIP</a></li>
+            <li><a href="/index.html" class="hover:text-[#DF921B] transition-colors" i18n="nav_home" translate="no">Accueil</a></li>
+            <li><a href="/properties.html?purpose=buy" class="hover:text-[#DF921B] transition-colors" i18n="nav_buy" translate="no">Acheter une villa</a></li>
+            <li><a href="/properties.html?purpose=rent" class="hover:text-[#DF921B] transition-colors" i18n="nav_rent" translate="no">Locations de luxe</a></li>
+            <li><a href="/estimate.html" class="hover:text-[#DF921B] transition-colors" i18n="nav_sell" translate="no">Estimer & Vendre</a></li>
+            <li><a href="/index.html#services" class="hover:text-[#DF921B] transition-colors" i18n="nav_services" translate="no">Conciergerie VIP</a></li>
           </ul>
         </div>
 
@@ -346,7 +349,7 @@
             <li>📞 +66 (0) 80 000 0000</li>
             <li>💬 WhatsApp 24/7 Disponible</li>
             <li class="pt-2">
-              <a href="/admin.html" class="inline-flex items-center gap-1.5 text-zinc-400 hover:text-[#D4AF37] font-semibold">
+              <a href="/admin.html" class="inline-flex items-center gap-1.5 text-zinc-400 hover:text-[#DF921B] font-semibold">
                 <span>🔒 Espace Gestionnaire</span>
               </a>
             </li>
@@ -362,6 +365,7 @@
     </div>
   </footer>
   
+  
 
   <script src="/js/app.js?v=20260821"></script>
   <script>
@@ -376,7 +380,7 @@
           const dict = (typeof getI18n === 'function') ? getI18n() : {};
           grid.innerHTML = `
             <div class="col-span-full text-center py-16 px-6 bg-white rounded-2xl border border-dashed border-zinc-200">
-              <div class="w-16 h-16 bg-[#D4AF37]/10 text-[#D4AF37] rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">✨</div>
+              <div class="w-16 h-16 bg-[#DF921B]/10 text-[#DF921B] rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">✨</div>
               <h3 class="text-base font-bold text-zinc-800 mb-2">${dict.empty_catalog_no_listings || 'Notre catalogue exclusif est en cours d\'actualisation.'}</h3>
               <p class="text-xs text-zinc-500 max-w-md mx-auto mb-6">${dict.empty_catalog_desc || 'Contactez notre équipe de conciergerie privée pour une recherche sur-mesure.'}</p>
               <a href="#contact" class="btn-gold px-6 py-2.5 rounded-xl text-xs font-bold shadow-md">${dict.btn_contact_agent || 'Contacter un conseiller VIP'}</a>

@@ -1019,23 +1019,23 @@ function renderPropertyCard(p) {
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none"></div>
         
         <div class="absolute top-3 left-3 flex items-center gap-2">
-          <span class="bg-[#0C1427]/90 backdrop-blur-md text-white text-[11px] font-bold px-3 py-1 rounded-full border border-white/20 uppercase tracking-wider">
+          <span class="bg-[#110D09]/90 backdrop-blur-md text-white text-[11px] font-bold px-3 py-1 rounded-full border border-white/20 uppercase tracking-wider">
             ${purposeBadge}
           </span>
-          <span class="bg-[#D4AF37] text-white text-[11px] font-bold px-2.5 py-1 rounded-full shadow-md">
+          <span class="bg-[#DF921B] text-white text-[11px] font-bold px-2.5 py-1 rounded-full shadow-md">
             ${p.type || 'Villa'}
           </span>
         </div>
 
         <div class="absolute bottom-3 left-3 flex items-center gap-1.5 text-white/95 text-xs font-semibold drop-shadow-md">
-          <svg class="w-3.5 h-3.5 text-[#D4AF37]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <svg class="w-3.5 h-3.5 text-[#DF921B]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
           <span>${p.district || 'Phuket'}, Thailand</span>
         </div>
       </div>
 
       <div class="p-5 flex flex-col flex-grow justify-between bg-white">
         <div>
-          <h3 class="font-bold text-lg text-[#0C1427] group-hover:text-[#D4AF37] transition-colors line-clamp-1 mb-2">
+          <h3 class="font-bold text-lg text-[#110D09] group-hover:text-[#DF921B] transition-colors line-clamp-1 mb-2">
             ${p.title}
           </h3>
           <p class="text-xs text-zinc-500 line-clamp-2 mb-4 leading-relaxed">
@@ -1045,15 +1045,15 @@ function renderPropertyCard(p) {
 
         <div>
           <div class="grid grid-cols-3 gap-2 py-3 border-t border-b border-zinc-100 mb-4 text-center text-xs text-zinc-600">
-            ${p.bedrooms ? `<div class="flex flex-col"><span class="font-bold text-[#0C1427]">${p.bedrooms}</span><span class="text-[10px] text-zinc-400 uppercase">${dict.lbl_beds || 'Chambres'}</span></div>` : ''}
-            ${p.bathrooms ? `<div class="flex flex-col"><span class="font-bold text-[#0C1427]">${p.bathrooms}</span><span class="text-[10px] text-zinc-400 uppercase">${dict.lbl_baths || 'Bains'}</span></div>` : ''}
-            ${p.building_area ? `<div class="flex flex-col"><span class="font-bold text-[#0C1427]">${p.building_area} m²</span><span class="text-[10px] text-zinc-400 uppercase">${dict.lbl_area || 'Surface'}</span></div>` : ''}
+            ${p.bedrooms ? `<div class="flex flex-col"><span class="font-bold text-[#110D09]">${p.bedrooms}</span><span class="text-[10px] text-zinc-400 uppercase">${dict.lbl_beds || 'Chambres'}</span></div>` : ''}
+            ${p.bathrooms ? `<div class="flex flex-col"><span class="font-bold text-[#110D09]">${p.bathrooms}</span><span class="text-[10px] text-zinc-400 uppercase">${dict.lbl_baths || 'Bains'}</span></div>` : ''}
+            ${p.building_area ? `<div class="flex flex-col"><span class="font-bold text-[#110D09]">${p.building_area} m²</span><span class="text-[10px] text-zinc-400 uppercase">${dict.lbl_area || 'Surface'}</span></div>` : ''}
           </div>
 
           <div class="flex items-center justify-between pt-1">
             <div>
               <span class="text-[11px] uppercase font-bold text-zinc-400 block tracking-wider">Prix</span>
-              <span class="text-base font-extrabold text-[#D4AF37]">${formattedPrice}</span>
+              <span class="text-base font-extrabold text-[#DF921B]">${formattedPrice}</span>
             </div>
             <a href="/property-detail.html?id=${encodeURIComponent(p.slug || p.id)}" class="btn-outline-gold text-xs py-2 px-4 rounded-xl font-bold">
               ${dict.lbl_details || 'Détails'} →

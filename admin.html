@@ -8,26 +8,28 @@
   <link rel="stylesheet" href="/css/style.css?v=20260821">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body { background-color: #0C1427; color: #ffffff; }
+    body { background-color: #110D09; color: #ffffff; }
     .glass-card { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 1.5rem; backdrop-filter: blur(16px); }
   </style>
 </head>
-<body class="bg-[#0C1427] text-white min-h-screen flex flex-col justify-between selection:bg-[#D4AF37] selection:text-black">
+<body class="bg-[#110D09] text-white min-h-screen flex flex-col justify-between selection:bg-[#DF921B] selection:text-black">
 
   <nav class="w-full h-20 border-b border-white/10 px-6 flex items-center justify-between">
-    <a href="/index.html" class="flex items-center gap-3">
-      <div class="w-8 h-8 bg-[#D4AF37] rounded-lg flex items-center justify-center text-white font-bold">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M11 3 8 9l4 12 4-12-3-6"/><path d="M2 9h20"/></svg>
-      </div>
-      <span class="font-bold text-lg tracking-tight uppercase">Phuket <span class="text-[#D4AF37]">VIP</span> Concierge</span>
-    </a>
-    <a href="/index.html" class="text-xs text-zinc-400 hover:text-[#D4AF37] transition">← View Site</a>
+    
+  <a href="/index.html" class="flex items-center gap-3">
+    <div class="h-10 w-10 rounded-full overflow-hidden bg-[#1C140E] border border-[#DF921B]/40 shadow-sm flex items-center justify-center p-0.5">
+      <img src="/public/images/logo.png" alt="Logo" class="w-full h-full object-cover rounded-full scale-125">
+    </div>
+    <span class="font-bold text-lg tracking-tight uppercase">Phuket <span class="text-[#DF921B]">VIP</span> Concierge</span>
+  </a>
+
+    <a href="/index.html" class="text-xs text-zinc-400 hover:text-[#DF921B] transition">← View Site</a>
   </nav>
 
   <main class="flex-grow flex items-center justify-center p-4">
     <div class="glass-card max-w-md w-full p-8 sm:p-10 shadow-2xl">
       <div class="text-center mb-8">
-        <div class="w-12 h-12 rounded-2xl bg-[#D4AF37]/20 text-[#D4AF37] flex items-center justify-center text-xl mx-auto mb-3 font-bold">🔒</div>
+        <div class="w-12 h-12 rounded-2xl bg-[#DF921B]/20 text-[#DF921B] flex items-center justify-center text-xl mx-auto mb-3 font-bold">🔒</div>
         <h1 class="text-2xl font-bold tracking-tight">Admin Portal</h1>
         <p class="text-xs text-zinc-400 mt-1">Authorized Agency Managers Only</p>
       </div>
@@ -35,7 +37,7 @@
       <form id="admin-login-form" class="space-y-4">
         <div>
           <label class="block text-xs font-bold text-zinc-300 mb-1">Password</label>
-          <input type="password" id="admin-pass" required placeholder="Enter password (default: admin)" class="w-full bg-black/50 border border-white/15 focus:border-[#D4AF37] rounded-xl px-4 py-3 text-xs text-white outline-none transition">
+          <input type="password" id="admin-pass" required placeholder="Enter password (default: admin)" class="w-full bg-black/50 border border-white/15 focus:border-[#DF921B] rounded-xl px-4 py-3 text-xs text-white outline-none transition">
         </div>
 
         <button type="submit" class="w-full btn-gold py-3.5 rounded-xl font-bold text-xs shadow-xl">
