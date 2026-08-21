@@ -1,3 +1,16 @@
+
+// Immediate Cache & Storage Purge for version 4
+(function purgeLegacyStorage() {
+  try {
+    const raw = localStorage.getItem('pvc_properties') || '';
+    if (raw.includes('--grid-row') || raw.includes('50000000') || !localStorage.getItem('pvc_v4_clean')) {
+      localStorage.removeItem('pvc_properties');
+      localStorage.setItem('pvc_v4_clean', 'true');
+      console.log('🔄 Cleared legacy cached properties.');
+    }
+  } catch(e) {}
+})();
+
 /* Phuket VIP Concierge - Pure Vanilla JS Core & i18n System */
 
 // 0. Disable browser auto-translate artifacts
