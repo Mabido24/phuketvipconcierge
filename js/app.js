@@ -203,7 +203,10 @@ const SITE_I18N = {
     "lbl_available": "Available",
     "lbl_booked": "Reserved",
     "sec_reviews_title": "Verified Guest Experiences & Ratings",
-    "lbl_verified_badge": "Verified Phuket VIP Stay"
+    "lbl_verified_badge": "Verified Phuket VIP Stay",
+    "est_opt_other": "Other Location...",
+    "est_lbl_other_district": "Specify Location / Area",
+    "est_ph_other_district": "e.g. Koh Samui, Phang Nga, Nai Harn Hills, Rawai Beachside..."
   },
   "fr": {
     "inquiry_msg_template": "Bonjour, je souhaite obtenir le dossier complet et convenir d'une visite pour le bien : {title} (Réf: {id}).",
@@ -330,7 +333,10 @@ const SITE_I18N = {
     "lbl_available": "Disponible",
     "lbl_booked": "Réservé",
     "sec_reviews_title": "Témoignages & Avis Clients Vérifiés",
-    "lbl_verified_badge": "Séjour Vérifié Phuket VIP"
+    "lbl_verified_badge": "Séjour Vérifié Phuket VIP",
+    "est_opt_other": "Autre secteur...",
+    "est_lbl_other_district": "Précisez la localisation",
+    "est_ph_other_district": "ex: Koh Samui, Phang Nga, Hauteurs de Nai Harn..."
   },
   "de": {
     "inquiry_msg_template": "Hello, I would like to receive the full brochure and schedule a private viewing for the property: {title} (Ref: {id}).",
@@ -457,7 +463,10 @@ const SITE_I18N = {
     "lbl_available": "Available",
     "lbl_booked": "Reserved",
     "sec_reviews_title": "Verified Guest Experiences & Ratings",
-    "lbl_verified_badge": "Verified Phuket VIP Stay"
+    "lbl_verified_badge": "Verified Phuket VIP Stay",
+    "est_opt_other": "Anderer Standort...",
+    "est_lbl_other_district": "Standort präzisieren",
+    "est_ph_other_district": "z.B. Koh Samui, Phang Nga, Nai Harn Hügel..."
   },
   "it": {
     "inquiry_msg_template": "Hello, I would like to receive the full brochure and schedule a private viewing for the property: {title} (Ref: {id}).",
@@ -584,7 +593,10 @@ const SITE_I18N = {
     "lbl_available": "Available",
     "lbl_booked": "Reserved",
     "sec_reviews_title": "Verified Guest Experiences & Ratings",
-    "lbl_verified_badge": "Verified Phuket VIP Stay"
+    "lbl_verified_badge": "Verified Phuket VIP Stay",
+    "est_opt_other": "Altra posizione...",
+    "est_lbl_other_district": "Specificare la posizione",
+    "est_ph_other_district": "es. Koh Samui, Phang Nga, Colline di Nai Harn..."
   },
   "es": {
     "inquiry_msg_template": "Hello, I would like to receive the full brochure and schedule a private viewing for the property: {title} (Ref: {id}).",
@@ -711,7 +723,10 @@ const SITE_I18N = {
     "lbl_available": "Available",
     "lbl_booked": "Reserved",
     "sec_reviews_title": "Verified Guest Experiences & Ratings",
-    "lbl_verified_badge": "Verified Phuket VIP Stay"
+    "lbl_verified_badge": "Verified Phuket VIP Stay",
+    "est_opt_other": "Otra ubicación...",
+    "est_lbl_other_district": "Especifique la ubicación",
+    "est_ph_other_district": "ej. Koh Samui, Phang Nga, Colinas de Nai Harn..."
   },
   "pt": {
     "inquiry_msg_template": "Hello, I would like to receive the full brochure and schedule a private viewing for the property: {title} (Ref: {id}).",
@@ -838,7 +853,10 @@ const SITE_I18N = {
     "lbl_available": "Available",
     "lbl_booked": "Reserved",
     "sec_reviews_title": "Verified Guest Experiences & Ratings",
-    "lbl_verified_badge": "Verified Phuket VIP Stay"
+    "lbl_verified_badge": "Verified Phuket VIP Stay",
+    "est_opt_other": "Outra localização...",
+    "est_lbl_other_district": "Especifique a localização",
+    "est_ph_other_district": "ex: Koh Samui, Phang Nga, Colinas de Nai Harn..."
   },
   "th": {
     "inquiry_msg_template": "Hello, I would like to receive the full brochure and schedule a private viewing for the property: {title} (Ref: {id}).",
@@ -965,7 +983,10 @@ const SITE_I18N = {
     "lbl_available": "Available",
     "lbl_booked": "Reserved",
     "sec_reviews_title": "Verified Guest Experiences & Ratings",
-    "lbl_verified_badge": "Verified Phuket VIP Stay"
+    "lbl_verified_badge": "Verified Phuket VIP Stay",
+    "est_opt_other": "ทำเลอื่น ๆ...",
+    "est_lbl_other_district": "ระบุทำเล / พื้นที่",
+    "est_ph_other_district": "เช่น เกาะสมุย, พังงา, ในหาน..."
   },
   "ru": {
     "inquiry_msg_template": "Hello, I would like to receive the full brochure and schedule a private viewing for the property: {title} (Ref: {id}).",
@@ -1092,7 +1113,10 @@ const SITE_I18N = {
     "lbl_available": "Available",
     "lbl_booked": "Reserved",
     "sec_reviews_title": "Verified Guest Experiences & Ratings",
-    "lbl_verified_badge": "Verified Phuket VIP Stay"
+    "lbl_verified_badge": "Verified Phuket VIP Stay",
+    "est_opt_other": "Другой район...",
+    "est_lbl_other_district": "Укажите локацию / район",
+    "est_ph_other_district": "напр. Самуи, Пханг Нга, холмы Най Харн..."
   },
   "ar": {
     "inquiry_msg_template": "Hello, I would like to receive the full brochure and schedule a private viewing for the property: {title} (Ref: {id}).",
@@ -1219,7 +1243,10 @@ const SITE_I18N = {
     "lbl_available": "Available",
     "lbl_booked": "Reserved",
     "sec_reviews_title": "Verified Guest Experiences & Ratings",
-    "lbl_verified_badge": "Verified Phuket VIP Stay"
+    "lbl_verified_badge": "Verified Phuket VIP Stay",
+    "est_opt_other": "موقع آخر...",
+    "est_lbl_other_district": "حدد الموقع / المنطقة",
+    "est_ph_other_district": "مثال: ساموي، فانغ نغا، ناي هارن..."
   },
   "zh": {
     "inquiry_msg_template": "Hello, I would like to receive the full brochure and schedule a private viewing for the property: {title} (Ref: {id}).",
@@ -1346,7 +1373,10 @@ const SITE_I18N = {
     "lbl_available": "Available",
     "lbl_booked": "Reserved",
     "sec_reviews_title": "Verified Guest Experiences & Ratings",
-    "lbl_verified_badge": "Verified Phuket VIP Stay"
+    "lbl_verified_badge": "Verified Phuket VIP Stay",
+    "est_opt_other": "其他区域 / 位置...",
+    "est_lbl_other_district": "请填写具体位置",
+    "est_ph_other_district": "例如：苏梅岛、攀牙府、奈涵山景..."
   }
 };
 
