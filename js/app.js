@@ -206,7 +206,18 @@ const SITE_I18N = {
     "lbl_verified_badge": "Verified Phuket VIP Stay",
     "est_opt_other": "Other Location...",
     "est_lbl_other_district": "Specify Location / Area",
-    "est_ph_other_district": "e.g. Koh Samui, Phang Nga, Nai Harn Hills, Rawai Beachside..."
+    "est_ph_other_district": "e.g. Koh Samui, Phang Nga, Nai Harn Hills, Rawai Beachside...",
+    "footer_col_realestate": "Real Estate Portfolio",
+    "footer_col_services": "Services & Agency",
+    "footer_col_contact": "Direct VIP Contact",
+    "menu_buy_villa": "For Sale Villa, House & Condo",
+    "menu_rent_villa": "For Rent House, Pool Villa & Condo",
+    "menu_land": "Land for Sale & Rent",
+    "menu_business": "Business for Sale in Phuket",
+    "menu_excursions": "Excursions & Yachting",
+    "menu_property_management": "Property Management & Care",
+    "menu_renovation": "Renovations & Post-Construction",
+    "menu_about": "About Recreation Group Ltd."
   },
   "fr": {
     "inquiry_msg_template": "Bonjour, je souhaite obtenir le dossier complet et convenir d'une visite pour le bien : {title} (Réf: {id}).",
@@ -336,7 +347,18 @@ const SITE_I18N = {
     "lbl_verified_badge": "Séjour Vérifié Phuket VIP",
     "est_opt_other": "Autre secteur...",
     "est_lbl_other_district": "Précisez la localisation",
-    "est_ph_other_district": "ex: Koh Samui, Phang Nga, Hauteurs de Nai Harn..."
+    "est_ph_other_district": "ex: Koh Samui, Phang Nga, Hauteurs de Nai Harn...",
+    "footer_col_realestate": "Portefeuille Immobilier",
+    "footer_col_services": "Services & Agence",
+    "footer_col_contact": "Contact Direct VIP",
+    "menu_buy_villa": "Villas, Maisons & Appartements à Vendre",
+    "menu_rent_villa": "Locations Villas, Maisons & Condos",
+    "menu_land": "Terrains à Vendre & à Louer",
+    "menu_business": "Fonds de Commerce & Entreprises",
+    "menu_excursions": "Excursions & Location de Yachts",
+    "menu_property_management": "Gestion & Conciergerie Privée",
+    "menu_renovation": "Rénovation & Suivi de Travaux",
+    "menu_about": "À Propos de Recreation Group"
   },
   "de": {
     "inquiry_msg_template": "Hello, I would like to receive the full brochure and schedule a private viewing for the property: {title} (Ref: {id}).",
@@ -466,7 +488,18 @@ const SITE_I18N = {
     "lbl_verified_badge": "Verified Phuket VIP Stay",
     "est_opt_other": "Anderer Standort...",
     "est_lbl_other_district": "Standort präzisieren",
-    "est_ph_other_district": "z.B. Koh Samui, Phang Nga, Nai Harn Hügel..."
+    "est_ph_other_district": "z.B. Koh Samui, Phang Nga, Nai Harn Hügel...",
+    "footer_col_realestate": "Immobilien-Portfolio",
+    "footer_col_services": "Dienstleistungen & Agentur",
+    "footer_col_contact": "Direkter VIP-Kontakt",
+    "menu_buy_villa": "Villen & Apartments zum Kauf",
+    "menu_rent_villa": "Villen & Apartments zur Miete",
+    "menu_land": "Grundstücke Kaufen & Mieten",
+    "menu_business": "Gewerbeimmobilien in Phuket",
+    "menu_excursions": "Ausflüge & Yachtcharter",
+    "menu_property_management": "Hausverwaltung & Betreuung",
+    "menu_renovation": "Renovierung & Instandhaltung",
+    "menu_about": "Über Recreation Group"
   },
   "it": {
     "inquiry_msg_template": "Hello, I would like to receive the full brochure and schedule a private viewing for the property: {title} (Ref: {id}).",
@@ -596,7 +629,18 @@ const SITE_I18N = {
     "lbl_verified_badge": "Verified Phuket VIP Stay",
     "est_opt_other": "Altra posizione...",
     "est_lbl_other_district": "Specificare la posizione",
-    "est_ph_other_district": "es. Koh Samui, Phang Nga, Colline di Nai Harn..."
+    "est_ph_other_district": "es. Koh Samui, Phang Nga, Colline di Nai Harn...",
+    "footer_col_realestate": "Portafoglio Immobiliare",
+    "footer_col_services": "Servizi & Agenzia",
+    "footer_col_contact": "Contatto VIP Diretto",
+    "menu_buy_villa": "Ville e Appartamenti in Vendita",
+    "menu_rent_villa": "Ville e Appartamenti in Affitto",
+    "menu_land": "Terreni in Vendita e Affitto",
+    "menu_business": "Attività Commerciali a Phuket",
+    "menu_excursions": "Escursioni e Noleggio Yacht",
+    "menu_property_management": "Gestione Proprietà & Custodia",
+    "menu_renovation": "Ristrutturazioni & Manutenzione",
+    "menu_about": "Chi Siamo - Recreation Group"
   },
   "es": {
     "inquiry_msg_template": "Hello, I would like to receive the full brochure and schedule a private viewing for the property: {title} (Ref: {id}).",
@@ -726,7 +770,18 @@ const SITE_I18N = {
     "lbl_verified_badge": "Verified Phuket VIP Stay",
     "est_opt_other": "Otra ubicación...",
     "est_lbl_other_district": "Especifique la ubicación",
-    "est_ph_other_district": "ej. Koh Samui, Phang Nga, Colinas de Nai Harn..."
+    "est_ph_other_district": "ej. Koh Samui, Phang Nga, Colinas de Nai Harn...",
+    "footer_col_realestate": "Cartera Inmobiliaria",
+    "footer_col_services": "Servicios y Agencia",
+    "footer_col_contact": "Contacto Directo VIP",
+    "menu_buy_villa": "Villas y Apartamentos en Venta",
+    "menu_rent_villa": "Villas y Apartamentos en Alquiler",
+    "menu_land": "Terrenos en Venta y Alquiler",
+    "menu_business": "Negocios en Venta en Phuket",
+    "menu_excursions": "Excursiones y Alquiler de Yates",
+    "menu_property_management": "Gestión Integral de Propiedades",
+    "menu_renovation": "Reformas y Mantenimiento",
+    "menu_about": "Sobre Recreation Group"
   },
   "pt": {
     "inquiry_msg_template": "Hello, I would like to receive the full brochure and schedule a private viewing for the property: {title} (Ref: {id}).",
@@ -856,7 +911,18 @@ const SITE_I18N = {
     "lbl_verified_badge": "Verified Phuket VIP Stay",
     "est_opt_other": "Outra localização...",
     "est_lbl_other_district": "Especifique a localização",
-    "est_ph_other_district": "ex: Koh Samui, Phang Nga, Colinas de Nai Harn..."
+    "est_ph_other_district": "ex: Koh Samui, Phang Nga, Colinas de Nai Harn...",
+    "footer_col_realestate": "Portfólio Imobiliário",
+    "footer_col_services": "Serviços e Agência",
+    "footer_col_contact": "Contato VIP Direto",
+    "menu_buy_villa": "Villas e Apartamentos à Venda",
+    "menu_rent_villa": "Villas e Apartamentos para Alugar",
+    "menu_land": "Terrenos para Venda e Locação",
+    "menu_business": "Negócios à Venda em Phuket",
+    "menu_excursions": "Passeios e Aluguel de Iates",
+    "menu_property_management": "Gestão e Cuidados Patrimoniais",
+    "menu_renovation": "Reformas e Manutenção",
+    "menu_about": "Sobre a Recreation Group"
   },
   "th": {
     "inquiry_msg_template": "Hello, I would like to receive the full brochure and schedule a private viewing for the property: {title} (Ref: {id}).",
@@ -986,7 +1052,18 @@ const SITE_I18N = {
     "lbl_verified_badge": "Verified Phuket VIP Stay",
     "est_opt_other": "ทำเลอื่น ๆ...",
     "est_lbl_other_district": "ระบุทำเล / พื้นที่",
-    "est_ph_other_district": "เช่น เกาะสมุย, พังงา, ในหาน..."
+    "est_ph_other_district": "เช่น เกาะสมุย, พังงา, ในหาน...",
+    "footer_col_realestate": "พอร์ตโฟลิโออสังหาริมทรัพย์",
+    "footer_col_services": "บริการและทีมงาน",
+    "footer_col_contact": "ติดต่อฝ่ายดูแลลูกค้าระดับ VIP",
+    "menu_buy_villa": "วิลล่า บ้าน และคอนโดสำหรับขาย",
+    "menu_rent_villa": "วิลล่า บ้าน และคอนโดสำหรับเช่า",
+    "menu_land": "ที่ดินสำหรับขายและให้เช่า",
+    "menu_business": "ธุรกิจและกิจการสำหรับขายในภูเก็ต",
+    "menu_excursions": "ทริปท่องเที่ยวและบริการเช่าเรือยอชท์",
+    "menu_property_management": "บริการดูแลและบริหารจัดการทรัพย์สิน",
+    "menu_renovation": "งานซ่อมแซมและปรับปรุงต่อเติม",
+    "menu_about": "เกี่ยวกับ Recreation Group"
   },
   "ru": {
     "inquiry_msg_template": "Hello, I would like to receive the full brochure and schedule a private viewing for the property: {title} (Ref: {id}).",
@@ -1116,7 +1193,18 @@ const SITE_I18N = {
     "lbl_verified_badge": "Verified Phuket VIP Stay",
     "est_opt_other": "Другой район...",
     "est_lbl_other_district": "Укажите локацию / район",
-    "est_ph_other_district": "напр. Самуи, Пханг Нга, холмы Най Харн..."
+    "est_ph_other_district": "напр. Самуи, Пханг Нга, холмы Най Харн...",
+    "footer_col_realestate": "Портфолио недвижимости",
+    "footer_col_services": "Услуги и агентство",
+    "footer_col_contact": "Прямой VIP-контакт",
+    "menu_buy_villa": "Виллы, дома и кондо на продажу",
+    "menu_rent_villa": "Виллы, дома и кондо в аренду",
+    "menu_land": "Земельные участки",
+    "menu_business": "Готовый бизнес на Пхукете",
+    "menu_excursions": "Экскурсии и аренда яхт",
+    "menu_property_management": "Управление недвижимостью",
+    "menu_renovation": "Ремонт и отделочные работы",
+    "menu_about": "О компании Recreation Group"
   },
   "ar": {
     "inquiry_msg_template": "Hello, I would like to receive the full brochure and schedule a private viewing for the property: {title} (Ref: {id}).",
@@ -1246,7 +1334,18 @@ const SITE_I18N = {
     "lbl_verified_badge": "Verified Phuket VIP Stay",
     "est_opt_other": "موقع آخر...",
     "est_lbl_other_district": "حدد الموقع / المنطقة",
-    "est_ph_other_district": "مثال: ساموي، فانغ نغا، ناي هارن..."
+    "est_ph_other_district": "مثال: ساموي، فانغ نغا، ناي هارن...",
+    "footer_col_realestate": "محفظة العقارات",
+    "footer_col_services": "الخدمات والوكالة",
+    "footer_col_contact": "اتصال VIP مباشر",
+    "menu_buy_villa": "فلل وشقق للبيع",
+    "menu_rent_villa": "فلل وشقق للإيجار",
+    "menu_land": "أراضي للبيع والإيجار",
+    "menu_business": "أنشطة تجارية للبيع في بوكيت",
+    "menu_excursions": "رحلات بحرية وتأجير يخوت",
+    "menu_property_management": "إدارة العقارات والضيافة",
+    "menu_renovation": "تجديدات وصيانة شاملة",
+    "menu_about": "حول Recreation Group"
   },
   "zh": {
     "inquiry_msg_template": "Hello, I would like to receive the full brochure and schedule a private viewing for the property: {title} (Ref: {id}).",
@@ -1376,7 +1475,18 @@ const SITE_I18N = {
     "lbl_verified_badge": "Verified Phuket VIP Stay",
     "est_opt_other": "其他区域 / 位置...",
     "est_lbl_other_district": "请填写具体位置",
-    "est_ph_other_district": "例如：苏梅岛、攀牙府、奈涵山景..."
+    "est_ph_other_district": "例如：苏梅岛、攀牙府、奈涵山景...",
+    "footer_col_realestate": "专属房产投资组合",
+    "footer_col_services": "尊贵服务与机构",
+    "footer_col_contact": "VIP专属直联渠道",
+    "menu_buy_villa": "独栋别墅、豪宅与高端公寓出售",
+    "menu_rent_villa": "泳池别墅、私宅与公寓出租",
+    "menu_land": "土地买卖与租赁",
+    "menu_business": "普吉岛优质商业与企业转让",
+    "menu_excursions": "高端海岛游与豪华游艇租赁",
+    "menu_property_management": "房产全权托管与私人管家服务",
+    "menu_renovation": "豪宅翻新修缮与工程维保",
+    "menu_about": "关于 Recreation Group 集团"
   }
 };
 
