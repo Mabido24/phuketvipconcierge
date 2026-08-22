@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en" translate="no" class="notranslate">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google" content="notranslate">
+  <title>About Us | Recreation Group Ltd. & Phuket VIP Concierge</title>
+  <meta name="description" content="Learn more about Recreation Group Ltd. and Phuket VIP Concierge, founded by Mathieu Girard & Khammouan in Phuket, Thailand.">
+  <link rel="stylesheet" href="/css/style.css?v=20260822_v26_pure_english_i18n">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-zinc-50 text-zinc-900 font-sans antialiased selection:bg-[#DF921B] selection:text-black">
+
+  <!-- Navigation (Universal Responsive Dark Navbar with Official Logo) -->
+  <nav class="fixed w-full top-0 z-50 bg-[#110D09]/95 backdrop-blur-md border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        
+        <!-- Official Logo -->
+        <a href="/index.html" class="flex-shrink-0 flex items-center gap-3">
+          <div class="h-11 w-11 rounded-full overflow-hidden bg-[#1C140E] border border-[#DF921B]/50 shadow-md flex items-center justify-center p-0.5">
+            <img src="/public/images/logo.png?v=20260821_logo2" alt="Phuket VIP Concierge" class="w-full h-full object-cover rounded-full scale-125">
+          </div>
+          <div class="flex flex-col">
+            <span class="font-bold text-lg sm:text-xl tracking-tight text-white uppercase leading-none">
+              Phuket <span class="text-[#DF921B]">VIP</span>
+            </span>
+            <span class="text-[10px] tracking-widest uppercase text-zinc-300 font-semibold mt-0.5">Concierge</span>
+          </div>
+        </a>
+
+        <!-- Desktop Nav Links -->
+        <div class="hidden lg:flex items-center space-x-6 xl:space-x-8">
+          <a href="/index.html" class="text-sm font-semibold text-zinc-300 hover:text-[#DF921B] transition-colors" i18n="nav_home" translate="no">Home</a>
+          <a href="/properties.html?purpose=buy" class="text-sm font-semibold text-zinc-300 hover:text-[#DF921B] transition-colors" i18n="nav_buy" translate="no">Buy</a>
+          <a href="/properties.html?purpose=rent" class="text-sm font-semibold text-zinc-300 hover:text-[#DF921B] transition-colors" i18n="nav_rent" translate="no">Rent</a>
+          <a href="/estimate.html" class="text-sm font-semibold text-zinc-300 hover:text-[#DF921B] transition-colors" i18n="nav_sell" translate="no">Sell</a>
+          <a href="/index.html#services" class="text-sm font-semibold text-zinc-300 hover:text-[#DF921B] transition-colors" i18n="nav_services" translate="no">Concierge</a>
+        </div>
+
+        <!-- Controls (Language + Currency + CTAs) -->
+        <div class="flex items-center gap-2 sm:gap-3">
+          <select id="ctrl-lang" class="ctrl-select">
+            <option value="en">🇬🇧 EN</option>
+            <option value="fr">🇫🇷 FR</option>
+            <option value="de">🇩🇪 DE</option>
+            <option value="it">🇮🇹 IT</option>
+            <option value="es">🇪🇸 ES</option>
+            <option value="pt">🇵🇹 PT</option>
+            <option value="th">🇹🇭 TH</option>
+            <option value="ru">🇷🇺 RU</option>
+            <option value="ar">🇸🇦 AR</option>
+            <option value="zh">🇨🇳 ZH</option>
+          </select>
+
+          <select id="ctrl-curr" class="ctrl-select">
+            <option value="THB">฿ THB</option>
+            <option value="EUR">€ EUR</option>
+            <option value="USD">$ USD</option>
+          </select>
+
+          <div class="hidden md:flex items-center gap-2">
+            <a href="/estimate.html" class="border border-[#DF921B] text-[#DF921B] hover:bg-[#DF921B] hover:text-white transition-all font-semibold text-xs py-2 px-3.5 rounded-xl whitespace-nowrap" i18n="nav_estimate" translate="no">
+              Free Valuation
+            </a>
+            <a href="/admin.html" class="text-zinc-300 hover:text-[#DF921B] transition-all font-semibold text-xs py-2 px-2.5 flex items-center gap-1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <span i18n="nav_admin" translate="no">Admin</span>
+            </a>
+          </div>
+
+          <button type="button" id="btn-mobile-menu" class="lg:hidden p-2 text-zinc-300 hover:text-white rounded-lg focus:outline-none" aria-label="Toggle Navigation">
+            <svg id="icon-menu-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            <svg id="icon-menu-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Panel -->
+    <div id="mobile-nav-panel" class="hidden lg:hidden bg-[#110D09] border-b border-white/10 px-4 pt-3 pb-6 space-y-3 animate-fade-in shadow-2xl">
+      <div class="flex flex-col space-y-2 border-b border-white/10 pb-3">
+        <a href="/index.html" class="text-sm font-semibold text-zinc-200 hover:text-[#DF921B] py-2" i18n="nav_home" translate="no">Home</a>
+        <a href="/properties.html?purpose=buy" class="text-sm font-semibold text-zinc-200 hover:text-[#DF921B] py-2" i18n="nav_buy" translate="no">Buy</a>
+        <a href="/properties.html?purpose=rent" class="text-sm font-semibold text-zinc-200 hover:text-[#DF921B] py-2" i18n="nav_rent" translate="no">Rent</a>
+        <a href="/estimate.html" class="text-sm font-semibold text-zinc-200 hover:text-[#DF921B] py-2" i18n="nav_sell" translate="no">Sell</a>
+        <a href="/index.html#services" class="text-sm font-semibold text-zinc-200 hover:text-[#DF921B] py-2" i18n="nav_services" translate="no">Concierge</a>
+      </div>
+      <div class="flex flex-col gap-2.5 pt-1">
+        <a href="/estimate.html" class="btn-gold w-full text-center py-2.5 text-xs font-bold justify-center" i18n="nav_estimate" translate="no">
+          Free Valuation
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header Banner -->
+  <header class="pt-32 pb-16 bg-[#110D09] text-white border-b border-white/10">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <span class="text-xs uppercase font-extrabold tracking-widest text-[#DF921B] block mb-2" i18n="brand_name" translate="no">Phuket VIP Concierge</span>
+      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight">
+        Welcome to Recreation Group Ltd.
+      </h1>
+      <p class="text-zinc-400 text-sm sm:text-base mt-4 max-w-2xl mx-auto leading-relaxed">
+        We will make your time in Thailand the perfect time!
+      </p>
+    </div>
+  </header>
+
+  <!-- Main Article Content -->
+  <main class="py-16 max-w-4xl mx-auto px-4 sm:px-6">
+    <div class="bg-white border border-zinc-200 rounded-3xl p-8 sm:p-12 shadow-xl space-y-10">
+      
+      <!-- Section 1: Introduction & Mission -->
+      <div class="space-y-4">
+        <div class="inline-flex items-center gap-2 bg-[#DF921B]/10 text-[#DF921B] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+          <span>✦</span>
+          <span>Our Vision & Values</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-[#110D09]">
+          Bespoke Real Estate & Vertical Integration in Phuket
+        </h2>
+        <p class="text-sm sm:text-base text-zinc-600 leading-relaxed">
+          <strong>Recreation Group Ltd.</strong> is a forward-thinking company specializing in prime real estate and vertical integration within the Phuket market. We offer an integrated range of premium services, including property management, asset sales for land, villas, and apartments under our flagship brand, <strong>Phuket VIP Concierge</strong>.
+        </p>
+        <p class="text-sm sm:text-base text-zinc-600 leading-relaxed">
+          In addition to sales and luxury rentals, we specialize in high-end repairs, property renovations, turnkey maintenance, and meticulous post-construction cleaning.
+        </p>
+      </div>
+
+      <!-- Section 2: Leadership Team -->
+      <div class="bg-zinc-50 border border-zinc-200/80 rounded-2xl p-6 sm:p-8 space-y-4">
+        <h3 class="text-lg font-bold text-[#110D09] flex items-center gap-2">
+          <span class="text-[#DF921B]">👥</span>
+          <span>Dedicated Leadership & Personal Commitment</span>
+        </h3>
+        <p class="text-sm text-zinc-600 leading-relaxed">
+          Our team is agile, selective, and highly effective, led by <strong>Mathieu Girard</strong> and his wife, <strong>Khammouan</strong>. Quality, transparency, and unconditional client satisfaction are our top priorities.
+        </p>
+        <blockquote class="border-l-4 border-[#DF921B] pl-4 italic text-zinc-700 text-sm font-medium py-1">
+          "At Recreation Group, we treat every single property as if it were our own. We are committed to delivering exceptional results through hard work, attention to detail, and an absolute focus on quality."
+          <span class="block mt-2 not-italic font-bold text-zinc-900">— Mathieu Girard & Khammouan</span>
+        </blockquote>
+      </div>
+
+      <!-- Section 3: Strategic Infrastructure & Rawai Hub -->
+      <div class="space-y-4">
+        <h3 class="text-lg font-bold text-[#110D09] flex items-center gap-2">
+          <span class="text-[#DF921B]">📍</span>
+          <span>Our Operational Hub in Rawai, Phuket</span>
+        </h3>
+        <p class="text-sm text-zinc-600 leading-relaxed">
+          We operate our primary real estate and guest management hub in Rawai (Southern Phuket), providing convenient on-the-ground support to villa owners, international buyers, and discerning vacationers.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+          <div class="p-4 bg-zinc-50 border border-zinc-200 rounded-xl text-center">
+            <span class="text-2xl block mb-1">🏡</span>
+            <span class="text-xs font-bold text-zinc-800">Prime Real Estate</span>
+            <p class="text-[11px] text-zinc-500 mt-1">Villas, Land & Penthouses</p>
+          </div>
+          <div class="p-4 bg-zinc-50 border border-zinc-200 rounded-xl text-center">
+            <span class="text-2xl block mb-1">🛥️</span>
+            <span class="text-xs font-bold text-zinc-800">VIP Concierge</span>
+            <p class="text-[11px] text-zinc-500 mt-1">Yachting, Cars & Bookings</p>
+          </div>
+          <div class="p-4 bg-zinc-50 border border-zinc-200 rounded-xl text-center">
+            <span class="text-2xl block mb-1">🔨</span>
+            <span class="text-xs font-bold text-zinc-800">Estate Care</span>
+            <p class="text-[11px] text-zinc-500 mt-1">Renovations & Maintenance</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Call to action -->
+      <div class="pt-6 border-t border-zinc-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>
+          <span class="text-xs font-bold text-zinc-800 block">Have a project in Phuket?</span>
+          <span class="text-xs text-zinc-500">Contact our dedicated advisors directly today.</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="/index.html#contact" class="btn-gold px-6 py-2.5 rounded-xl font-bold text-xs shadow-md">
+            Get in Touch
+          </a>
+          <a href="/properties.html" class="btn-outline-gold px-6 py-2.5 rounded-xl font-bold text-xs">
+            View Properties
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer (Official Navigation & Contact Info) -->
+  <footer class="bg-[#110D09] text-zinc-400 pt-16 pb-12 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+        
+        <!-- Col 1: Brand & Identity -->
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="h-11 w-11 rounded-full overflow-hidden bg-[#1C140E] border border-[#DF921B]/40 shadow-sm flex items-center justify-center p-0.5">
+              <img src="/public/images/logo.png?v=20260821_logo2" alt="Phuket VIP Concierge Logo" class="w-full h-full object-cover rounded-full scale-125">
+            </div>
+            <div class="flex flex-col">
+              <span class="font-bold text-xl tracking-tight text-white uppercase leading-none">
+                Phuket <span class="text-[#DF921B]">VIP</span>
+              </span>
+              <span class="text-[10px] tracking-widest uppercase text-zinc-300 font-semibold mt-0.5">Concierge</span>
+            </div>
+          </div>
+          <p class="text-xs text-zinc-400 max-w-sm leading-relaxed" i18n="footer_desc" translate="no">
+            Your premier partner for luxury real estate, property management, exclusive yachting and private VIP concierge services in Phuket, Thailand.
+          </p>
+          <div class="space-y-1.5 pt-1 text-xs text-zinc-300">
+            <p class="flex items-start gap-2">
+              <span class="text-[#DF921B]">📍</span>
+              <span>49/62 Moo 7, Rawai Sub-district, Mueang Phuket District, Phuket 83130, Thailand</span>
+            </p>
+            <p class="flex items-center gap-2 text-zinc-400 text-[11px]">
+              <span class="text-[#DF921B]">🏢</span>
+              <span>Recreation Group Ltd. · Mathieu Girard & Khammouan</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Col 2: Navigation (Buy, Rent, Sell, Concierge) -->
+        <div>
+          <h4 class="text-white text-xs font-bold uppercase tracking-wider mb-4 border-l-2 border-[#DF921B] pl-2" i18n="nav_home" translate="no">Navigation</h4>
+          <ul class="space-y-2.5 text-xs">
+            <li><a href="/properties.html?purpose=buy" class="hover:text-[#DF921B] transition-colors" i18n="nav_buy" translate="no">Buy</a></li>
+            <li><a href="/properties.html?purpose=rent" class="hover:text-[#DF921B] transition-colors" i18n="nav_rent" translate="no">Rent</a></li>
+            <li><a href="/estimate.html" class="hover:text-[#DF921B] transition-colors" i18n="nav_sell" translate="no">Sell</a></li>
+            <li><a href="/index.html#services" class="hover:text-[#DF921B] transition-colors" i18n="nav_services" translate="no">Concierge</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: VIP Concierge & Services -->
+        <div>
+          <h4 class="text-white text-xs font-bold uppercase tracking-wider mb-4 border-l-2 border-[#DF921B] pl-2" i18n="footer_col_services" translate="no">Services & Agency</h4>
+          <ul class="space-y-2.5 text-xs">
+            <li><a href="/index.html#services" class="hover:text-[#DF921B] transition-colors" i18n="menu_excursions" translate="no">Excursions & Yachting</a></li>
+            <li><a href="/index.html#services" class="hover:text-[#DF921B] transition-colors" i18n="menu_property_management" translate="no">Property Management</a></li>
+            <li><a href="/index.html#services" class="hover:text-[#DF921B] transition-colors" i18n="menu_renovation" translate="no">Renovations & Repairs</a></li>
+            <li><a href="/about-us.html" class="hover:text-[#DF921B] transition-colors text-[#DF921B] font-semibold" i18n="menu_about" translate="no">About Recreation Group</a></li>
+            <li><a href="https://maps.app.goo.gl/JQuiqMB7kfGMhUq77" target="_blank" rel="noopener noreferrer" class="hover:text-[#DF921B] transition-colors flex items-center gap-1"><span>Interactive Map</span> ↗</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Verified VIP Contact -->
+        <div>
+          <h4 class="text-white text-xs font-bold uppercase tracking-wider mb-4 border-l-2 border-[#DF921B] pl-2" i18n="footer_col_contact" translate="no">Direct VIP Contact</h4>
+          <ul class="space-y-2.5 text-xs text-zinc-300">
+            <li class="flex items-center gap-2">
+              <span>📞</span>
+              <a href="tel:+66617238919" class="hover:text-[#DF921B] font-semibold transition-colors">+66 61 723 8919</a>
+            </li>
+            <li class="flex items-center gap-2">
+              <span>💬</span>
+              <a href="https://wa.me/66617238919" target="_blank" rel="noopener noreferrer" class="hover:text-[#DF921B] transition-colors">WhatsApp 24/7 Available</a>
+            </li>
+            <li class="flex items-center gap-2">
+              <span>📧</span>
+              <a href="mailto:info@phuketvipconcierge.com" class="hover:text-[#DF921B] transition-colors">info@phuketvipconcierge.com</a>
+            </li>
+            <li class="pt-2">
+              <a href="/admin.html" class="inline-flex items-center gap-1.5 text-zinc-400 hover:text-[#DF921B] font-semibold">
+                <span i18n="nav_admin" translate="no">🔒 Admin Portal</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-500 gap-4">
+        <p i18n="footer_rights" translate="no">© 2026 Phuket VIP Concierge · Recreation Group Ltd. All rights reserved.</p>
+        <div class="flex items-center gap-4">
+          <a href="/legal-notice.html" class="hover:text-zinc-400 transition-colors">Legal Notice & Privacy Policy</a>
+          <span>·</span>
+          <span>Saint-Nicolas & Phuket</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/app.js?v=20260822_v26_pure_english_i18n"></script>
+</body>
+</html>
