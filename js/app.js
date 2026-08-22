@@ -217,7 +217,10 @@ const SITE_I18N = {
     "menu_excursions": "Excursions & Yachting",
     "menu_property_management": "Property Management & Care",
     "menu_renovation": "Renovations & Post-Construction",
-    "menu_about": "About Recreation Group Ltd."
+    "menu_about": "About Recreation Group Ltd.",
+    "lbl_purpose_sold": "Sold",
+    "filter_sold": "Sold Properties",
+    "badge_sold": "SOLD"
   },
   "fr": {
     "inquiry_msg_template": "Bonjour, je souhaite obtenir le dossier complet et convenir d'une visite pour le bien : {title} (Réf: {id}).",
@@ -358,7 +361,10 @@ const SITE_I18N = {
     "menu_excursions": "Excursions & Location de Yachts",
     "menu_property_management": "Gestion & Conciergerie Privée",
     "menu_renovation": "Rénovation & Suivi de Travaux",
-    "menu_about": "À Propos de Recreation Group"
+    "menu_about": "À Propos de Recreation Group",
+    "lbl_purpose_sold": "Vendu",
+    "filter_sold": "Biens Vendus",
+    "badge_sold": "VENDU"
   },
   "de": {
     "inquiry_msg_template": "Hello, I would like to receive the full brochure and schedule a private viewing for the property: {title} (Ref: {id}).",
@@ -499,7 +505,10 @@ const SITE_I18N = {
     "menu_excursions": "Ausflüge & Yachtcharter",
     "menu_property_management": "Hausverwaltung & Betreuung",
     "menu_renovation": "Renovierung & Instandhaltung",
-    "menu_about": "Über Recreation Group"
+    "menu_about": "Über Recreation Group",
+    "lbl_purpose_sold": "Verkauft",
+    "filter_sold": "Verkaufte Immobilien",
+    "badge_sold": "VERKAUFT"
   },
   "it": {
     "inquiry_msg_template": "Hello, I would like to receive the full brochure and schedule a private viewing for the property: {title} (Ref: {id}).",
@@ -640,7 +649,10 @@ const SITE_I18N = {
     "menu_excursions": "Escursioni e Noleggio Yacht",
     "menu_property_management": "Gestione Proprietà & Custodia",
     "menu_renovation": "Ristrutturazioni & Manutenzione",
-    "menu_about": "Chi Siamo - Recreation Group"
+    "menu_about": "Chi Siamo - Recreation Group",
+    "lbl_purpose_sold": "Venduto",
+    "filter_sold": "Immobili Venduti",
+    "badge_sold": "VENDUTO"
   },
   "es": {
     "inquiry_msg_template": "Hello, I would like to receive the full brochure and schedule a private viewing for the property: {title} (Ref: {id}).",
@@ -781,7 +793,10 @@ const SITE_I18N = {
     "menu_excursions": "Excursiones y Alquiler de Yates",
     "menu_property_management": "Gestión Integral de Propiedades",
     "menu_renovation": "Reformas y Mantenimiento",
-    "menu_about": "Sobre Recreation Group"
+    "menu_about": "Sobre Recreation Group",
+    "lbl_purpose_sold": "Vendido",
+    "filter_sold": "Propiedades Vendidas",
+    "badge_sold": "VENDIDO"
   },
   "pt": {
     "inquiry_msg_template": "Hello, I would like to receive the full brochure and schedule a private viewing for the property: {title} (Ref: {id}).",
@@ -922,7 +937,10 @@ const SITE_I18N = {
     "menu_excursions": "Passeios e Aluguel de Iates",
     "menu_property_management": "Gestão e Cuidados Patrimoniais",
     "menu_renovation": "Reformas e Manutenção",
-    "menu_about": "Sobre a Recreation Group"
+    "menu_about": "Sobre a Recreation Group",
+    "lbl_purpose_sold": "Vendido",
+    "filter_sold": "Propriedades Vendidas",
+    "badge_sold": "VENDIDO"
   },
   "th": {
     "inquiry_msg_template": "Hello, I would like to receive the full brochure and schedule a private viewing for the property: {title} (Ref: {id}).",
@@ -1063,7 +1081,10 @@ const SITE_I18N = {
     "menu_excursions": "ทริปท่องเที่ยวและบริการเช่าเรือยอชท์",
     "menu_property_management": "บริการดูแลและบริหารจัดการทรัพย์สิน",
     "menu_renovation": "งานซ่อมแซมและปรับปรุงต่อเติม",
-    "menu_about": "เกี่ยวกับ Recreation Group"
+    "menu_about": "เกี่ยวกับ Recreation Group",
+    "lbl_purpose_sold": "ขายแล้ว",
+    "filter_sold": "อสังหาฯ ที่ขายแล้ว",
+    "badge_sold": "ขายแล้ว"
   },
   "ru": {
     "inquiry_msg_template": "Hello, I would like to receive the full brochure and schedule a private viewing for the property: {title} (Ref: {id}).",
@@ -1204,7 +1225,10 @@ const SITE_I18N = {
     "menu_excursions": "Экскурсии и аренда яхт",
     "menu_property_management": "Управление недвижимостью",
     "menu_renovation": "Ремонт и отделочные работы",
-    "menu_about": "О компании Recreation Group"
+    "menu_about": "О компании Recreation Group",
+    "lbl_purpose_sold": "Продано",
+    "filter_sold": "Проданные объекты",
+    "badge_sold": "ПРОДАНО"
   },
   "ar": {
     "inquiry_msg_template": "Hello, I would like to receive the full brochure and schedule a private viewing for the property: {title} (Ref: {id}).",
@@ -1345,7 +1369,10 @@ const SITE_I18N = {
     "menu_excursions": "رحلات بحرية وتأجير يخوت",
     "menu_property_management": "إدارة العقارات والضيافة",
     "menu_renovation": "تجديدات وصيانة شاملة",
-    "menu_about": "حول Recreation Group"
+    "menu_about": "حول Recreation Group",
+    "lbl_purpose_sold": "تم البيع",
+    "filter_sold": "عقارات تم بيعها",
+    "badge_sold": "تم البيع"
   },
   "zh": {
     "inquiry_msg_template": "Hello, I would like to receive the full brochure and schedule a private viewing for the property: {title} (Ref: {id}).",
@@ -1486,7 +1513,10 @@ const SITE_I18N = {
     "menu_excursions": "高端海岛游与豪华游艇租赁",
     "menu_property_management": "房产全权托管与私人管家服务",
     "menu_renovation": "豪宅翻新修缮与工程维保",
-    "menu_about": "关于 Recreation Group 集团"
+    "menu_about": "关于 Recreation Group 集团",
+    "lbl_purpose_sold": "已售出",
+    "filter_sold": "已售出房产",
+    "badge_sold": "已售出"
   }
 };
 
@@ -2349,10 +2379,10 @@ function unpackProperty(p) {
 
   // Extract purpose if tagged
   let purpose = p.purpose || 'buy';
-  const purposeMatch = cleanDesc.match(/\[listing_type:(buy|rent)\]/i);
+  const purposeMatch = cleanDesc.match(/\[listing_type:(buy|rent|sold)\]/i);
   if (purposeMatch) {
     purpose = purposeMatch[1].toLowerCase();
-    cleanDesc = cleanDesc.replace(/\[listing_type:(buy|rent)\]/i, '').trim();
+    cleanDesc = cleanDesc.replace(/\[listing_type:(buy|rent|sold)\]/i, '').trim();
   }
 
   // Extract metadata json if tagged
@@ -2564,7 +2594,18 @@ function renderPropertyCard(p) {
   const coverImage = (Array.isArray(p.images) && p.images[0]) ? p.images[0] : (p.image || '/public/images/villa_1.png');
   const formattedPrice = formatPrice(p.price_thb || p.price);
   const isRent = (p.purpose === 'rent');
-  const purposeBadge = isRent ? (dict.lbl_purpose_rent || 'Rent') : (dict.lbl_purpose_buy || 'Buy');
+  const isSold = (p.purpose === 'sold' || p.status === 'sold' || p.is_sold === true);
+  
+  let purposeBadge = dict.lbl_purpose_buy || 'Buy';
+  let badgeClasses = "bg-[#110D09]/90 text-white border-white/20";
+  
+  if (isSold) {
+    purposeBadge = dict.badge_sold || dict.lbl_purpose_sold || 'SOLD';
+    badgeClasses = "bg-red-600 text-white border-red-500 font-extrabold tracking-wider shadow-lg";
+  } else if (isRent) {
+    purposeBadge = dict.lbl_purpose_rent || 'Rent';
+    badgeClasses = "bg-[#110D09]/90 text-white border-white/20";
+  }
 
   return `
     <article class="property-card flex flex-col group h-full">
@@ -2573,7 +2614,7 @@ function renderPropertyCard(p) {
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none"></div>
         
         <div class="absolute top-3 left-3 flex items-center gap-2">
-          <span class="bg-[#110D09]/90 backdrop-blur-md text-white text-[11px] font-bold px-3 py-1 rounded-full border border-white/20 uppercase tracking-wider">
+          <span class="${badgeClasses} backdrop-blur-md text-[11px] font-bold px-3 py-1 rounded-full border uppercase tracking-wider">
             ${purposeBadge}
           </span>
           <span class="bg-[#DF921B] text-white text-[11px] font-bold px-2.5 py-1 rounded-full shadow-md">

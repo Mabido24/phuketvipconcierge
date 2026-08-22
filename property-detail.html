@@ -558,7 +558,16 @@
 
         const purposeBadge = document.getElementById('detail-purpose-badge');
         if (purposeBadge) {
-          purposeBadge.textContent = property.purpose === 'rent' ? (dict.lbl_purpose_rent || 'Location') : (dict.lbl_purpose_buy || 'Vente Exclusive');
+          if (property.purpose === 'sold' || property.status === 'sold' || property.is_sold === true) {
+            purposeBadge.textContent = dict.badge_sold || dict.lbl_purpose_sold || 'SOLD';
+            purposeBadge.className = "bg-red-600 text-white text-xs font-black px-3.5 py-1 rounded-full uppercase tracking-wider shadow-lg border border-red-500";
+          } else if (property.purpose === 'rent') {
+            purposeBadge.textContent = dict.lbl_purpose_rent || 'For Rent';
+            purposeBadge.className = "bg-emerald-600 text-white text-xs font-bold px-3 py-0.5 rounded-full uppercase tracking-wider shadow-sm";
+          } else {
+            purposeBadge.textContent = dict.lbl_purpose_buy || 'For Sale';
+            purposeBadge.className = "bg-[#DF921B] text-white text-xs font-bold px-3 py-0.5 rounded-full uppercase tracking-wider shadow-sm";
+          }
         }
 
         const typeBadge = document.getElementById('detail-type-badge');
