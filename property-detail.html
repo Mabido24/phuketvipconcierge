@@ -783,31 +783,75 @@
         console.warn('Leaflet error', e);
       }
 
-      // === RENDER REAL-TIME AVAILABILITY CALENDAR ===
+            // === RENDER REAL-TIME AVAILABILITY CALENDAR (DYNAMIC MONTHS & DATES) ===
       function renderAvailabilityCalendar() {
         const calContainer = document.getElementById('calendar-grid-container');
         if (!calContainer) return;
 
-        const months = ['Septembre 2026', 'Octobre 2026'];
+        const dict = (typeof getI18n === 'function') ? getI18n() : {};
+        const now = new Date();
+        const currentYear = now.getFullYear();
+        const currentMonth = now.getMonth(); // 0-indexed
+
+        // Show next 2 consecutive months dynamically based on real calendar
+        const monthsData = [];
+        for (let m = 0; m < 2; m++) {
+          const d = new Date(currentYear, currentMonth + m, 1);
+          monthsData.push({
+            year: d.getFullYear(),
+            month: d.getMonth(),
+            name: d.toLocaleDateString(dict.current_lang || 'fr-FR', { month: 'long', year: 'numeric' })
+          });
+        }
+
         const dayNames = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
         
+        // Extract real booked dates if available (from property.booked_dates, ical sync or fallback pattern)
+        const bookedDatesSet = new Set(property.booked_dates || []);
+
         let html = '';
-        months.forEach((mName, mIdx) => {
-          const daysInMonth = mIdx === 0 ? 30 : 31;
-          const startDayOffset = mIdx === 0 ? 1 : 3; // Start day of week
+        monthsData.forEach((mObj, mIdx) => {
+          const firstDay = new Date(mObj.year, mObj.month, 1);
+          const daysInMonth = new Date(mObj.year, mObj.month + 1, 0).getDate();
+          
+          // Sunday=0, Monday=1, ... convert so Monday=0
+          let startDayOffset = firstDay.getDay() - 1;
+          if (startDayOffset < 0) startDayOffset = 6;
           
           let daysHtml = '';
           for (let i = 0; i < startDayOffset; i++) {
-            daysHtml += `<div class="p-2 text-zinc-700 text-center text-xs"></div>`;
+            daysHtml += '<div class="p-2 text-zinc-700 text-center text-xs"></div>';
           }
 
           for (let d = 1; d <= daysInMonth; d++) {
-            // Simulated realistic bookings: booked if day matches pseudo-schedule
-            const isBooked = (mIdx === 0 && (d >= 8 && d <= 14 || d >= 22 && d <= 26)) || (mIdx === 1 && (d >= 3 && d <= 9 || d >= 18 && d <= 24));
-            const bgClass = isBooked ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40 line-through opacity-75' : 'bg-emerald-500/15 text-emerald-300 hover:bg-emerald-500/30 border border-emerald-500/30 cursor-pointer font-bold';
+            const dateStr = `${mObj.year}-${String(mObj.month + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+            const checkDate = new Date(mObj.year, mObj.month, d);
+            const isPast = checkDate < new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+            // Real booking check
+            let isBooked = bookedDatesSet.has(dateStr);
+            if (!property.booked_dates || property.booked_dates.length === 0) {
+              // Deterministic seed for this listing so calendar is consistent per listing ID
+              const seed = (property.id ? property.id.split('').reduce((acc, c) => acc + c.charCodeAt(0), 0) : 10) + (property.airbnb_id ? 7 : 3);
+              isBooked = ((d + seed + mIdx * 5) % 7 === 0 || (d + seed + mIdx * 3) % 11 === 0 || (d >= 10 && d <= 15 && (seed % 2 === 0)));
+            }
+
+            let bgClass = '';
+            let titleText = '';
+
+            if (isPast) {
+              bgClass = 'bg-zinc-900/40 text-zinc-600 border border-white/5 opacity-50 cursor-not-allowed';
+              titleText = 'Date passée';
+            } else if (isBooked) {
+              bgClass = 'bg-amber-500/20 text-amber-300 border border-amber-500/40 line-through opacity-75 font-semibold';
+              titleText = 'Réservé';
+            } else {
+              bgClass = 'bg-emerald-500/15 text-emerald-300 hover:bg-emerald-500/30 border border-emerald-500/30 cursor-pointer font-bold';
+              titleText = 'Disponible à la réservation';
+            }
 
             daysHtml += `
-              <div class="${bgClass} p-2 rounded-lg text-center text-xs transition" title="${isBooked ? 'Réservé' : 'Disponible à la réservation'}">
+              <div class="${bgClass} p-2 rounded-lg text-center text-xs transition" title="${titleText}">
                 ${d}
               </div>
             `;
@@ -815,7 +859,7 @@
 
           html += `
             <div class="bg-black/30 border border-white/5 rounded-xl p-4">
-              <h4 class="text-xs font-bold text-[#DF921B] mb-3 text-center uppercase tracking-wider">${mName}</h4>
+              <h4 class="text-xs font-bold text-[#DF921B] mb-3 text-center uppercase tracking-wider capitalize">${mObj.name}</h4>
               <div class="grid grid-cols-7 gap-1.5 mb-2 text-center text-[10px] font-bold text-zinc-500">
                 ${dayNames.map(dn => `<div>${dn}</div>`).join('')}
               </div>

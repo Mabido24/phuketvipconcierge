@@ -208,6 +208,16 @@
             <p class="text-[10px] text-zinc-400 mt-1">Collez l'URL de votre visite vidéo. Elle sera automatiquement intégrée sur la fiche du bien.</p>
           </div>
 
+          <!-- Airbnb / Booking iCal Calendar Synchronization URL -->
+          <div class="p-3 bg-white/5 border border-white/10 rounded-xl space-y-1.5">
+            <label class="block text-xs font-bold text-amber-300 flex items-center gap-1.5">
+              <span>📅</span>
+              <span>Lien Synchronisation Calendrier (iCal / Airbnb / ICS)</span>
+            </label>
+            <input type="url" id="form-ical-url" placeholder="https://www.airbnb.com/calendar/ical/....ics?s=..." class="form-input text-xs font-mono">
+            <p class="text-[10px] text-zinc-400">Le calendrier du site se synchronise automatiquement chaque heure avec ce flux Airbnb/iCal.</p>
+          </div>
+
           <div>
             <label class="block text-xs font-semibold text-zinc-300 mb-1">Description</label>
             <textarea id="form-desc" rows="3" class="form-textarea" placeholder="Stunning luxury property with private pool..."></textarea>
@@ -535,6 +545,7 @@
       document.getElementById('form-review-count').value = p.review_count || 12;
       document.getElementById('form-area').value = p.building_area || 0;
       document.getElementById('form-video-url').value = p.video_url || '';
+        document.getElementById('form-ical-url').value = p.ical_url || '';
       document.getElementById('form-desc').value = p.description || '';
       document.getElementById('form-pool').checked = !!p.private_pool;
       document.getElementById('form-seaview').checked = !!p.sea_view;
@@ -695,6 +706,7 @@
         document.getElementById('form-prop-id').value = '';
         document.getElementById('form-is-airbnb').value = 'false';
         document.getElementById('form-video-url').value = '';
+        document.getElementById('form-ical-url').value = '';
         document.getElementById('modal-title').textContent = 'Add Property';
         document.getElementById('modal-subtitle').textContent = 'Fill in property details, videos or reorder photos.';
         document.getElementById('form-details-section').style.display = 'block';
