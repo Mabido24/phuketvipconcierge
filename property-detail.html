@@ -783,7 +783,7 @@
         console.warn('Leaflet error', e);
       }
 
-            // === RENDER REAL-TIME AVAILABILITY CALENDAR (DYNAMIC MONTHS & DATES) ===
+                  // === RENDER REAL-TIME AVAILABILITY CALENDAR (STRICT REAL SYNC) ===
       function renderAvailabilityCalendar() {
         const calContainer = document.getElementById('calendar-grid-container');
         if (!calContainer) return;
@@ -793,7 +793,7 @@
         const currentYear = now.getFullYear();
         const currentMonth = now.getMonth(); // 0-indexed
 
-        // Show next 2 consecutive months dynamically based on real calendar
+        // Next 2 consecutive real months
         const monthsData = [];
         for (let m = 0; m < 2; m++) {
           const d = new Date(currentYear, currentMonth + m, 1);
@@ -806,7 +806,7 @@
 
         const dayNames = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
         
-        // Extract real booked dates if available (from property.booked_dates, ical sync or fallback pattern)
+        // Extract 100% REAL booked dates from iCal sync or live payload
         const bookedDatesSet = new Set(property.booked_dates || []);
 
         let html = '';
@@ -828,13 +828,8 @@
             const checkDate = new Date(mObj.year, mObj.month, d);
             const isPast = checkDate < new Date(now.getFullYear(), now.getMonth(), now.getDate());
 
-            // Real booking check
-            let isBooked = bookedDatesSet.has(dateStr);
-            if (!property.booked_dates || property.booked_dates.length === 0) {
-              // Deterministic seed for this listing so calendar is consistent per listing ID
-              const seed = (property.id ? property.id.split('').reduce((acc, c) => acc + c.charCodeAt(0), 0) : 10) + (property.airbnb_id ? 7 : 3);
-              isBooked = ((d + seed + mIdx * 5) % 7 === 0 || (d + seed + mIdx * 3) % 11 === 0 || (d >= 10 && d <= 15 && (seed % 2 === 0)));
-            }
+            // Strict check: only marked as booked if present in real sync
+            const isBooked = bookedDatesSet.has(dateStr);
 
             let bgClass = '';
             let titleText = '';
