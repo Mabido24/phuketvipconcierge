@@ -257,26 +257,6 @@
           </div>
         </div>
 
-        <!-- Availability Calendar Section -->
-        <div id="availability-section" class="bg-[#16110B] border border-white/10 rounded-2xl p-6 sm:p-8 space-y-6">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-4">
-            <div>
-              <h3 class="text-base font-bold text-white flex items-center gap-2">
-                <span class="text-[#DF921B]">📅</span>
-                <span i18n="sec_availability_title" translate="no">Availability & Booking Calendar</span>
-              </h3>
-              <p class="text-xs text-zinc-400 mt-1" i18n="sec_availability_subtitle" translate="no">Real-time availability schedule. Minimum stay: 3 nights.</p>
-            </div>
-            <div class="flex items-center gap-4 text-xs font-semibold">
-              <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span> <span class="text-zinc-300" i18n="lbl_available">Available</span></span>
-              <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span> <span class="text-zinc-300" i18n="lbl_booked">Reserved</span></span>
-            </div>
-          </div>
-          <div id="calendar-grid-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <!-- Dynamic 2-Month Calendar -->
-          </div>
-        </div>
-
         <!-- Verified Guest Reviews Section -->
         <div id="reviews-section" class="bg-[#16110B] border border-white/10 rounded-2xl p-6 sm:p-8 space-y-6">
           <div class="flex items-center justify-between border-b border-white/10 pb-4">
@@ -783,91 +763,7 @@
         console.warn('Leaflet error', e);
       }
 
-                  // === RENDER REAL-TIME AVAILABILITY CALENDAR (STRICT REAL SYNC) ===
-      function renderAvailabilityCalendar() {
-        const calContainer = document.getElementById('calendar-grid-container');
-        if (!calContainer) return;
-
-        const dict = (typeof getI18n === 'function') ? getI18n() : {};
-        const now = new Date();
-        const currentYear = now.getFullYear();
-        const currentMonth = now.getMonth(); // 0-indexed
-
-        // Next 2 consecutive real months
-        const monthsData = [];
-        for (let m = 0; m < 2; m++) {
-          const d = new Date(currentYear, currentMonth + m, 1);
-          monthsData.push({
-            year: d.getFullYear(),
-            month: d.getMonth(),
-            name: d.toLocaleDateString(dict.current_lang || 'fr-FR', { month: 'long', year: 'numeric' })
-          });
-        }
-
-        const dayNames = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
-        
-        // Extract 100% REAL booked dates from iCal sync or live payload
-        const bookedDatesSet = new Set(property.booked_dates || []);
-
-        let html = '';
-        monthsData.forEach((mObj, mIdx) => {
-          const firstDay = new Date(mObj.year, mObj.month, 1);
-          const daysInMonth = new Date(mObj.year, mObj.month + 1, 0).getDate();
-          
-          // Sunday=0, Monday=1, ... convert so Monday=0
-          let startDayOffset = firstDay.getDay() - 1;
-          if (startDayOffset < 0) startDayOffset = 6;
-          
-          let daysHtml = '';
-          for (let i = 0; i < startDayOffset; i++) {
-            daysHtml += '<div class="p-2 text-zinc-700 text-center text-xs"></div>';
-          }
-
-          for (let d = 1; d <= daysInMonth; d++) {
-            const dateStr = `${mObj.year}-${String(mObj.month + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
-            const checkDate = new Date(mObj.year, mObj.month, d);
-            const isPast = checkDate < new Date(now.getFullYear(), now.getMonth(), now.getDate());
-
-            // Strict check: only marked as booked if present in real sync
-            const isBooked = bookedDatesSet.has(dateStr);
-
-            let bgClass = '';
-            let titleText = '';
-
-            if (isPast) {
-              bgClass = 'bg-zinc-900/40 text-zinc-600 border border-white/5 opacity-50 cursor-not-allowed';
-              titleText = 'Date passée';
-            } else if (isBooked) {
-              bgClass = 'bg-amber-500/20 text-amber-300 border border-amber-500/40 line-through opacity-75 font-semibold';
-              titleText = 'Réservé';
-            } else {
-              bgClass = 'bg-emerald-500/15 text-emerald-300 hover:bg-emerald-500/30 border border-emerald-500/30 cursor-pointer font-bold';
-              titleText = 'Disponible à la réservation';
-            }
-
-            daysHtml += `
-              <div class="${bgClass} p-2 rounded-lg text-center text-xs transition" title="${titleText}">
-                ${d}
-              </div>
-            `;
-          }
-
-          html += `
-            <div class="bg-black/30 border border-white/5 rounded-xl p-4">
-              <h4 class="text-xs font-bold text-[#DF921B] mb-3 text-center uppercase tracking-wider capitalize">${mObj.name}</h4>
-              <div class="grid grid-cols-7 gap-1.5 mb-2 text-center text-[10px] font-bold text-zinc-500">
-                ${dayNames.map(dn => `<div>${dn}</div>`).join('')}
-              </div>
-              <div class="grid grid-cols-7 gap-1.5">
-                ${daysHtml}
-              </div>
-            </div>
-          `;
-        });
-
-        calContainer.innerHTML = html;
-      }
-      renderAvailabilityCalendar();
+                  
 
       // === RENDER VERIFIED GUEST REVIEWS ===
       function renderGuestReviews() {
