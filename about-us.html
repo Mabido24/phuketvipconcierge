@@ -11,7 +11,7 @@
 </head>
 <body class="min-h-screen bg-zinc-50 text-zinc-900 font-sans antialiased selection:bg-[#DF921B] selection:text-black">
 
-  <!-- Navigation (Universal Responsive Dark Navbar with Official Logo) -->
+    <!-- Navigation (Universal Responsive Dark Navbar with Official Logo) -->
   <nav class="fixed w-full top-0 z-50 bg-[#110D09]/95 backdrop-blur-md border-b border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-20">
@@ -30,16 +30,19 @@
         </a>
 
         <!-- Desktop Nav Links -->
-        <div class="hidden lg:flex items-center space-x-6 xl:space-x-8">
+        <div class="hidden lg:flex items-center space-x-6 xl:space-x-7">
           <a href="/index.html" class="text-sm font-semibold text-zinc-300 hover:text-[#DF921B] transition-colors" i18n="nav_home" translate="no">Home</a>
           <a href="/properties.html?purpose=buy" class="text-sm font-semibold text-zinc-300 hover:text-[#DF921B] transition-colors" i18n="nav_buy" translate="no">Buy</a>
           <a href="/properties.html?purpose=rent" class="text-sm font-semibold text-zinc-300 hover:text-[#DF921B] transition-colors" i18n="nav_rent" translate="no">Rent</a>
           <a href="/estimate.html" class="text-sm font-semibold text-zinc-300 hover:text-[#DF921B] transition-colors" i18n="nav_sell" translate="no">Sell</a>
+          <a href="/excursions-and-yachting.html" class="text-sm font-semibold text-zinc-300 hover:text-[#DF921B] transition-colors" i18n="nav_excursions" translate="no">Excursions</a>
           <a href="/index.html#services" class="text-sm font-semibold text-zinc-300 hover:text-[#DF921B] transition-colors" i18n="nav_services" translate="no">Concierge</a>
         </div>
 
         <!-- Controls (Language + Currency + CTAs) -->
         <div class="flex items-center gap-2 sm:gap-3">
+          
+          <!-- Language Selector -->
           <select id="ctrl-lang" class="ctrl-select">
             <option value="en">🇬🇧 EN</option>
             <option value="fr">🇫🇷 FR</option>
@@ -53,12 +56,14 @@
             <option value="zh">🇨🇳 ZH</option>
           </select>
 
+          <!-- Currency Selector -->
           <select id="ctrl-curr" class="ctrl-select">
             <option value="THB">฿ THB</option>
             <option value="EUR">€ EUR</option>
             <option value="USD">$ USD</option>
           </select>
 
+          <!-- Free Valuation CTA -->
           <div class="hidden md:flex items-center gap-2">
             <a href="/estimate.html" class="border border-[#DF921B] text-[#DF921B] hover:bg-[#DF921B] hover:text-white transition-all font-semibold text-xs py-2 px-3.5 rounded-xl whitespace-nowrap" i18n="nav_estimate" translate="no">
               Free Valuation
@@ -69,6 +74,7 @@
             </a>
           </div>
 
+          <!-- Mobile Hamburger -->
           <button type="button" id="btn-mobile-menu" class="lg:hidden p-2 text-zinc-300 hover:text-white rounded-lg focus:outline-none" aria-label="Toggle Navigation">
             <svg id="icon-menu-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
             <svg id="icon-menu-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
@@ -78,18 +84,23 @@
       </div>
     </div>
 
-    <!-- Mobile Drawer Panel -->
+    <!-- Mobile Navigation Drawer -->
     <div id="mobile-nav-panel" class="hidden lg:hidden bg-[#110D09] border-b border-white/10 px-4 pt-3 pb-6 space-y-3 animate-fade-in shadow-2xl">
       <div class="flex flex-col space-y-2 border-b border-white/10 pb-3">
         <a href="/index.html" class="text-sm font-semibold text-zinc-200 hover:text-[#DF921B] py-2" i18n="nav_home" translate="no">Home</a>
         <a href="/properties.html?purpose=buy" class="text-sm font-semibold text-zinc-200 hover:text-[#DF921B] py-2" i18n="nav_buy" translate="no">Buy</a>
         <a href="/properties.html?purpose=rent" class="text-sm font-semibold text-zinc-200 hover:text-[#DF921B] py-2" i18n="nav_rent" translate="no">Rent</a>
         <a href="/estimate.html" class="text-sm font-semibold text-zinc-200 hover:text-[#DF921B] py-2" i18n="nav_sell" translate="no">Sell</a>
+        <a href="/excursions-and-yachting.html" class="text-sm font-semibold text-zinc-200 hover:text-[#DF921B] py-2" i18n="nav_excursions" translate="no">Excursions</a>
         <a href="/index.html#services" class="text-sm font-semibold text-zinc-200 hover:text-[#DF921B] py-2" i18n="nav_services" translate="no">Concierge</a>
       </div>
       <div class="flex flex-col gap-2.5 pt-1">
         <a href="/estimate.html" class="btn-gold w-full text-center py-2.5 text-xs font-bold justify-center" i18n="nav_estimate" translate="no">
           Free Valuation
+        </a>
+        <a href="/admin.html" class="w-full text-center py-2.5 border border-white/15 text-zinc-300 hover:text-[#DF921B] text-xs font-semibold rounded-xl flex items-center justify-center gap-1.5">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span i18n="nav_admin" translate="no">Admin</span>
         </a>
       </div>
     </div>
