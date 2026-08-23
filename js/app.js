@@ -220,7 +220,19 @@ const SITE_I18N = {
     "menu_about": "About Recreation Group Ltd.",
     "lbl_purpose_sold": "Sold",
     "filter_sold": "Sold Properties",
-    "badge_sold": "SOLD"
+    "badge_sold": "SOLD",
+    "nav_excursions": "Excursions & Yachting",
+    "exc_hero_tag": "VIP Experiences & Marine Escapes",
+    "exc_hero_title": "Private Yacht Charters & Bespoke Excursions in Phuket",
+    "exc_hero_subtitle": "From luxury catamaran cruises in Phang Nga Bay to private island safaris and high-end vehicle rentals, we curate every detail of your Thai experience.",
+    "exc_cat_all": "All Activities",
+    "exc_cat_marine": "Yachting & Marine",
+    "exc_cat_land": "Island Safari & Wildlife",
+    "exc_cat_rentals": "Luxury Fleet & Mobility",
+    "exc_cta_book": "Inquire & Book",
+    "exc_custom_title": "Bespoke Requests & VIP Arrangements",
+    "exc_custom_desc": "We can fulfill almost any personalized demand in Phuket: private helicopters, chef on board, secluded island dinners, or VIP nightlife escort.",
+    "exc_btn_inquire": "Contact Concierge"
   },
   "fr": {
     "inquiry_msg_template": "Bonjour, je souhaite obtenir le dossier complet et convenir d'une visite pour le bien : {title} (Réf: {id}).",
@@ -364,7 +376,19 @@ const SITE_I18N = {
     "menu_about": "À Propos de Recreation Group",
     "lbl_purpose_sold": "Vendu",
     "filter_sold": "Biens Vendus",
-    "badge_sold": "VENDU"
+    "badge_sold": "VENDU",
+    "nav_excursions": "Excursions & Yachting",
+    "exc_hero_tag": "Expériences VIP & Évasions Marines",
+    "exc_hero_title": "Location de Yachts Privés & Excursions Sur-Mesure à Phuket",
+    "exc_hero_subtitle": "Des croisières en catamaran privé dans la baie de Phang Nga aux safaris d'exception et à la location de véhicules de prestige.",
+    "exc_cat_all": "Toutes les activités",
+    "exc_cat_marine": "Yachting & Activités Nautiques",
+    "exc_cat_land": "Safaris & Découverte",
+    "exc_cat_rentals": "Flotte VIP & Mobilité",
+    "exc_cta_book": "Réserver / Informations",
+    "exc_custom_title": "Demandes Sur-Mesure & Conciergerie Privée",
+    "exc_custom_desc": "Nous réalisons toutes vos exigences à Phuket : hélicoptère privé, chef étoilé à bord, dîners secrets sur îlots privés ou accès VIP exclusifs.",
+    "exc_btn_inquire": "Contacter la Conciergerie"
   },
   "de": {
     "inquiry_msg_template": "Hello, I would like to receive the full brochure and schedule a private viewing for the property: {title} (Ref: {id}).",
@@ -508,7 +532,19 @@ const SITE_I18N = {
     "menu_about": "Über Recreation Group",
     "lbl_purpose_sold": "Verkauft",
     "filter_sold": "Verkaufte Immobilien",
-    "badge_sold": "VERKAUFT"
+    "badge_sold": "VERKAUFT",
+    "nav_excursions": "Ausflüge & Yachting",
+    "exc_hero_tag": "VIP-Erlebnisse & Meeresausflüge",
+    "exc_hero_title": "Private Yachtcharter & Maßgeschneiderte Ausflüge in Phuket",
+    "exc_hero_subtitle": "Von luxuriösen Katamaran-Kreuzfahrten in der Phang Nga Bucht bis hin zu Safaris und Premium-Fahrzeugverleih.",
+    "exc_cat_all": "Alle Aktivitäten",
+    "exc_cat_marine": "Yachting & Wassersport",
+    "exc_cat_land": "Insel-Safaris & Natur",
+    "exc_cat_rentals": "VIP-Flotte & Mobilität",
+    "exc_cta_book": "Anfragen & Buchen",
+    "exc_custom_title": "Maßgeschneiderte Wünsche & VIP-Service",
+    "exc_custom_desc": "Wir erfüllen nahezu jeden individuellen Wunsch in Phuket: Privathubschrauber, Privatköche an Bord und exklusive VIP-Zugänge.",
+    "exc_btn_inquire": "Concierge Kontaktieren"
   },
   "it": {
     "inquiry_msg_template": "Hello, I would like to receive the full brochure and schedule a private viewing for the property: {title} (Ref: {id}).",
@@ -652,7 +688,19 @@ const SITE_I18N = {
     "menu_about": "Chi Siamo - Recreation Group",
     "lbl_purpose_sold": "Venduto",
     "filter_sold": "Immobili Venduti",
-    "badge_sold": "VENDUTO"
+    "badge_sold": "VENDUTO",
+    "nav_excursions": "Escursioni e Yachting",
+    "exc_hero_tag": "Esperienze VIP & Fuga sul Mare",
+    "exc_hero_title": "Noleggio Yacht Privati ed Escursioni Esclusive a Phuket",
+    "exc_hero_subtitle": "Dalle crociere in catamarano di lusso a Phang Nga ai safari esclusivi e al noleggio di veicoli di prestigio.",
+    "exc_cat_all": "Tutte le attività",
+    "exc_cat_marine": "Yachting & Sport Acquatici",
+    "exc_cat_land": "Safari sull'Isola & Natura",
+    "exc_cat_rentals": "Flotta VIP & Mobilità",
+    "exc_cta_book": "Richiedi & Prenota",
+    "exc_custom_title": "Richieste su Misura & Servizi VIP",
+    "exc_custom_desc": "Soddisfiamo ogni esigenza a Phuket: elicottero privato, chef a bordo, cene romantiche su isole private e accessi VIP.",
+    "exc_btn_inquire": "Contatta il Concierge"
   },
   "es": {
     "inquiry_msg_template": "Hello, I would like to receive the full brochure and schedule a private viewing for the property: {title} (Ref: {id}).",
@@ -796,7 +844,19 @@ const SITE_I18N = {
     "menu_about": "Sobre Recreation Group",
     "lbl_purpose_sold": "Vendido",
     "filter_sold": "Propiedades Vendidas",
-    "badge_sold": "VENDIDO"
+    "badge_sold": "VENDIDO",
+    "nav_excursions": "Excursiones y Yates",
+    "exc_hero_tag": "Experiencias VIP y Escapadas Marinas",
+    "exc_hero_title": "Alquiler de Yates Privados y Excursiones a Medida en Phuket",
+    "exc_hero_subtitle": "Desde cruceros en catamarán de lujo por la bahía de Phang Nga hasta safaris privados y alquiler de vehículos premium.",
+    "exc_cat_all": "Todas las actividades",
+    "exc_cat_marine": "Yates y Deportes Acuáticos",
+    "exc_cat_land": "Safaris y Naturaleza",
+    "exc_cat_rentals": "Flota VIP y Movilidad",
+    "exc_cta_book": "Consultar y Reservar",
+    "exc_custom_title": "Peticiones a Medida y Servicio VIP",
+    "exc_custom_desc": "Atendemos cualquier solicitud en Phuket: helicóptero privado, chef a bordo, cenas en islas desiertas y accesos VIP.",
+    "exc_btn_inquire": "Contactar con el Concierge"
   },
   "pt": {
     "inquiry_msg_template": "Hello, I would like to receive the full brochure and schedule a private viewing for the property: {title} (Ref: {id}).",
@@ -940,7 +1000,19 @@ const SITE_I18N = {
     "menu_about": "Sobre a Recreation Group",
     "lbl_purpose_sold": "Vendido",
     "filter_sold": "Propriedades Vendidas",
-    "badge_sold": "VENDIDO"
+    "badge_sold": "VENDIDO",
+    "nav_excursions": "Passeios e Iates",
+    "exc_hero_tag": "Experiências VIP e Náutica",
+    "exc_hero_title": "Aluguel de Iates Privados e Passeios Exclusivos em Phuket",
+    "exc_hero_subtitle": "Cruzeiros em catamarãs de luxo na baía de Phang Nga, safáris privados e aluguel de veículos de alto padrão.",
+    "exc_cat_all": "Todas as atividades",
+    "exc_cat_marine": "Náutica e Esportes Aquáticos",
+    "exc_cat_land": "Safáris e Vida Selvagem",
+    "exc_cat_rentals": "Frota VIP e Mobilidade",
+    "exc_cta_book": "Consultar e Reservar",
+    "exc_custom_title": "Serviços Sob Medida e VIP",
+    "exc_custom_desc": "Realizamos qualquer pedido em Phuket: helicóptero particular, chef a bordo e acessos VIP exclusivos.",
+    "exc_btn_inquire": "Falar com o Concierge"
   },
   "th": {
     "inquiry_msg_template": "Hello, I would like to receive the full brochure and schedule a private viewing for the property: {title} (Ref: {id}).",
@@ -1084,7 +1156,19 @@ const SITE_I18N = {
     "menu_about": "เกี่ยวกับ Recreation Group",
     "lbl_purpose_sold": "ขายแล้ว",
     "filter_sold": "อสังหาฯ ที่ขายแล้ว",
-    "badge_sold": "ขายแล้ว"
+    "badge_sold": "ขายแล้ว",
+    "nav_excursions": "ทริปท่องเที่ยวและเรือยอชท์",
+    "exc_hero_tag": "ประสบการณ์ระดับ VIP และการท่องเที่ยวทางทะเล",
+    "exc_hero_title": "บริการเช่าเรือยอชท์ส่วนตัวและทริปท่องเที่ยวสุดพิเศษในภูเก็ต",
+    "exc_hero_subtitle": "ตั้งแต่ทริปเรือคาตามารันสุดหรูในอ่าวพังงา ซาฟารีชมธรรมชาติ ไปจนถึงบริการเช่ารถยนต์และมอเตอร์ไซค์ระดับพรีเมียม",
+    "exc_cat_all": "กิจกรรมทั้งหมด",
+    "exc_cat_marine": "เรือยอชท์และกิจกรรมทางทะเล",
+    "exc_cat_land": "ทริปบนเกาะและธรรมชาติ",
+    "exc_cat_rentals": "บริการยานพาหนะระดับพรีเมียม",
+    "exc_cta_book": "สอบถามและจองบริการ",
+    "exc_custom_title": "บริการจัดทริปพิเศษตามความต้องการ",
+    "exc_custom_desc": "เราพร้อมตอบสนองทุกความต้องการในภูเก็ต: เฮลิคอปเตอร์ส่วนตัว เชฟส่วนตัวบนเรือ ดินเนอร์บนเกาะส่วนตัว และการดูแลระดับ VIP 24 ชม.",
+    "exc_btn_inquire": "ติดต่อเจ้าหน้าที่ดูแลส่วนตัว"
   },
   "ru": {
     "inquiry_msg_template": "Hello, I would like to receive the full brochure and schedule a private viewing for the property: {title} (Ref: {id}).",
@@ -1228,7 +1312,19 @@ const SITE_I18N = {
     "menu_about": "О компании Recreation Group",
     "lbl_purpose_sold": "Продано",
     "filter_sold": "Проданные объекты",
-    "badge_sold": "ПРОДАНО"
+    "badge_sold": "ПРОДАНО",
+    "nav_excursions": "Экскурсии и Яхтинг",
+    "exc_hero_tag": "VIP-впечатления и морской отдых",
+    "exc_hero_title": "Аренда частных яхт и эксклюзивные экскурсии на Пхукете",
+    "exc_hero_subtitle": "От круизов на роскошных катамаранах по заливу Пханг Нга до сафари и аренды премиальных автомобилей.",
+    "exc_cat_all": "Все активности",
+    "exc_cat_marine": "Яхтинг и водный спорт",
+    "exc_cat_land": "Сафари и природа острова",
+    "exc_cat_rentals": "VIP-автопарк и мобильность",
+    "exc_cta_book": "Забронировать",
+    "exc_custom_title": "Индивидуальные VIP-запросы",
+    "exc_custom_desc": "Любые пожелания на Пхукете: вертолеты, шеф-повар на борту яхты, романтические ужины на островах и VIP-сопровождение.",
+    "exc_btn_inquire": "Связаться с консьержем"
   },
   "ar": {
     "inquiry_msg_template": "Hello, I would like to receive the full brochure and schedule a private viewing for the property: {title} (Ref: {id}).",
@@ -1372,7 +1468,19 @@ const SITE_I18N = {
     "menu_about": "حول Recreation Group",
     "lbl_purpose_sold": "تم البيع",
     "filter_sold": "عقارات تم بيعها",
-    "badge_sold": "تم البيع"
+    "badge_sold": "تم البيع",
+    "nav_excursions": "الرحلات واليخوت",
+    "exc_hero_tag": "تجارب VIP وعطلات بحرية",
+    "exc_hero_title": "تأجير يخوت خاصة ورحلات استكشافية حصرية في بوكيت",
+    "exc_hero_subtitle": "من رحلات الكاتاماران الفاخرة في خليج فانغ نغا إلى سفاري الجزر وتأجير السيارات والدراجات الفاخرة.",
+    "exc_cat_all": "جميع الأنشطة",
+    "exc_cat_marine": "اليخوت والرياضات المائية",
+    "exc_cat_land": "سفاري الجزر والطبيعة",
+    "exc_cat_rentals": "أسطول VIP الفاخر",
+    "exc_cta_book": "استفسار وحجز",
+    "exc_custom_title": "طلبات مخصصة وخدمات VIP",
+    "exc_custom_desc": "نلبي جميع رغباتكم في بوكيت: طائرات هليكوبتر، طهاة خاصون على متن اليخوت، وعشاء خاص على الجزر المنعزلة.",
+    "exc_btn_inquire": "تواصل مع الكونسيرج"
   },
   "zh": {
     "inquiry_msg_template": "Hello, I would like to receive the full brochure and schedule a private viewing for the property: {title} (Ref: {id}).",
@@ -1516,7 +1624,19 @@ const SITE_I18N = {
     "menu_about": "关于 Recreation Group 集团",
     "lbl_purpose_sold": "已售出",
     "filter_sold": "已售出房产",
-    "badge_sold": "已售出"
+    "badge_sold": "已售出",
+    "nav_excursions": "海岛游与游艇租赁",
+    "exc_hero_tag": "VIP尊贵体验与海洋度假",
+    "exc_hero_title": "普吉岛私人游艇包船与定制海岛奢华体验",
+    "exc_hero_subtitle": "从攀牙湾双体帆船巡游到私人海岛探险、大象保护区体验及豪华座驾租赁，全方位定制您的泰国假期。",
+    "exc_cat_all": "全部精彩项目",
+    "exc_cat_marine": "豪华游艇与水上运动",
+    "exc_cat_land": "海岛探险与自然生态",
+    "exc_cat_rentals": "尊贵车队与出行租赁",
+    "exc_cta_book": "咨询与预订",
+    "exc_custom_title": "专属定制与私人管家服务",
+    "exc_custom_desc": "满足您在普吉岛的所有个性化奢华需求：私人直升机、游艇星级名厨、隐秘海岛烛光晚宴及VIP全权托管。",
+    "exc_btn_inquire": "联系VIP管家"
   }
 };
 
