@@ -1,4 +1,4 @@
-﻿const fs = require('fs');
+const fs = require('fs');
 const path = require('path');
 
 const rootDir = path.resolve(__dirname, '..');
@@ -58,6 +58,15 @@ if (fs.existsSync(headersFile)) {
   fs.copyFileSync(headersFile, path.join(outDir, '_headers'));
 }
 
+// Generate & copy sitemap.xml and robots.txt
+const generateSitemap = require('./generate_sitemap');
+generateSitemap();
+['sitemap.xml', 'robots.txt'].forEach(f => {
+  if (fs.existsSync(path.join(rootDir, 'public', f))) {
+    fs.copyFileSync(path.join(rootDir, 'public', f), path.join(outDir, f));
+  }
+});
+
 // Create pretty URL routes
 const routeMaps = [
   { route: 'admin', source: 'admin.html' },
@@ -65,7 +74,10 @@ const routeMaps = [
   { route: 'admin/dashboard', source: 'admin-dashboard.html' },
   { route: 'properties', source: 'properties.html' },
   { route: 'estimate', source: 'estimate.html' },
-  { route: 'property-detail', source: 'property-detail.html' }
+  { route: 'property-detail', source: 'property-detail.html' },
+  { route: 'excursions-and-yachting', source: 'excursions-and-yachting.html' },
+  { route: 'about-us', source: 'about-us.html' },
+  { route: 'legal-notice', source: 'legal-notice.html' }
 ];
 
 routeMaps.forEach(({ route, source }) => {
@@ -75,3 +87,4 @@ routeMaps.forEach(({ route, source }) => {
 });
 
 console.log('✅ Phuket VIP Concierge built successfully into ./out');
+
