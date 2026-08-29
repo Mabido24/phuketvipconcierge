@@ -79,6 +79,9 @@ const CONFIG = {
 // 2. Multilingual Dictionary (10 Languages: FR, EN, DE, IT, ES, PT, TH, RU, AR, ZH)
 const SITE_I18N = {
   "en": {
+    "btn_airbnb_calendar": "Check Real-Time Airbnb Availability & Calendar",
+    "lbl_airbnb_sync_note": "Live calendar & bookings managed directly on Airbnb",
+    "box_airbnb_title": "Live Booking Calendar",
     "inquiry_msg_template": "Hello, I would like to receive the full brochure and schedule a private viewing for the property: {title} (Ref: {id}).",
     "lbl_price_month": " / month",
     "lbl_garden_view": "Tropical & Peaceful Garden",
@@ -235,6 +238,9 @@ const SITE_I18N = {
     "exc_btn_inquire": "Contact Concierge"
   },
   "fr": {
+    "btn_airbnb_calendar": "Consulter les disponibilités & calendrier sur Airbnb",
+    "lbl_airbnb_sync_note": "Calendrier et réservations en direct gérés sur Airbnb",
+    "box_airbnb_title": "Disponibilités & Calendrier en direct",
     "inquiry_msg_template": "Bonjour, je souhaite obtenir le dossier complet et convenir d'une visite pour le bien : {title} (Réf: {id}).",
     "lbl_price_month": " / mois",
     "lbl_garden_view": "Jardin Tropical & Calme",
@@ -391,6 +397,9 @@ const SITE_I18N = {
     "exc_btn_inquire": "Contacter la Conciergerie"
   },
   "de": {
+    "btn_airbnb_calendar": "Verfügbarkeit & Kalender auf Airbnb prüfen",
+    "lbl_airbnb_sync_note": "Echtzeit-Kalender und Buchungen direkt auf Airbnb verwaltet",
+    "box_airbnb_title": "Live-Buchungskalender",
     "inquiry_msg_template": "Hello, I would like to receive the full brochure and schedule a private viewing for the property: {title} (Ref: {id}).",
     "lbl_price_month": " / month",
     "lbl_garden_view": "Tropical & Peaceful Garden",
@@ -547,6 +556,9 @@ const SITE_I18N = {
     "exc_btn_inquire": "Concierge Kontaktieren"
   },
   "it": {
+    "btn_airbnb_calendar": "Controlla disponibilità e calendario su Airbnb",
+    "lbl_airbnb_sync_note": "Calendario e prenotazioni in tempo reale gestiti su Airbnb",
+    "box_airbnb_title": "Calendario disponibilità in tempo reale",
     "inquiry_msg_template": "Hello, I would like to receive the full brochure and schedule a private viewing for the property: {title} (Ref: {id}).",
     "lbl_price_month": " / month",
     "lbl_garden_view": "Tropical & Peaceful Garden",
@@ -703,6 +715,9 @@ const SITE_I18N = {
     "exc_btn_inquire": "Contatta il Concierge"
   },
   "es": {
+    "btn_airbnb_calendar": "Consultar disponibilidad y calendario en Airbnb",
+    "lbl_airbnb_sync_note": "Calendario y reservas en tiempo real gestionados en Airbnb",
+    "box_airbnb_title": "Calendario de reservas en vivo",
     "inquiry_msg_template": "Hello, I would like to receive the full brochure and schedule a private viewing for the property: {title} (Ref: {id}).",
     "lbl_price_month": " / month",
     "lbl_garden_view": "Tropical & Peaceful Garden",
@@ -859,6 +874,9 @@ const SITE_I18N = {
     "exc_btn_inquire": "Contactar con el Concierge"
   },
   "pt": {
+    "btn_airbnb_calendar": "Verificar disponibilidade e calendário no Airbnb",
+    "lbl_airbnb_sync_note": "Calendário e reservas em tempo real geridos no Airbnb",
+    "box_airbnb_title": "Calendário de reservas em tempo real",
     "inquiry_msg_template": "Hello, I would like to receive the full brochure and schedule a private viewing for the property: {title} (Ref: {id}).",
     "lbl_price_month": " / month",
     "lbl_garden_view": "Tropical & Peaceful Garden",
@@ -1015,6 +1033,9 @@ const SITE_I18N = {
     "exc_btn_inquire": "Falar com o Concierge"
   },
   "th": {
+    "btn_airbnb_calendar": "ตรวจสอบปฏิทินห้องว่างบน Airbnb",
+    "lbl_airbnb_sync_note": "ปฏิทินและการจองแบบเรียลไทม์จัดการโดยตรงบน Airbnb",
+    "box_airbnb_title": "ปฏิทินการจองแบบเรียลไทม์",
     "inquiry_msg_template": "Hello, I would like to receive the full brochure and schedule a private viewing for the property: {title} (Ref: {id}).",
     "lbl_price_month": " / month",
     "lbl_garden_view": "Tropical & Peaceful Garden",
@@ -1171,6 +1192,9 @@ const SITE_I18N = {
     "exc_btn_inquire": "ติดต่อเจ้าหน้าที่ดูแลส่วนตัว"
   },
   "ru": {
+    "btn_airbnb_calendar": "Проверить занятость и календарь на Airbnb",
+    "lbl_airbnb_sync_note": "Актуальный календарь и бронирование напрямую на Airbnb",
+    "box_airbnb_title": "Календарь бронирования онлайн",
     "inquiry_msg_template": "Hello, I would like to receive the full brochure and schedule a private viewing for the property: {title} (Ref: {id}).",
     "lbl_price_month": " / month",
     "lbl_garden_view": "Tropical & Peaceful Garden",
@@ -1327,6 +1351,9 @@ const SITE_I18N = {
     "exc_btn_inquire": "Связаться с консьержем"
   },
   "ar": {
+    "btn_airbnb_calendar": "تحقق من التوفر والتقويم على Airbnb",
+    "lbl_airbnb_sync_note": "يتم إدارة التقويم والحجوزات المباشرة على Airbnb",
+    "box_airbnb_title": "تقويم الحجوزات المباشر",
     "inquiry_msg_template": "Hello, I would like to receive the full brochure and schedule a private viewing for the property: {title} (Ref: {id}).",
     "lbl_price_month": " / month",
     "lbl_garden_view": "Tropical & Peaceful Garden",
@@ -1483,6 +1510,9 @@ const SITE_I18N = {
     "exc_btn_inquire": "تواصل مع الكونسيرج"
   },
   "zh": {
+    "btn_airbnb_calendar": "在 Airbnb 查看实时房态与预订日历",
+    "lbl_airbnb_sync_note": "实时日历与入住预订直接由 Airbnb 官方系统管理",
+    "box_airbnb_title": "实时预订日历",
     "inquiry_msg_template": "Hello, I would like to receive the full brochure and schedule a private viewing for the property: {title} (Ref: {id}).",
     "lbl_price_month": " / month",
     "lbl_garden_view": "Tropical & Peaceful Garden",
