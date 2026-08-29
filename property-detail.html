@@ -445,21 +445,28 @@
   </footer>
 
   <!-- Fullscreen HD Lightbox Modal -->
-  <div id="lightbox-modal" class="fixed inset-0 z-[999] bg-black/95 backdrop-blur-xl hidden items-center justify-center p-4 select-none">
-    <button type="button" onclick="closeLightbox()" class="absolute top-6 right-6 z-50 w-12 h-12 rounded-full bg-white/10 hover:bg-[#DF921B] text-white text-2xl font-bold flex items-center justify-center transition border border-white/20">
-      ✕
-    </button>
-    <button type="button" onclick="lightboxPrev()" class="absolute left-6 top-1/2 -translate-y-1/2 z-50 w-14 h-14 rounded-full bg-white/10 hover:bg-[#DF921B] text-white text-3xl font-bold flex items-center justify-center transition border border-white/20">
+  <div id="lightbox-modal" class="fixed inset-0 z-[9999] bg-black/95 backdrop-blur-2xl hidden flex-col items-center justify-center p-2 sm:p-6 select-none" onclick="if(event.target === this) closeLightbox()">
+    <!-- Top Action Bar -->
+    <div class="absolute top-4 sm:top-6 right-4 sm:right-6 z-50 flex items-center gap-3">
+      <div class="bg-black/60 backdrop-blur-md border border-white/20 text-white text-xs px-4 py-2 rounded-full font-bold shadow-lg">
+        <span id="lightbox-counter">1 / 1</span>
+      </div>
+      <button type="button" onclick="closeLightbox()" class="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-black/70 hover:bg-[#DF921B] text-white text-xl sm:text-2xl font-bold flex items-center justify-center transition-all border border-white/20 shadow-xl hover:scale-110 active:scale-95" aria-label="Close Fullscreen">
+        ✕
+      </button>
+    </div>
+
+    <!-- Prev / Next Navigation Buttons -->
+    <button type="button" onclick="lightboxPrev()" class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-50 w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-black/70 hover:bg-[#DF921B] text-white text-2xl sm:text-4xl font-bold flex items-center justify-center transition-all border border-white/20 shadow-2xl hover:scale-110 active:scale-95" aria-label="Previous Photo">
       ‹
     </button>
-    <button type="button" onclick="lightboxNext()" class="absolute right-6 top-1/2 -translate-y-1/2 z-50 w-14 h-14 rounded-full bg-white/10 hover:bg-[#DF921B] text-white text-3xl font-bold flex items-center justify-center transition border border-white/20">
+    <button type="button" onclick="lightboxNext()" class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-50 w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-black/70 hover:bg-[#DF921B] text-white text-2xl sm:text-4xl font-bold flex items-center justify-center transition-all border border-white/20 shadow-2xl hover:scale-110 active:scale-95" aria-label="Next Photo">
       ›
     </button>
-    <div class="max-w-6xl max-h-[85vh] flex items-center justify-center">
-      <img id="lightbox-img" src="" alt="HD Fullscreen View" class="max-w-full max-h-[85vh] object-contain rounded-2xl shadow-2xl">
-    </div>
-    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white/10 border border-white/20 text-white text-xs px-4 py-2 rounded-full font-bold">
-      <span id="lightbox-counter">1 / 1</span>
+
+    <!-- Fullscreen Image Wrapper -->
+    <div class="w-full h-full max-w-7xl flex items-center justify-center p-2 sm:p-4">
+      <img id="lightbox-img" src="" alt="HD Fullscreen View" class="max-w-[95vw] max-h-[88vh] sm:max-h-[90vh] w-auto h-auto object-contain rounded-xl sm:rounded-2xl shadow-2xl transition-all duration-200">
     </div>
   </div>
 
@@ -477,6 +484,7 @@
       if (counter) counter.textContent = (globalIdx + 1) + ' / ' + globalImages.length;
       modal.classList.remove('hidden');
       modal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
     }
 
     function closeLightbox() {
@@ -484,24 +492,38 @@
       if (modal) {
         modal.classList.add('hidden');
         modal.classList.remove('flex');
+        document.body.style.overflow = '';
       }
     }
 
     function lightboxPrev() {
       if (globalImages.length === 0) return;
       globalIdx = (globalIdx - 1 + globalImages.length) % globalImages.length;
-      document.getElementById('lightbox-img').src = globalImages[globalIdx];
-      document.getElementById('lightbox-counter').textContent = (globalIdx + 1) + ' / ' + globalImages.length;
+      const img = document.getElementById('lightbox-img');
+      if (img) img.src = globalImages[globalIdx];
+      const counter = document.getElementById('lightbox-counter');
+      if (counter) counter.textContent = (globalIdx + 1) + ' / ' + globalImages.length;
       if (typeof window.pvcShowImage === 'function') window.pvcShowImage(globalIdx);
     }
 
     function lightboxNext() {
       if (globalImages.length === 0) return;
       globalIdx = (globalIdx + 1) % globalImages.length;
-      document.getElementById('lightbox-img').src = globalImages[globalIdx];
-      document.getElementById('lightbox-counter').textContent = (globalIdx + 1) + ' / ' + globalImages.length;
+      const img = document.getElementById('lightbox-img');
+      if (img) img.src = globalImages[globalIdx];
+      const counter = document.getElementById('lightbox-counter');
+      if (counter) counter.textContent = (globalIdx + 1) + ' / ' + globalImages.length;
       if (typeof window.pvcShowImage === 'function') window.pvcShowImage(globalIdx);
     }
+
+    // Keyboard navigation for Lightbox
+    window.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('lightbox-modal');
+      if (!modal || modal.classList.contains('hidden')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') lightboxPrev();
+      if (e.key === 'ArrowRight') lightboxNext();
+    });
 
     document.addEventListener('DOMContentLoaded', () => {
       const urlParams = new URLSearchParams(window.location.search);
