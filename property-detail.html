@@ -15,7 +15,26 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
   <style>
+    /* Bulletproof Responsive Photo Stage for Mobile & PWA */
+    #main-gallery-img {
+      width: 100% !important;
+      height: 100% !important;
+      max-width: 100% !important;
+      max-height: 100% !important;
+      object-fit: cover !important;
+      object-position: center !important;
+      display: block !important;
+    }
+
     /* Custom Luxury Horizontal Scrollbar for Photo Strip */
+    .photo-strip-scroll {
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: nowrap !important;
+      overflow-x: auto !important;
+      overflow-y: hidden !important;
+      -webkit-overflow-scrolling: touch;
+    }
     .photo-strip-scroll::-webkit-scrollbar {
       height: 6px;
     }
@@ -29,6 +48,18 @@
     }
     .photo-strip-scroll::-webkit-scrollbar-thumb:hover {
       background: #E59819;
+    }
+    .thumb-btn {
+      flex: 0 0 90px !important;
+      width: 90px !important;
+      height: 60px !important;
+    }
+    @media (min-width: 640px) {
+      .thumb-btn {
+        flex: 0 0 120px !important;
+        width: 120px !important;
+        height: 75px !important;
+      }
     }
     .thumb-btn.active {
       border-color: #DF921B !important;
@@ -172,31 +203,31 @@
     <!-- Luxury Full-Width HD Gallery & Slider Section -->
     <div class="mb-12 space-y-4">
       
-      <!-- Main Photo Stage: Full-Width Cinematic Hero -->
-      <div class="relative w-full aspect-[16/9] sm:h-[500px] md:h-[580px] rounded-3xl overflow-hidden bg-black/90 border border-white/15 shadow-2xl group select-none">
+      <!-- Main Photo Stage: Full-Width Cinematic Hero (Mobile & Desktop Bulletproof Responsive) -->
+      <div class="relative w-full aspect-[16/9] min-h-[220px] max-h-[580px] sm:h-[450px] md:h-[540px] rounded-2xl sm:rounded-3xl overflow-hidden bg-black/95 border border-white/15 shadow-2xl group select-none flex items-center justify-center">
         
-        <!-- Full-Width High-Res Image -->
-        <img id="main-gallery-img" src="/public/images/properties/rawai-3-bedrooms.webp" alt="Property Main View" class="w-full h-full object-cover transition-all duration-300 ease-out cursor-pointer hover:scale-[1.01]" onclick="openLightbox()">
+        <!-- Full-Width High-Res Image with Strict Object-Cover Fit -->
+        <img id="main-gallery-img" src="/public/images/properties/rawai-3-bedrooms.webp" alt="Property Main View" class="w-full h-full max-w-full max-h-full object-cover transition-all duration-300 ease-out cursor-pointer hover:scale-[1.01]" onclick="openLightbox()">
         
         <!-- Subtle Top & Bottom Gradient Vignette -->
         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20 pointer-events-none"></div>
 
         <!-- Navigation Arrows -->
-        <button type="button" id="btn-gallery-prev" class="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-black/70 hover:bg-[#DF921B] text-white flex items-center justify-center text-2xl font-bold backdrop-blur-md border border-white/20 transition-all shadow-2xl hover:scale-110 opacity-90 group-hover:opacity-100" aria-label="Previous Photo">
+        <button type="button" id="btn-gallery-prev" class="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-black/70 hover:bg-[#DF921B] text-white flex items-center justify-center text-xl sm:text-2xl font-bold backdrop-blur-md border border-white/20 transition-all shadow-2xl hover:scale-110 active:scale-95 opacity-90 group-hover:opacity-100" aria-label="Previous Photo">
           ‹
         </button>
-        <button type="button" id="btn-gallery-next" class="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-black/70 hover:bg-[#DF921B] text-white flex items-center justify-center text-2xl font-bold backdrop-blur-md border border-white/20 transition-all shadow-2xl hover:scale-110 opacity-90 group-hover:opacity-100" aria-label="Next Photo">
+        <button type="button" id="btn-gallery-next" class="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-black/70 hover:bg-[#DF921B] text-white flex items-center justify-center text-xl sm:text-2xl font-bold backdrop-blur-md border border-white/20 transition-all shadow-2xl hover:scale-110 active:scale-95 opacity-90 group-hover:opacity-100" aria-label="Next Photo">
           ›
         </button>
 
         <!-- Top Right Fullscreen Button -->
-        <button type="button" onclick="openLightbox()" class="absolute top-4 right-4 z-20 bg-black/70 hover:bg-[#DF921B] text-white text-xs font-semibold px-3 py-1.5 rounded-xl backdrop-blur-md border border-white/20 flex items-center gap-1.5 transition-all shadow-lg">
+        <button type="button" onclick="openLightbox()" class="absolute top-3 sm:top-4 right-3 sm:right-4 z-20 bg-black/75 hover:bg-[#DF921B] text-white text-[11px] sm:text-xs font-semibold px-3 py-1.5 rounded-xl backdrop-blur-md border border-white/20 flex items-center gap-1.5 transition-all shadow-lg">
           <span>⛶</span>
-          <span class="hidden sm:inline">Fullscreen</span>
+          <span>Fullscreen</span>
         </button>
 
         <!-- Bottom Right Counter Badge -->
-        <div class="absolute bottom-4 right-4 z-20 bg-black/80 backdrop-blur-md border border-white/20 text-white text-xs font-bold px-3.5 py-1.5 rounded-xl shadow-xl">
+        <div class="absolute bottom-3 sm:bottom-4 right-3 sm:right-4 z-20 bg-black/80 backdrop-blur-md border border-white/20 text-white text-[11px] sm:text-xs font-bold px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-xl shadow-xl">
           <span id="gallery-counter">1 / 1</span>
         </div>
       </div>
@@ -211,7 +242,7 @@
           <span class="text-[10px] text-zinc-500 hidden sm:inline">Scroll to view all exclusive angles</span>
         </div>
 
-        <div id="gallery-thumbs" class="photo-strip-scroll flex gap-3 overflow-x-auto pb-2 pt-1 scroll-smooth">
+        <div id="gallery-thumbs" class="photo-strip-scroll flex flex-row flex-nowrap gap-2.5 sm:gap-3 overflow-x-auto overflow-y-hidden pb-2 pt-1 scroll-smooth">
           <!-- Dynamic Thumbnails -->
         </div>
       </div>
