@@ -9,6 +9,7 @@ on:
 
 jobs:
   build-and-deploy:
+    name: Build & Deploy
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -25,8 +26,11 @@ jobs:
       - name: Build static site
         run: node scripts/build-static.js
 
-      - name: Deploy to Cloudflare (if API token configured)
-        if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
+      - name: Deploy to Cloudflare Pages (if secret configured)
+        if: ${{ env.CLOUDFLARE_API_TOKEN != '' }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
