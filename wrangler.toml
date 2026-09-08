@@ -1,3 +1,4 @@
-﻿name = "phuket-vip-concierge"
+name = "phuket-vip-concierge"
 compatibility_date = "2026-08-21"
+pages_build_output_dir = "./out"
 assets = { directory = "./out" }
