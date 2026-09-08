@@ -6,56 +6,65 @@ const outDir = path.join(rootDir, 'out');
 
 console.log('🚀 Building Pure Static Application for Cloudflare (Phuket VIP Concierge)...');
 
-if (fs.existsSync(outDir)) {
-  fs.rmSync(outDir, { recursive: true, force: true });
+if (!fs.existsSync(outDir)) {
+  fs.mkdirSync(outDir, { recursive: true });
 }
-fs.mkdirSync(outDir, { recursive: true });
 
-function copyRecursiveSync(src, dest) {
-  const exists = fs.existsSync(src);
-  const stats = exists && fs.statSync(src);
-  const isDirectory = exists && stats.isDirectory();
+function copyFileIfChanged(src, dest) {
+  if (fs.existsSync(dest)) {
+    const srcStat = fs.statSync(src);
+    const destStat = fs.statSync(dest);
+    if (srcStat.mtimeMs <= destStat.mtimeMs && srcStat.size === destStat.size) {
+      return; // Up to date
+    }
+  }
+  fs.copyFileSync(src, dest);
+}
 
-  if (isDirectory) {
+function copyRecursiveFast(src, dest) {
+  if (!fs.existsSync(src)) return;
+  const stat = fs.statSync(src);
+  if (stat.isDirectory()) {
     if (!fs.existsSync(dest)) fs.mkdirSync(dest, { recursive: true });
-    fs.readdirSync(src).forEach((childItemName) => {
-      copyRecursiveSync(path.join(src, childItemName), path.join(dest, childItemName));
-    });
-  } else if (exists && stats.isFile()) {
-    fs.copyFileSync(src, dest);
+    const items = fs.readdirSync(src);
+    for (const item of items) {
+      copyRecursiveFast(path.join(src, item), path.join(dest, item));
+    }
+  } else if (stat.isFile()) {
+    copyFileIfChanged(src, dest);
   }
 }
 
-// Copy static assets & HTML files
-['css', 'js', 'public'].forEach(folder => {
+// Copy static asset folders
+['css', 'js', 'public', 'badges', 'assets'].forEach(folder => {
   const srcPath = path.join(rootDir, folder);
   if (fs.existsSync(srcPath)) {
-    copyRecursiveSync(srcPath, path.join(outDir, folder));
+    copyRecursiveFast(srcPath, path.join(outDir, folder));
   }
 });
 
 // Duplicate public/images to out/images
 const imagesSrc = path.join(rootDir, 'public', 'images');
 if (fs.existsSync(imagesSrc)) {
-  copyRecursiveSync(imagesSrc, path.join(outDir, 'images'));
+  copyRecursiveFast(imagesSrc, path.join(outDir, 'images'));
 }
 
 // Copy JSON datasets
 if (fs.existsSync(path.join(rootDir, 'public', 'properties.json'))) {
-  fs.copyFileSync(path.join(rootDir, 'public', 'properties.json'), path.join(outDir, 'properties.json'));
+  copyFileIfChanged(path.join(rootDir, 'public', 'properties.json'), path.join(outDir, 'properties.json'));
 }
 
 // Copy root HTML files to out/
 fs.readdirSync(rootDir).forEach(file => {
   if (file.endsWith('.html')) {
-    fs.copyFileSync(path.join(rootDir, file), path.join(outDir, file));
+    copyFileIfChanged(path.join(rootDir, file), path.join(outDir, file));
   }
 });
 
 // Copy _headers file for Cloudflare cache control
 const headersFile = path.join(rootDir, 'public', '_headers');
 if (fs.existsSync(headersFile)) {
-  fs.copyFileSync(headersFile, path.join(outDir, '_headers'));
+  copyFileIfChanged(headersFile, path.join(outDir, '_headers'));
 }
 
 // Generate & copy sitemap.xml and robots.txt
@@ -63,7 +72,7 @@ const generateSitemap = require('./generate_sitemap');
 generateSitemap();
 ['sitemap.xml', 'robots.txt'].forEach(f => {
   if (fs.existsSync(path.join(rootDir, 'public', f))) {
-    fs.copyFileSync(path.join(rootDir, 'public', f), path.join(outDir, f));
+    copyFileIfChanged(path.join(rootDir, 'public', f), path.join(outDir, f));
   }
 });
 
@@ -83,8 +92,7 @@ const routeMaps = [
 routeMaps.forEach(({ route, source }) => {
   const targetFolder = path.join(outDir, route);
   if (!fs.existsSync(targetFolder)) fs.mkdirSync(targetFolder, { recursive: true });
-  fs.copyFileSync(path.join(rootDir, source), path.join(targetFolder, 'index.html'));
+  copyFileIfChanged(path.join(rootDir, source), path.join(targetFolder, 'index.html'));
 });
 
 console.log('✅ Phuket VIP Concierge built successfully into ./out');
-

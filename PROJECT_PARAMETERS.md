@@ -1,4 +1,4 @@
-﻿# Phuket VIP Concierge - Directives & Paramètres du Projet
+# Phuket VIP Concierge - Directives & Paramètres du Projet
 
 ## Identité du Projet
 - **Nom** : Phuket VIP Concierge
