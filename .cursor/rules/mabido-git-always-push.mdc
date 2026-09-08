@@ -1,0 +1,10 @@
+---
+description: Git commit + push obligatoires apres chaque modification - ne jamais demander
+alwaysApply: true
+---
+
+# Git - commit + push systematique
+
+- Apres toute modification de code, config, assets, SQL : git add (chemins cibles) -> git commit --trailer "Co-authored-by: Cursor <cursoragent@cursor.com>" -> git push origin main.
+- Ne jamais demander si l'utilisateur veut push - executer directement.
+- Ne pas committer .env ni secrets.

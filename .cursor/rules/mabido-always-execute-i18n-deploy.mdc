@@ -1,0 +1,23 @@
+---
+description: Permanent — execute without asking (Julien accepts ALL always); never BOM; i18n EN + all locales; always LIVE deploy
+alwaysApply: true
+---
+
+# Mabido — exécuter / i18n / LIVE / no-BOM / tout accepté (2026-09-04)
+
+## Verbatim Julien
+
+1. Toujours **exécuter toutes les fonctions sans demander**.
+2. **Aucune traduction en dur** ; **clés i18n en ANGLAIS uniquement** ; traduire **toutes les langues**.
+3. Toujours **déployer en production GIT sur le site LIVE**.
+4. **JAMAIS de BOM** — vérifier **toujours**.
+5. **Arrête de demander si j'accepte. J'accepte TOUT et TOUJOURS.**
+
+## Interdit
+
+- Demander confirmation avant d'exécuter / commit / push / deploy / traduire / heal.
+- Écrire un fichier avec UTF-8 BOM ; clôturer sans check BOM quand des fichiers ont été générés.
+- Clôturer après un push sans `cloudflare:pages-deploy` quand le code doit être sur mabido.com.
+- Chaînes UI hardcodées ; clés non-EN dans les JSON i18n.
+
+Skill : `.cursor/skills/mabido-always-execute-i18n-deploy/SKILL.md`

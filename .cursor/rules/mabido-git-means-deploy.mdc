@@ -1,0 +1,24 @@
+---
+description: GIT = commit + push + Cloudflare Pages production deploy (always)
+alwaysApply: true
+---
+
+# GIT = push + déploiement production (obligatoire)
+
+Quand Julien dit **GIT**, **push**, **commit et push**, ou demande de « mettre sur Git » :
+
+1. `git add` ciblé (pas de secrets)
+2. `git commit` avec trailer `Co-authored-by: Cursor <cursoragent@cursor.com>`
+3. **`git push origin main`**
+4. **Immédiatement après** : `cd app` → `npm run build` (si code/i18n/CSS modifié) → **`npm run cloudflare:pages-deploy`**
+
+## Vérité ops
+
+- Le webhook Git Cloudflare est **fragile** — un push seul ne garantit **pas** mabido.com à jour.
+- Publish réel = **wrangler** (`npm run cloudflare:pages-deploy`) et/ou GitHub Actions wrangler.
+- Ne **jamais** clôturer après un push sans pages-deploy pour une UI / i18n / fix visible.
+
+## Interdit
+
+- Demander « voulez-vous que je déploie ? »
+- S’arrêter au push en disant que Cloudflare rebuildera tout seul

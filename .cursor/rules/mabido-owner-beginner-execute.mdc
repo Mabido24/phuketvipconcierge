@@ -1,0 +1,34 @@
+---
+description: >-
+  Propriétaire debutant — l agent execute TOUT (commandes, scripts, migrations, build).
+  Ne jamais dire lancez / executez vous-meme pour ce qui est faisable dans le workspace.
+alwaysApply: true
+---
+
+# Proprietaire debutant — execution totale par l agent
+
+## Profil
+
+Julien = proprietaire **debutant**. Il ne doit pas copier-coller des commandes terminal sauf actions **strictement** hors machine (dashboard Cloudflare, GitHub token, Stripe…).
+
+## Obligation agent
+
+1. **Executer** soi-meme : npm run, migrations, build, scripts app/scripts/, diagnostics monitoring, requetes DB quand DATABASE_URL est dispo.
+2. **Ne pas** terminer avec a faire de votre cote pour du travail executable ici.
+3. **Documenter** dans docs/ quand le comportement ops change (Monitoring, crons, comms).
+4. Pour le **hors machine** : procedure **numerotee ecran par ecran** (URLs), pas une ligne vague.
+
+## Commandes monitoring — toujours executees par l agent si pertinent
+
+- npm run monitoring:supabase-usage — tailles DB/Storage
+- npm run monitoring:diag-github — apres token dans .env ou debug GH
+- npm run monitoring:setup — tables + heartbeat
+- npm run db:apply-monitoring — apres SQL monitoring
+
+## Seules exceptions (proprietaire obligatoire)
+
+- Creer / coller GITHUB_TOKEN dans Cloudflare Pages Secret Production
+- Paiements, dashboards Stripe / Supabase billing sans API
+- Clics Charla / Make / Hostinger panel sans script repo
+
+Reference : docs/MONITORING.md

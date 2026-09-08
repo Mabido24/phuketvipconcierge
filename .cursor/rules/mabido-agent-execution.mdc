@@ -1,0 +1,78 @@
+---
+description: >-
+  INTERDIT de demander à l’utilisateur d’exécuter quoi que ce soit — l’agent exécute
+  absolument tout (terminal, migrations, build) dans la mesure du possible.
+alwaysApply: true
+---
+
+# Exécution obligatoire — projet Mabido
+
+## Règle absolue
+
+- **Ne jamais** demander à l’utilisateur d’exécuter une commande, un script, une migration ou un déploiement.
+- **Ne jamais** terminer une réponse par des listes du type « à faire de votre côté », « lancez… », « exécutez… », « appliquez vous-même… » quand l’agent peut le faire avec les outils du workspace.
+- **Toujours** exécuter soi-même : terminal, lecture de fichiers, migrations locales, `npm run build`, tests, etc. **Tout** ce qui est faisable dans l’environnement réel du projet doit être fait par l’agent, sans exception de commodité.
+
+## Si une étape est impossible ici
+
+Seule exception : action **strictement** hors machine (ex. clic dans un dashboard cloud sans API, secret jamais injecté). Dans ce cas : dire **factuellement** ce qui bloque (une phrase), **sans** reformuler une marche à suivre pour l’utilisateur comme si c’était son travail par défaut.
+
+## Checklist systématique après changement code / SQL
+
+Quand c’est pertinent pour la tâche : `npm run db:apply` après migrations, `npm run db:sync-demo-shop` si la démo change, `npm run build` si le build peut casser. **Lancer les commandes**, ne pas les « recommander ».
+
+## Obligation **systématique** : déployer après **chaque** modification de code / CSS / i18n / config d’app
+
+- **Sans exception de commodité** : dès qu’une tâche modifie le dépôt (fichiers sous `app/`, `supabase/migrations/`, règles produit si couplées à un build, etc.), l’agent **ne clôt pas** la session avant d’avoir exécuté la chaîne ci-dessous. **Ne jamais** se contenter de dire « vous pourrez déployer ».
+- **Ordre minimal imposé** :
+  1. **`cd app` puis `npm run deploy`** (migrations si `DATABASE_URL` + build de prod) — au minimum **`npm run build`** si `deploy` est inadapté ponctuellement ;
+  2. **`git commit`** puis **`git push`** sur `origin` pour **tous** les fichiers suivis modifiés dans le cadre de la tâche (hors secrets), afin que **Cloudflare Pages** (ou l’CI relié) puisse rebuild.
+- Si le build ou le `git push` échoue : corriger ou le signaler **factuellement** ; ne pas marquer la tâche comme terminée « côté prod » sans push réussi lorsque la modification devait y aller.
+
+## Déploiement — ce que fait **réellement** ce dépôt (à ne pas confondre avec la prod en ligne)
+
+- **`npm run deploy`** (dossier `app/`, script `app/scripts/deploy.mjs`) exécute **uniquement sur la machine locale** :
+  1. `scripts/apply-listings-migration.mjs` (migrations SQL vers la base si `DATABASE_URL` est configurée dans l’environnement) ;
+  2. éventuellement l’export snapshot taxonomie si `MABIDO_EXPORT_TAXONOMY_SNAPSHOT=1` ;
+  3. **`npm run build`** → sortie **`app/dist/`** (bundle Vite statique).
+- **Il n’y a pas** dans ce repo de commande `wrangler`, pas de `pages deploy`, **pas de workflow GitHub Actions** (`.github/workflows/`) qui envoie automatiquement vers **Cloudflare Pages** ou un autre hébergeur. **`npm run deploy` ne pousse rien sur GitHub et ne publie rien sur Cloudflare.**
+- **Conséquence** : la PWA / le site public ne changent **que** si une **version hébergée** est mise à jour (ex. build Cloudflare Pages branchée au dépôt après **`git push`**, ou upload manuel du `dist`, ou autre pipeline documenté côté compte Cloudflare). Tant que le code n’est **pas** sur `origin` (ou que Pages ne rebuild pas), l’utilisateur voit l’**ancien** JS (ex. ancien libellé CTA).
+- **PWA / cache** : le `sw.js` actuel est en **réseau d’abord** pour les pages (pas de cache offline des bundles). Si l’UI reste ancienne alors qu’un nouveau `dist` est en ligne, vérifier **cache CDN Cloudflare**, **branche déployée**, et en dernier recours **purge cache** ou incrément de `CACHE_NAME` dans `sw.js` après un vrai déploiement.
+- Après des changements **visibles en prod**, l’agent doit **terminer par** : build local OK → **`git commit` + `git push`** des fichiers concernés (sans secrets), puis indiquer que **Cloudflare / l’hébergeur** doit avoir pris le commit (build Pages). Si `git push` ou le build distant échoue (droits, CI absent), le dire **factuellement** en une phrase — sans inventer un « déploiement PROD » accompli par `npm run deploy` seul.
+
+## i18n obligatoire — 9 langues
+
+- Toute chaîne UI modifiée/ajoutée doit être répercutée dans les **9 locales** : `en`, `fr`, `de`, `es`, `it`, `pt`, `ru`, `th`, `zh`.
+- Ne jamais laisser une clé partiellement traduite lors de la fin de tâche.
+- En cas de suppression d’UI, supprimer aussi les clés i18n devenues inutiles dans les locales concernées.
+- Quand une modification est faite en dev (ex. `http://localhost:5173/`), l’agent doit **immédiatement vérifier entièrement** les traductions i18n de la/les page(s) modifiée(s) avant clôture.
+- Cette vérification i18n complète fait partie de la Definition of Done, au même titre que build + commit + push.
+
+## Git — poussée GitHub (nécessaire pour toute mise à jour du site / PWA hébergés derrière ce dépôt)
+
+Racine du dépôt : `c:\laragon\www\mabido`. **L’agent exécute** la séquence suivante quand la tâche touche du code ou des chaînes affichées en prod — pas seulement si l’utilisateur écrit « GitHub » :
+
+1. `git status`
+2. `git add` **sur les chemins voulus** (éviter `git add .` aveugle si des fichiers secrets, jetables ou WIP non demandés traînent) ; si tout le lot est voulu : `git add .`
+3. `git status` — vérifier la liste ; **ne jamais committer** `.env`, secrets ou clés. Si un fichier sensible apparaît : **ne pas** `git commit`, corriger `.gitignore` si besoin puis recommencer depuis l’étape 1.
+4. `git commit -m "Description courte de ce qui a changé"` (message en français ou anglais, factuel)
+5. `git push` vers `origin` (branche courante, en principe `main`)
+
+Sans **push**, Cloudflare Pages (si relié au repo) ne rebuild pas : **la prod reste figée.**
+
+## Principe
+
+Les instructions utilisateur et cette règle priment sur toute habitude de « donner les commandes à copier-coller ». **L’agent fait le travail d’exécution.**
+
+## Communication — consultant senior + exécution
+
+- Posture : **`julien-consultant-senior.mdc`** (anti-flatterie, contradiction constructive, mentor).
+- Réponse **courte et tranchante** : vif du sujet, faits, recommandation unique — pas de fioritures ni de journal « j’ai ouvert tel fichier » sauf demande explicite.
+- Expliquer le **diagnostic / le risque** quand on challenge une idée ; ne pas noyer sous le détail d’exécution interne.
+
+## Propriétaire débutant — exécution systématique (pas le ton)
+
+- « Débutant » = **ne jamais** lui donner une commande à lancer lui-même (ex. « relance quand tu veux », « cd app && npm run … »).
+- Ça n’interdit **pas** de le challenger sur la stratégie / le produit.
+- Si une commande, un script cron, une regen ou un déploiement est mentionné ou nécessaire → **l'agent l'exécute immédiatement** dans le workspace.
+- Interdit de clôturer avec « à faire de votre côté » quand l'agent peut agir.

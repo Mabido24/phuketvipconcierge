@@ -1,0 +1,30 @@
+---
+description: Error/timeout/WARN = diagnose root cause and repair in-session — never only report
+alwaysApply: true
+---
+
+# Detect / timeout / FAIL = réparer (pas seulement signaler)
+
+## Verbatim Julien
+
+Quand tu détectes une erreur il ne faut pas te contenter de me le dire : il faut réparer / trouver l'origine et corriger.
+
+## Interdit
+
+- Clôturer avec « Ollama timeout », « kick échoué », « sync planté », « WARN noté » sans cause + heal.
+- Contournement silencieux sans diag (ex. OLLAMA_ONLY forcé alors qu'Ollama est down).
+
+## Obligatoire
+
+1. Preuve (log / DB / SSH / HTTP).
+2. Cause racine en une phrase.
+3. Remédiation exécutée dans la session.
+4. Revérification de la même couche.
+5. **Résumé final = déjà réparé et en prod.** Zéro TODO, zéro « P0 encore ouvert », zéro ligne qui a l'air d'un bug sans dire **voulu** vs **réparé**.
+
+Skill: `.cursor/skills/mabido-detect-means-fix/SKILL.md` (+ copie `~/.cursor/skills/mabido-detect-means-fix/SKILL.md`).
+
+## Preuve SSOT ≠ bug
+
+Accueil no-JS : client **actif API** présent + **Jetta absent** de la vitrine = état voulu (Jetta = hub historique `/shop/jetta-holiday-rawai`, plus Live Portfolio). Le remettre en accueil serait le bug.
+Incident Charla 03/08/2026: probe timeout = Ollama cold-load modèle pendant kick + `MABIDO_CHARLA_OLLAMA_ONLY=1` → pas de fallback Gemini. Fix: heal+warm avant kick, ne plus forcer OLLAMA_ONLY.

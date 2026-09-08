@@ -1,0 +1,21 @@
+# Never invent a client vertical
+
+## Golden rule (Julien, 05/09/2026 — permanent)
+
+1. **Never** invent or assume a client's profession from the **name** (Bald ≠ hairdresser / photographer; Garden ≠ landscaper; Holiday ≠ villa agency by surname).
+2. **Always** fetch and **read** the official website (homepage + About if needed) before classifying.
+3. If **any** doubt: email **admin** (Resend / `notifyVerticalDoubt` / monitoring alert). Never silently guess.
+4. Errors like "Bruno Bald photographer" are **inadmissible**.
+
+## Bruno Bald (verified brunobald.com 2026-09-05)
+
+- Site quote: book for **custom marketing campaigns**, **absurd logic**, **comedic lens**, high-impact **video**.
+- SSOT: **influencer / comic actor**. Not photographer. Not barber.
+- Category slug stays `professional-services` (no influencer taxonomy key).
+
+## Code
+
+- Classify from **website host + visible HTML** only (`merchantVerticalFromSite.ts`).
+- Do **not** regex the display name in `isRealEstateGbMerchant`, `isServiceCatalogGbMerchant`, `detectBusinessType`, `detectVertical`.
+- Low confidence → `notifyVerticalDoubt` (admin email).
+- Persist `brand_knowledge` + category from site quotes. SSOT: `docs/CLIENT_VERTICAL_SSOT.md`.

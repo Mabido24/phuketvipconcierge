@@ -1,0 +1,21 @@
+---
+description: Deploy prod obligatoire via git push — sans demander à l'utilisateur.
+alwaysApply: true
+---
+
+# Déploiement prod = Git push (obligatoire, sans demander)
+
+Après **toute** modification de code, i18n, SQL, config app ou assets :
+
+1. **i18n** — anglais (`en`) puis toutes les locales (voir `mabido-i18n-dev.mdc`).
+2. `npm run build` ou `npm run deploy` dans `app/` si pertinent.
+3. `git add` (chemins ciblés, pas de secrets).
+4. `git commit --trailer "Co-authored-by: Cursor <cursoragent@cursor.com>"` — message factuel.
+5. **`git push origin main`** — **toujours**, sans exception.
+
+## Interdictions
+
+- **Ne jamais** demander « voulez-vous que je push ? » / « Push Git ? » — l'agent pousse **automatiquement**.
+- **Ne pas** clôturer une tâche avec des changements non poussés sur `origin/main`.
+
+Cloudflare Pages rebuild **uniquement** après push sur `main`. `npm run deploy` local ne publie pas le JS prod.

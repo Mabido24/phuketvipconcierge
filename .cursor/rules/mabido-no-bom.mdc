@@ -1,0 +1,35 @@
+---
+description: INTERDIT UTF-8 BOM — toute génération de code/docs/config (Write, Shell, Python, PowerShell)
+alwaysApply: true
+---
+
+# UTF-8 BOM — INTERDIT (règle dure, mémoire permanente)
+
+Un BOM (`EF BB BF`) a déjà cassé le déploiement Cloudflare Pages (`JSON.parse` sur `_routes.json`) et le CI GitHub Actions (`ops:check-no-bom`).
+
+## Interdiction absolue (toutes générations)
+
+- **JAMAIS** écrire un fichier avec UTF-8 BOM — code, i18n, docs, markdown public, JSON, YAML, SQL, scripts, skills, rules.
+- S'applique à **tous** les outils : Cursor Write/StrReplace, Node, Python, PowerShell, copy/sync `docs/` → `public/`, exports, heals.
+- Pas d'exception « petit fichier markdown » : le stub `pour-claude-audit-complet-mabido.md` a déjà fait échouer le deploy (03/08/2026).
+
+## Comment écrire (obligatoire)
+
+| OK | Interdit |
+|----|----------|
+| Outil **Write** / **StrReplace** Cursor (UTF-8 sans BOM) | PowerShell `Set-Content` / `Out-File` sans `utf8NoBOM` |
+| Node `fs.writeFileSync(path, text)` ou `new TextEncoder(false)` | `ConvertTo-Json \| Set-Content` |
+| Python `Path.write_text(..., encoding='utf-8')` (sans `utf-8-sig`) | Python `encoding='utf-8-sig'` en **écriture** |
+| `[IO.File]::WriteAllText($p, $t, [Text.UTF8Encoding]::new($false))` | Tout éditeur / script qui préfixe `EF BB BF` |
+
+## Avant commit / push / deploy
+
+1. Si tu as généré ou recopié des `.md` / `.json` / configs : `cd app && npm run ops:check-no-bom`
+2. BOM trouvé → `npm run ops:check-no-bom -- --fix` puis **re-vérifier** (exit 0)
+3. Ne **jamais** push tant que le check BOM échoue
+
+## Automatisation
+
+- Script : `app/scripts/ops-check-no-bom.mjs`
+- Gate : `ops:gate-prod` + workflow `cloudflare-pages-deploy.yml`
+- Skill miroir : `.cursor/skills/mabido-no-bom/SKILL.md` + `~/.cursor/skills/mabido-no-bom/SKILL.md`

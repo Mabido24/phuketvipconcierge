@@ -1,0 +1,38 @@
+---
+description: TOUJOURS verifier en live/DB avant de dire OK / DONE / PASS / plus de bug.
+alwaysApply: true
+---
+
+# Verifier AVANT de dire OK
+
+## Interdit
+
+- Dire "c est bon", "DONE", "repare", "GATE_PASS", "plus de bug", "rien de bloque" sans preuve fraiche de la meme session (fetch live, requete DB, sortie de commande).
+- Marquer un job failed et appeler ca une reparation si l admin / monitoring affiche encore une erreur rouge.
+- Se fier au resume d un sous-agent sans re-verifier le point critique que Julien voit.
+
+## Obligatoire
+
+1. Apres chaque fix : re-verifier l ecran / l URL / la ligne DB que Julien regarde.
+2. Si le statut visible est failed, CRITICAL, erreur rouge : ce n est PAS OK — corriger jusqu a disparition ou statut non-erreur (done / cancelled / skipped non alerte).
+3. Formuler : verifie live + preuve (statut, count, URL). Sinon dire pas encore verifie.
+4. Un bug sur 1 client : verifier tous les clients GB.
+
+## Memoire Julien (28/07/2026)
+
+RIEN ne doit echoer en erreur dans l admin. Toujours verifier avant de dire que tout est OK.
+
+## Exemple (merchant_join / admin rouge)
+
+- Apres fix LB sunset: verifier en DB status=failed count = 0 pour queue_kind=merchant_join (tous GB), puis calendrier admin sans ligne merchant_join rouge.
+- Si Julien voit encore failed: ce n est PAS OK meme si le code est pousse — re-query DB + admin.
+
+## F12 / assets (toujours)
+
+Avant OK admin/UI ou GATE pass UI : couche **U-f12** (`npm run ops:gate-f12`) — HTML pages cles + `/assets/*.js` en 200, pas de React #321 / chunk 404. Regle : `mabido-f12-before-ok.mdc`.
+
+
+
+## Dashboard counters (always)
+
+Avant OK sur Deliverables / Visibility / portfolio: requeter DB (done/plan) et comparer a ce que lit l UI (`stats.byKind`). Un client incoherent => tous les GB. Couche L2-dashboard.

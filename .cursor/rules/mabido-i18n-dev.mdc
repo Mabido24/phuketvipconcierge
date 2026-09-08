@@ -1,0 +1,55 @@
+---
+description: i18n — cles EN uniquement, EN source de verite, sync auto toutes locales + nouvelle langue.
+alwaysApply: true
+---
+
+# i18n MABIDO — regle absolue
+
+## 1. Cles de traduction = 100 % anglais
+
+- **Identifiants JSON** (`nav.contact`, `gb_plan_tiers.growth.name`) : **toujours en anglais** (ASCII, camelCase / snake_case). **Jamais** de cle en francais ou autre (`accueil.titre`, `plan_croissance`).
+- **Valeurs dans `en/common.json`** : **100 % anglais** — source de verite UI. Pas de placeholder FR/TH dans `en`.
+- **Marques / noms propres** : inchanges dans toutes les locales (`MABIDO`, `ChatGPT`, noms clients, URLs techniques).
+
+## 2. Flux obligatoire (chaque texte UI)
+
+1. Ajouter ou modifier la cle **d''abord** dans `app/src/locales/en/common.json` (anglais).
+2. **Synchroniser** vers **toutes** les locales existantes (`de`, `es`, `fr`, `it`, `pt`, `ru`, `th`, `zh`, `id`, …).
+3. Code React : **uniquement** `t(''…'')` / cles `common` — **aucune chaine utilisateur en dur** (sauf logs dev).
+
+## 3. Nouvelle langue ajoutee demain
+
+Quand un dossier `app/src/locales/{code}/common.json` est cree :
+
+```bash
+cd app
+npm run i18n:sync-locale -- {code}
+```
+
+Le script copie la structure EN et **traduit automatiquement l''integralite** des cles feuilles. Puis :
+
+```bash
+npm run i18n:verify
+```
+
+## 4. Scripts agent (executer, ne pas deleguer)
+
+| Commande | Role |
+|----------|------|
+| `npm run i18n:verify` | Parite cles + lignes entre toutes les locales |
+| `npm run i18n:fill-missing` | Copie cles manquantes depuis EN |
+| `npm run i18n:sync-batch -- <prefix>` | Traduit cles absentes ou identiques a EN |
+| `npm run i18n:sync-locale -- <code>` | **Nouvelle locale** : traduit tout depuis EN |
+| `npm run i18n:audit-stale` | Detecte valeurs encore = EN |
+
+## 5. i18n ≠ traduction a la volee
+
+- **Chrome UI, marketing statique, plans, FAQ page** → i18n (`common.json`).
+- **Blogs, offres, texte marchand** → traduction API a la volee (`onTheFlyDomTranslate`), pas i18n.
+
+## 6. Definition of Done
+
+- `en` complet en anglais + **meme nombre de cles feuilles** dans chaque locale.
+- Cle modifiee → mise a jour **toutes** les locales dans la meme session.
+- Suppression UI → supprimer la cle **partout**.
+- `npm run i18n:verify` doit passer avant build / push prod.

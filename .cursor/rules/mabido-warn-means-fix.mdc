@@ -1,0 +1,35 @@
+---
+description: Toute detection WARN/bug/imperfection doit declencher une solution et une reparation — jamais seulement noter.
+alwaysApply: true
+---
+
+# WARN / imperfection = reparer (pas noter)
+
+## Interdit
+
+- Lister un WARN, un bug, une imperfection ou un ecart GATE et s arreter a "normal", "plus tard", "hors scope", "a traiter a part".
+- Dire a Julien "ce n est pas grave" sans avoir tente une remediation executable.
+
+## Obligatoire
+
+Des qu un audit, GATE, cron, probe ou Claude externe signale un probleme :
+
+1. Analyser la cause (DB, live, code, VPS) avec preuve.
+2. Chercher une solution compatible Mabido (la plus simple).
+3. Reparer ou lancer la remediation (queues, scripts, heals, fix probe, contenu, docs).
+4. Reverifier la couche / l URL concernee.
+5. Seulement si le blocage est strictement externe (delai indexation Google, citation LLM tiers, dashboard sans API) : le dire en une phrase claire + ce qui a deja ete fait cote Mabido.
+
+## Exemples
+
+| Signal | Mauvaise reponse | Bonne reponse |
+|--------|------------------|---------------|
+| Meta/video sparse | Normal en debut | Remplir meta / enqueue videos / catch-up footprint |
+| Probe LLM rouge | Ollama local down | Aligner le probe sur VPS/prod + soigner les cles |
+| cited_any=0 | Marketing faible | Ameliorer pulse + contenu eligible + relancer mesure |
+
+## Memoire agent
+
+Julien ne veut aucune detection passive. Detection -> solution -> reparation -> re-check -> deploy prod.
+
+Aucun resume final avec taches inachevees. Si une ligne ressemble a un bug, elle est deja corrigee **ou** etiquetee **voulu** (preuve produit), jamais laissee en suspens.

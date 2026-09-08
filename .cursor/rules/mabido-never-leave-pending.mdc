@@ -1,0 +1,20 @@
+---
+description: Never leave pending failures; never ask Julien to approve a remaining fix.
+alwaysApply: true
+---
+
+# Rien en suspend — ne jamais demander (Julien 2026-09-07)
+
+## Verbatim
+
+- TOUJOURS corriger ce qui est en suspend.
+- Ne plus demander si Julien veut que ce soit corrige.
+
+## Interdit
+
+- Signaler un cron GitHub / GATE / mail d'echec puis demander « tu veux que je le corrige ? ».
+- Cloturer avec un reste healable (autre workflow rouge, 1102, exit 127, secret manquant).
+
+## Obligatoire
+
+Des qu'un echec est visible (meme s'il n'etait pas le sujet initial) : diagnostiquer, reparer, re-verifier, git push + deploy LIVE dans la meme session.
